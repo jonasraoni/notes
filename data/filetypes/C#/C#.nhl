@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  C# Highlighter for Notes
+
+  Revisions:
+  * 10 jul 2004 - first version, based on C-C++ highlighter
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Identifiers</TextStyle>
+  <NumberStyle>Numbers</NumberStyle>
+
+  <Range name="hexa">
+    <TextStyle>Numbers</TextStyle>
+    <OpenSymbol>0x</OpenSymbol>
+    <Delimiters space="true">+'*#@$%&*()-+=][]{}/\^.,&lt;&gt;=|&quot;~;</Delimiters>
+  </Range>
+
+  <!-- Strings -->
+  
+  <Range Name="string1">
+    <TextStyle>Strings</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseSymbol>'</CloseSymbol>
+    <CloseOnEol>True</CloseOnEol>
+    <!-- Escape char suport -->
+    <Keywords  Name="EscapeCharsHandler" style="Strings">
+      <Keyword>\'</Keyword>
+      <Keyword>\&quot;</Keyword>
+      <Keyword>\\</Keyword>
+    </Keywords>
+  </Range>
+
+  <ExtendedRange Name="string2" Extends="string1">
+    <OpenSymbol>&quot;</OpenSymbol>
+    <CloseSymbol>&quot;</CloseSymbol>
+  </ExtendedRange>
+
+  <!-- Comments -->
+
+  <Range Name="LineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>//</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Range Name="MultilineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>/*</OpenSymbol>
+    <CloseSymbol>*/</CloseSymbol>
+  </Range>
+
+  <!-- Keywords -->
+
+  <Keywords Name="preprocessor" Style="Preprocessor Statements">
+    <keyword>#define</keyword>
+    <keyword>#else</keyword>
+    <keyword>#elif</keyword>
+    <keyword>#endif</keyword>
+    <keyword>#endregion</keyword>
+    <keyword>#error</keyword>
+    <keyword>#if</keyword>
+    <keyword>#line</keyword>
+    <keyword>#pragma</keyword>
+    <keyword>#pragma warning</keyword>
+    <keyword>#region</keyword>
+    <keyword>#undef</keyword>
+    <keyword>#warning</keyword>
+  </Keywords>
+
+  <Keywords Name="Reserved" Style="Reserved Keywords">
+    <keyword>abstract</keyword>
+    <keyword>as</keyword>
+    <keyword>base</keyword>
+    <keyword>bool</keyword>
+    <keyword>break</keyword>
+    <keyword>byte</keyword>
+    <keyword>case</keyword>
+    <keyword>catch</keyword>
+    <keyword>char</keyword>
+    <keyword>checked</keyword>
+    <keyword>class</keyword>
+    <keyword>const</keyword>
+    <keyword>continue</keyword>
+    <keyword>decimal</keyword>
+    <keyword>default</keyword>
+    <keyword>delegate</keyword>
+    <keyword>do</keyword>
+    <keyword>double</keyword>
+    <keyword>else</keyword>
+    <keyword>enum</keyword>
+    <keyword>event</keyword>
+    <keyword>explicit</keyword>
+    <keyword>extern</keyword>
+    <keyword>false</keyword>
+    <keyword>finally</keyword>
+    <keyword>fixed</keyword>
+    <keyword>float</keyword>
+    <keyword>for</keyword>
+    <keyword>foreach</keyword>
+    <keyword>goto</keyword>
+    <keyword>if</keyword>
+    <keyword>implicit</keyword>
+    <keyword>in</keyword>
+    <keyword>int</keyword>
+    <keyword>interface</keyword>
+    <keyword>internal</keyword>
+    <keyword>is</keyword>
+    <keyword>lock</keyword>
+    <keyword>long</keyword>
+    <keyword>namespace</keyword>
+    <keyword>new</keyword>
+    <keyword>null</keyword>
+    <keyword>object</keyword>
+    <keyword>operator</keyword>
+    <keyword>out</keyword>
+    <keyword>override</keyword>
+    <keyword>params</keyword>
+    <keyword>partial</keyword>
+    <keyword>private</keyword>
+    <keyword>protected</keyword>
+    <keyword>public</keyword>
+    <keyword>readonly</keyword>
+    <keyword>ref</keyword>
+    <keyword>return</keyword>
+    <keyword>sbyte</keyword>
+    <keyword>sealed</keyword>
+    <keyword>short</keyword>
+    <keyword>sizeof</keyword>
+    <keyword>stackalloc</keyword>
+    <keyword>static</keyword>
+    <keyword>string</keyword>
+    <keyword>struct</keyword>
+    <keyword>switch</keyword>
+    <keyword>this</keyword>
+    <keyword>throw</keyword>
+    <keyword>true</keyword>
+    <keyword>try</keyword>
+    <keyword>typeof</keyword>
+    <keyword>uint</keyword>
+    <keyword>ulong</keyword>
+    <keyword>unchecked</keyword>
+    <keyword>unsafe</keyword>
+    <keyword>ushort</keyword>
+    <keyword>using</keyword>
+    <keyword>value</keyword>
+    <keyword>virtual</keyword>
+    <keyword>void</keyword>
+    <keyword>volatile</keyword>
+    <keyword>while</keyword>
+    <keyword>yield</keyword>
+  </Keywords>
+
+  <Keywords Name="Operators" Style="Operators">
+    <keyword>+</keyword>
+    <keyword>-</keyword>
+    <keyword>*</keyword>
+    <keyword>?</keyword>
+    <keyword>=</keyword>
+    <keyword>/</keyword>
+    <keyword>%</keyword>
+    <keyword>&</keyword>
+    <keyword>&gt;</keyword>
+    <keyword>&lt;</keyword>
+    <keyword>^</keyword>
+    <keyword>!</keyword>
+    <keyword>|</keyword>
+    <keyword>:</keyword>
+  </Keywords>
+
+  <Keywords Name="Symbols" Style="Symbols">
+    <keyword>;</keyword>
+    <keyword>(</keyword>
+    <keyword>)</keyword>
+    <keyword>{</keyword>
+    <keyword>}</keyword>
+  </Keywords>
+
+</Range>
+<NotesHighlighter>

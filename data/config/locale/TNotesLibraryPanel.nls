@@ -1,0 +1,51 @@
+# 
+# Localization file create by Notes
+# 
+# * Comments: lines that start with # are ignored by the translator component
+# * Messages: lines that start with $ are localizations of messages
+#   used in dialogs, errors messages, etc.
+# * Lines that do not start with a special character are localizations
+#   of Notes propertys like Captions of buttons, Hints, etc.
+# 
+
+PanelTab.Caption=Biblioteca
+PanelTab.Hint=
+lLibLang.Caption=Linguagem:
+lLibLang.Hint=
+
+mnAddItem.Caption=&Adicionar Item
+mnAddItem.Hint=
+mnEditItem.Caption=&Editar Item
+mnEditItem.Hint=
+mnAddFolder.Caption=Adicionar &Categoria
+mnAddFolder.Hint=
+mnRenameFolder.Caption=&Renomear Categoria
+mnRenameFolder.Hint=
+mnDelete.Caption=&Deletar
+mnDelete.Hint=
+
+#  Mensagens
+
+$MsgNoHelpFound=Nenhuma ajuda encontrada. Use duplo clique para inserir.
+$MsgNoItemsFound=Nenhum item encontrado para este tipo de arquivo. Use o menu de contexto para adicionar items.
+$MsgDblClickToInsert=Dê um duplo clique em um item para inseri-lo.
+$lNewCategory=Nova categoria
+$DescrNewCategory=Nome da nova categoria:
+$MsgSelCategory=Você precisa selecionar a categoria na qual você quer criar o item.
+$ConfirmDelete=Você tem certeza que quer deletar este(s) item(s)?
+$DescrDeleting=Por favor, aguarde enquanto o Notes deleta a categoria.
+$CaptionDeleting=Deletando categoria...
+$PrefixDeleting=Deletando
+$CaptionRename=Renomear Categoria
+$DescrRename=Novo nome da categoria:
+
+
+
+
+
+
+
+
+
+
+

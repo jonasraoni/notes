@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  VisualBasic .Net Highlighter for Notes
+
+  Revisions:
+  * 10 jul 2004 - first version
+-->
+
+<NotesHighlighter>
+<Range Name="VB">
+  <TextStyle>VB Indentifiers</TextStyle>
+  <NumberStyle>VB Numbers</NumberStyle>
+  <CaseSensitive>False</CaseSensitive>
+
+  <Range Name="string">
+    <TextStyle>VB Strings</TextStyle>
+    <OpenSymbol>&quot;</OpenSymbol>
+    <CloseSymbol>&quot;</CloseSymbol>
+  </Range>
+
+  <Range Name="LineComments">
+    <TextStyle>VB Comments</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <ExtendedRange Name="LineComments2" Extends="LineComments">
+    <OpenSymbol>Rem</OpenSymbol>
+  </Range>
+
+  <Keywords name="VBPreProcessor" style="VB Preprocessor Keywords">
+    <keyword>#Const</keyword>
+    <keyword>#ExternalSource</keyword>
+    <keyword>#If</keyword>
+    <keyword>#Else</keyword>
+    <keyword>#Region</keyword>
+  </Keywords>
+
+  <!-- highlight #End if, #End Region, etc. -->
+  <Range name="EndPreProcessor">
+    <TextStyle>VB Preprocessor Keywords</TextStyle>
+    <OpenSymbol>#End</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Keywords name="VBSymbols" style="VB Symbols">
+    <keyword>&amp; </keyword>
+    <keyword>* </keyword>
+    <keyword>=</keyword>
+    <keyword>+ </keyword>
+    <keyword>- </keyword>
+    <keyword>/</keyword>
+    <keyword>\</keyword>
+    <keyword>^</keyword>
+    <keyword>(</keyword>
+    <keyword>)</keyword>
+    <keyword>.</keyword>
+    <keyword>,</keyword>
+  </Keywords>
+
+  <Keywords name="VBKeywords" style="VB Keywords">
+    <keyword>AddHandler</keyword>
+    <keyword>AddressOf</keyword>
+    <keyword>Alias</keyword>
+    <keyword>And</keyword>
+    <keyword>AndAlso</keyword>
+    <keyword>Ansi</keyword>
+    <keyword>As</keyword>
+    <keyword>Assembly</keyword>
+    <keyword>Auto</keyword>
+    <keyword>Boolean</keyword>
+    <keyword>ByRef</keyword>
+    <keyword>Byte</keyword>
+    <keyword>ByVal</keyword>
+    <keyword>Call</keyword>
+    <keyword>Case</keyword>
+    <keyword>Catch</keyword>
+    <keyword>CBool</keyword>
+    <keyword>CByte</keyword>
+    <keyword>CChar</keyword>
+    <keyword>CDate</keyword>
+    <keyword>CDec</keyword>
+    <keyword>CDbl</keyword>
+    <keyword>Char</keyword>
+    <keyword>CInt</keyword>
+    <keyword>Class</keyword>
+    <keyword>CLng</keyword>
+    <keyword>CObj</keyword>
+    <keyword>Const</keyword>
+    <keyword>Continue</keyword>
+    <keyword>CSByte</keyword>
+    <keyword>CShort</keyword>
+    <keyword>CSng</keyword>
+    <keyword>CStr</keyword>
+    <keyword>CType</keyword>
+    <keyword>CUShort</keyword>
+    <keyword>CUInt</keyword>
+    <keyword>CULng</keyword>
+    <keyword>Date</keyword>
+    <keyword>Decimal</keyword>
+    <keyword>Declare</keyword>
+    <keyword>Default</keyword>
+    <keyword>Delegate</keyword>
+    <keyword>Dim</keyword>
+    <keyword>DirectCast</keyword>
+    <keyword>Do</keyword>
+    <keyword>Double</keyword>
+    <keyword>Each</keyword>
+    <keyword>Else</keyword>
+    <keyword>ElseIf</keyword>
+    <keyword>End</keyword>
+    <keyword>Enum</keyword>
+    <keyword>Erase</keyword>
+    <keyword>Error</keyword>
+    <keyword>Event</keyword>
+    <keyword>Exit</keyword>
+    <keyword>Expands</keyword>
+    <keyword>Explicit</keyword>
+    <keyword>Extends</keyword>
+    <keyword>False</keyword>
+    <keyword>Finally</keyword>
+    <keyword>For</keyword>
+    <keyword>Friend</keyword>
+    <keyword>Function</keyword>
+    <keyword>Get</keyword>
+    <keyword>GetType</keyword>
+    <keyword>Global</keyword>
+    <keyword>GoSub</keyword>
+    <keyword>GoTo</keyword>
+    <keyword>Handles</keyword>
+    <keyword>If</keyword>
+    <keyword>Implements</keyword>
+    <keyword>Imports</keyword>
+    <keyword>In</keyword>
+    <keyword>Inherits</keyword>
+    <keyword>Integer</keyword>
+    <keyword>Interface</keyword>
+    <keyword>Is</keyword>
+    <keyword>IsNot</keyword>
+    <keyword>IsFalse</keyword>
+    <keyword>IsTrue</keyword>
+    <keyword>Let</keyword>
+    <keyword>Lib</keyword>
+    <keyword>Like</keyword>
+    <keyword>Long</keyword>
+    <keyword>Loop</keyword>
+    <keyword>Me</keyword>
+    <keyword>Mod</keyword>
+    <keyword>Module</keyword>
+    <keyword>MustInherit</keyword>
+    <keyword>MustOverride</keyword>
+    <keyword>My</keyword>
+    <keyword>MyBase</keyword>
+    <keyword>MyClass</keyword>
+    <keyword>Namespace</keyword>
+    <keyword>Narrowing</keyword>
+    <keyword>New</keyword>
+    <keyword>Next</keyword>
+    <keyword>Not</keyword>
+    <keyword>Nothing</keyword>
+    <keyword>NotInheritable</keyword>
+    <keyword>NotOverridable</keyword>
+    <keyword>Object</keyword>
+    <keyword>Of</keyword>
+    <keyword>Off</keyword>
+    <keyword>On</keyword>
+    <keyword>Operator</keyword>
+    <keyword>Option</keyword>
+    <keyword>Optional</keyword>
+    <keyword>Or</keyword>
+    <keyword>OrElse</keyword>
+    <keyword>Overloads</keyword>
+    <keyword>Overridable</keyword>
+    <keyword>Overrides</keyword>
+    <keyword>ParamArray</keyword>
+    <keyword>Partial</keyword>
+    <keyword>Preserve</keyword>
+    <keyword>Private</keyword>
+    <keyword>Property</keyword>
+    <keyword>Protected</keyword>
+    <keyword>Public</keyword>
+    <keyword>RaiseEvent</keyword>
+    <keyword>ReadOnly</keyword>
+    <keyword>ReDim</keyword>
+    <keyword>RemoveHandler</keyword>
+    <keyword>Resume</keyword>
+    <keyword>Return</keyword>
+    <keyword>SByte</keyword>
+    <keyword>Select</keyword>
+    <keyword>Set</keyword>
+    <keyword>Shadows</keyword>
+    <keyword>Shared</keyword>
+    <keyword>Short</keyword>
+    <keyword>Single</keyword>
+    <keyword>Static</keyword>
+    <keyword>Step</keyword>
+    <keyword>Stop</keyword>
+    <keyword>Strict</keyword>
+    <keyword>String</keyword>
+    <keyword>Structure</keyword>
+    <keyword>Sub</keyword>
+    <keyword>SyncLock</keyword>
+    <keyword>Then</keyword>
+    <keyword>Throw</keyword>
+    <keyword>To</keyword>
+    <keyword>True</keyword>
+    <keyword>Try</keyword>
+    <keyword>TypeOf</keyword>
+    <keyword>UInteger</keyword>
+    <keyword>ULong</keyword>
+    <keyword>Unicode</keyword>
+    <keyword>Until</keyword>
+    <keyword>UShort</keyword>
+    <keyword>Using</keyword>
+    <keyword>Variant</keyword>
+    <keyword>When</keyword>
+    <keyword>While</keyword>
+    <keyword>Widening</keyword>
+    <keyword>With</keyword>
+    <keyword>WithEvents</keyword>
+    <keyword>WriteOnly</keyword>
+    <keyword>Xor</keyword>
+  </Keywords>
+
+</Range>
+</NotesHighlighter>

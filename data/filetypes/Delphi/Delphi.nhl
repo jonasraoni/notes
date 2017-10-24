@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  Delphi Highlighter for Notes
+
+  Revisions:
+  * 03 jul 2004 - first version
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Identifiers</TextStyle>
+  <NumberStyle>Numbers</NumberStyle>
+  <CaseSensitive>False</CaseSensitive>
+
+  <!-- Hexadecimais -->
+
+  <Range Name="hexa">
+    <TextStyle>Numbers</TextStyle>
+    <OpenSymbol>$</OpenSymbol>
+    <Delimiters spaces="true">+';*#@$%&amp;*()-+=][]{}/\^.,&lt;&gt;=|&quot;~</Delimiters>
+    <CloseOnEOL>True</CloseOnEOL>
+  </Range>
+
+
+  <!-- Strings -->
+
+  <Range Name="string">
+    <TextStyle>Strings</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseSymbol>'</CloseSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Range Name="asciichars">
+    <TextStyle>Strings</TextStyle>
+    <OpenSymbol>#</OpenSymbol>
+    <Delimiters spaces="true">+'*#@$%&amp;*()-+=][]{}/\^.,&lt;&gt;=|&quot;~</Delimiters>
+  </Range>
+
+  <!-- Compilers Directives -->
+
+  <Range Name="OldMultilineCommentsDirectives">
+    <TextStyle>Compiler Directives</TextStyle>
+    <OpenSymbol>(*$</OpenSymbol>
+    <CloseSymbol>*)</CloseSymbol>
+  </Range>
+
+  <Range Name="MultilineCommentsDirectives">
+    <TextStyle>Compiler Directives</TextStyle>
+    <OpenSymbol>{$</OpenSymbol>
+    <CloseSymbol>}</CloseSymbol>
+  </Range>
+
+
+  <!-- Comments -->
+
+  <Range Name="LineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>//</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Range Name="OldMultilineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>(*</OpenSymbol>
+    <CloseSymbol>*)</CloseSymbol>
+  </Range>
+
+  <Range Name="MultilineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>{</OpenSymbol>
+    <CloseSymbol>}</CloseSymbol>
+  </Range>
+
+
+  <!-- Reserved Keywords (operators are not included here.
+    See the "operators" for them...) -->
+  <Keywords Name="Reserved" Style="Reserved Keywords">
+    <keyword>and</keyword>
+    <keyword>else</keyword>
+    <keyword>inherited</keyword>
+    <keyword>packed</keyword>
+    <keyword>then</keyword>
+    <keyword>array</keyword>
+    <keyword>end</keyword>
+    <keyword>initialization</keyword>
+    <keyword>procedure</keyword>
+    <keyword>threadvar</keyword>
+    <keyword>except</keyword>
+    <keyword>inline</keyword>
+    <keyword>program</keyword>
+    <keyword>to</keyword>
+    <keyword>asm</keyword>
+    <keyword>exports</keyword>
+    <keyword>interface</keyword>
+    <keyword>property</keyword>
+    <keyword>try</keyword>
+    <keyword>begin</keyword>
+    <keyword>file</keyword>
+    <keyword>raise</keyword>
+    <keyword>type</keyword>
+    <keyword>case</keyword>
+    <keyword>final</keyword>
+    <keyword>label</keyword>
+    <keyword>record</keyword>
+    <keyword>unit</keyword>
+    <keyword>class</keyword>
+    <keyword>finalization</keyword>
+    <keyword>library</keyword>
+    <keyword>repeat</keyword>
+    <keyword>unsafe</keyword>
+    <keyword>const</keyword>
+    <keyword>finally</keyword>
+    <keyword>mod</keyword>
+    <keyword>resourcestring</keyword>
+    <keyword>until</keyword>
+    <keyword>constructor</keyword>
+    <keyword>for</keyword>
+    <keyword>nil</keyword>
+    <keyword>sealed</keyword>
+    <keyword>uses</keyword>
+    <keyword>destructor</keyword>
+    <keyword>function</keyword>
+    <keyword>set</keyword>
+    <keyword>var</keyword>
+    <keyword>dispinterface</keyword>
+    <keyword>goto</keyword>
+    <keyword>object</keyword>
+    <keyword>while</keyword>
+    <keyword>if</keyword>
+    <keyword>of</keyword>
+    <keyword>with</keyword>
+    <keyword>do</keyword>
+    <keyword>implementation</keyword>
+    <keyword>static</keyword>
+    <keyword>downto</keyword>
+    <keyword>out</keyword>
+    <keyword>string</keyword>
+    <keyword>private</keyword>
+    <keyword>protected</keyword>
+    <keyword>public</keyword>
+    <keyword>published</keyword>
+    <keyword>automated</keyword>
+    <keyword>at</keyword>
+    <keyword>on</keyword>
+    <!-- language directives -->
+    <keyword>absolute</keyword>
+    <keyword>dynamic</keyword>
+    <keyword>message</keyword>
+    <keyword>resident</keyword>
+    <keyword>abstract</keyword>
+    <keyword>export</keyword>
+    <keyword>safecall</keyword>
+    <keyword>assembler</keyword>
+    <keyword>external</keyword>
+    <keyword>near</keyword>
+    <keyword>stdcall</keyword>
+    <keyword>automated</keyword>
+    <keyword>far</keyword>
+    <keyword>nodefault</keyword>
+    <keyword>stored</keyword>
+    <keyword>cdecl</keyword>
+    <keyword>forward</keyword>
+    <keyword>overload</keyword>
+    <keyword>read</keyword>
+    <keyword>varargs</keyword>
+    <keyword>contains</keyword>
+    <keyword>implements</keyword>
+    <keyword>override</keyword>
+    <keyword>readonly</keyword>
+    <keyword>virtual</keyword>
+    <keyword>default</keyword>
+    <keyword>index</keyword>
+    <keyword>package</keyword>
+    <keyword>register</keyword>
+    <keyword>write</keyword>
+    <keyword>deprecated</keyword>
+    <keyword>library</keyword>
+    <keyword>pascal</keyword>
+    <keyword>reintroduce</keyword>
+    <keyword>writeonly</keyword>
+    <keyword>dispid</keyword>
+    <keyword>local</keyword>
+    <keyword>platform</keyword>
+    <keyword>requires</keyword>
+    <!-- FreePascal (1.9.4) -->
+    <keyword>dispose</keyword>
+    <keyword>exit</keyword>
+    <keyword>new</keyword>
+    <keyword>alias</keyword>
+    <keyword>far16</keyword>
+    <keyword>fpccall</keyword>
+    <keyword>popstack</keyword>
+    <keyword>saveregisters</keyword>
+    <keyword>softfloat</keyword>
+  </Keywords>
+
+  <!-- Operators & Symbols -->
+
+  <Keywords Name="Operators" Style="Operators">
+    <Keyword>=</Keyword>
+    <Keyword>/</Keyword>
+    <Keyword>*</Keyword>
+    <Keyword>&gt;=</Keyword>
+    <Keyword>&lt;=</Keyword>
+    <Keyword>:=</Keyword>
+    <Keyword>+</Keyword>
+    <Keyword>-</Keyword>
+    <Keyword>&gt;</Keyword>
+    <Keyword>&lt;</Keyword>
+    <Keyword>^</Keyword>
+    <keyword>@</keyword>
+    <keyword>not</keyword>
+    <keyword>div</keyword>
+    <keyword>mod</keyword>
+    <keyword>and</keyword>
+    <keyword>shl</keyword>
+    <keyword>shr</keyword>
+    <keyword>as</keyword>
+    <keyword>or</keyword>
+    <keyword>xor</keyword>
+    <keyword>&lt;&gt;</keyword>
+    <keyword>in</keyword>
+    <keyword>is</keyword>
+  </Keywords>
+
+  <Keywords Name="Symbols" Style="Symbols">
+    <Keyword>,</Keyword>
+    <Keyword>;</Keyword>
+    <Keyword>]</Keyword>
+    <Keyword>[</Keyword>
+    <Keyword>)</Keyword>
+    <Keyword>(</Keyword>
+    <Keyword>.</Keyword>
+    <Keyword>:</Keyword>
+  </Keywords>
+
+  </Range>
+<NotesHighlighter>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Ajuda do Notes - Ferramentas externas</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Ferrametas Externas</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="project-other.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="tools-browser.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Compilando com o Notes</h2> <br>
+
+O Notes não tem um compilador padrão nem vem com nenhum compilador,
+mas você pode integrar virtualmente qualquer compilador ao Notes
+usando o menu executar. Se você não sabe que compilador usar
+ainda, <a href="http://www.idiom.com/free-compilers/"> dê uma olhada
+neste site</a> para uma lista de compiladores freeware.
+<br><br>
+
+<h3>O menu executar</h3>
+O menu executar &eacute; um menu altamente configur&aacute;vel.
+Cada item do menu serve para executar o arquivo que voc&ecirc; est&aacute;
+editando em um compilador ou em algum outro tipo de programa. Digamos que
+voc&ecirc; queira compilar um arquivo de c&oacute;digo fonte Java para bytecode
+(o processo &eacute; o mesmo para quase todos os compiladores). V&aacute; em
+Executar &gt; Configurar menu. No di&aacute;logo que aparece, clique em novo.
+Chame o novo item de "Compilar Java para bytecode". No campo executar, digite o
+caminho para o compilador (javac.exe no caso do java). Voc&ecirc; n&atilde;o
+precisa digitar o caminho &agrave; m&atilde;o. Clique no bot&atilde;o que
+possu&iacute; um sinal de mais (+) ao lado do campo. Vai aparecer um menu.
+Nele escolha "Procurar arquivo" e procure pelo execut&aacute;vel do compilador.
+No campo argumentos, normalmente basta iserir a vari&aacute;vel %file%.
+Os items do menu executar suportam muitas vari&aacute;veis que s&atilde;o
+substitu&iacute;da quando o item vai ser usado por as informa&ccedil;&otilde;es
+verdadeiras. %file% &eacute; substit&iacute;do pelo arquivo que voc&ecirc;
+estiver editando. <br><br><br>
+
+<h3>Erros de compilação</h3>
+O Notes &eacute; capaz de capturar a sa&iacute;da dos compiladores e mostrar ela
+no painel sa&iacute;da. Para isto basta selecionar a op&ccedil;&atilde;o
+&quot;capturar sa&iacute;da no painel sa&iacute;da&quot;. Depois que a
+compila&ccedil;&atilde;o termina, o Notes l&ecirc; a sa&iacute;da e v&ecirc; se
+o compilador informou algum erro. Voc&ecirc; poder&aacute; navegar pelo erros
+ent&atilde;o indo em&nbsp; &quot;Localizar &gt;&gt; pr&oacute;ximo problema&quot;
+e &quot;Localizar &gt;&gt; problema anterior&quot;. O Notes tamb&eacute;m vai
+mostrar um &iacute;cone de erro na gutter ao lado das linhas onde o compilador
+tiver achado um erro. Voc&ecirc; tamb&eacute;m pode navegar pelos erros clicando
+duas vezes na linha do erro no painel sa&iacute;da. O Notes &eacute; capaz de
+interpretar os erros de compila&ccedil;&atilde;o da maioria dos compiladores
+automaticamente. No caso do Notes n&atilde;o conseguir entender os erros do seu
+compilador, <a href="tools-other.htm">veja no pr&oacute;ximo cap&iacute;tulo</a>
+como configur&aacute;-lo para que ele passe a entend&ecirc;-los.
+<br><br><br>
+
+<h3>Rodando o aplicativo compilado</h3>
+Após você compilar o código, vai querer rodar o seu programa. Para rodar
+executáveis do windows, você deve criar outro item no menu executar e
+então preencher no campo "executar" o seguinte:
+<pre>
+%path%%FileTitle%.exe
+</pre>
+Para rodar um arquivo "class", ou seja, Java bytecode você deve colocar o
+"java.exe" (exemplo: "C:\Arquivos de programas\javasdk142\bin\java.exe")
+no campo executar e %FileTitle% no campo "argumentos".
+<br><br><br>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+# 
+# Localization file create by Notes
+# 
+# * Comments: lines that start with # are ignored by the translator component
+# * Messages: lines that start with $ are localizations of messages
+#   used in dialogs, errors messages, etc.
+# * Lines that do not start with a special character are localizations
+#   of Notes propertys like Captions of buttons, Hints, etc.
+# 
+lCode.Caption=Có&digo:
+lCode.Hint=
+lHelp.Caption=&Ajuda:
+lHelp.Hint=
+lName.Caption=&Nome:
+lName.Hint=
+btOK.Caption=&OK
+btOK.Hint=
+btCancel.Caption=&Cancelar
+btCancel.Hint=
+
+# Form caption
+
+$CaptionAddItem=Adicionar Item
+$CaptionEditItem=Editar Item
+
+
+

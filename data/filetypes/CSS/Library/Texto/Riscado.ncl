@@ -1,0 +1,1 @@
+ext-decoration : line-through;

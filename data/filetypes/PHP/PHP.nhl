@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  HTML Highlighter for Notes
+
+  Revisions:
+  * 30 jun 2004 - first version
+  * 09 jul 2004 - updated to inlude the code from the CSS Highlighter
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>HTML Text</TextStyle>
+  <CaseSensitive>False</CaseSensitive>
+
+  <!-- BEGIN JAVASCRIPT -->
+      <Range Name="JavaScript">
+      <TextStyle>JavaScript Identifiers</TextStyle>
+      <NumberStyle>JavaScript Numbers</NumberStyle>
+      <OpenSymbol>&lt;SCRIPT</OpenSymbol>
+      <CloseSymbol>&lt;/SCRIPT&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+      
+      <Range Name="HTMLTags">
+        <TextStyle>HTML Tags</TextStyle>
+        <OpenSymbol>src=</OpenSymbol>
+        <Delimiters>&gt;&lt;</Delimiters>
+      </Range>
+      
+      <ExtendedRange name="OtherHTML" Extends="HTMLTags">
+        <OpenSymbol>type=</OpenSymbol>
+      </ExtendedRange>
+      
+      <Keywords Name="Moretags" Style="HTMLTags">
+        <keyword>&lt;!--</keyword>
+        <keyword>--&gt;</keyword>
+      </Keywords>
+      
+        <!-- Strings -->
+
+      <Range Name="string1">
+        <TextStyle>Strings</TextStyle>
+        <OpenSymbol>'</OpenSymbol>
+        <CloseSymbol>'</CloseSymbol>
+        <CloseOnEOL>True</CloseOnEOL>
+        <!-- Escape char suport -->
+        <Keywords  Name="EscapeCharsHandler" style="Strings">
+          <Keyword>\'</Keyword>
+          <Keyword>\&quot;</Keyword>
+          <Keyword>\\</Keyword>
+        </Keywords>
+      </Range>
+
+      <ExtendedRange Name="string2" Extends="string1">
+        <OpenSymbol>&quot;</OpenSymbol>
+        <CloseSymbol>&quot;</CloseSymbol>
+      </ExtendedRange>
+
+      <!-- Comments -->
+    
+      <Range Name="LineComments">
+        <TextStyle>JavaScript Comments</TextStyle>
+        <OpenSymbol>//</OpenSymbol>
+        <CloseOnEol>True</CloseOnEol>
+      </Range>
+    
+      <Range Name="MultilineComments">
+        <TextStyle>JavaScript Comments</TextStyle>
+        <OpenSymbol>/*</OpenSymbol>
+        <CloseSymbol>*/</CloseSymbol>
+      </Range>
+    
+      <!-- Reserved Keywords -->
+    
+      <Keywords Name="Reserved" Style="JavaScript Keywords">
+        <keyword>break</keyword>
+        <keyword>case</keyword>
+        <keyword>class</keyword>
+        <keyword>continue</keyword>
+        <keyword>const</keyword>
+        <keyword>debugger</keyword>
+        <keyword>default</keyword>
+        <keyword>delete</keyword>
+        <keyword>do</keyword>
+        <keyword>else</keyword>
+        <keyword>export</keyword>
+        <keyword>extends</keyword>
+        <keyword>false</keyword>
+        <keyword>final</keyword>
+        <keyword>finally</keyword>
+        <keyword>for</keyword>
+        <keyword>function</keyword>
+        <keyword>goto</keyword>
+        <keyword>implements</keyword>
+        <keyword>if</keyword>
+        <keyword>import</keyword>
+        <keyword>in</keyword>
+        <keyword>item</keyword>
+        <keyword>new</keyword>
+        <keyword>null</keyword>
+        <keyword>return</keyword>
+        <keyword>switch</keyword>
+        <keyword>this</keyword>
+        <keyword>typeof</keyword>
+        <keyword>true</keyword>
+        <keyword>var</keyword>
+        <keyword>void</keyword>
+        <keyword>while</keyword>
+        <keyword>with</keyword>
+        <keyword>NaN</keyword>
+        <keyword>Infinity</keyword>
+        <keyword>synchronized</keyword>
+        <keyword>throw</keyword>
+        <keyword>throws</keyword>
+        <keyword>transient</keyword>
+        <keyword>try</keyword>
+        <keyword>volatile</keyword>
+        <keyword>private</keyword>
+        <keyword>protected</keyword>
+        <keyword>public</keyword>
+      </Keywords>
+    
+      <!-- Operators & Symbols -->
+    
+      <Keywords Name="Operators" Style="JavaScript Operators">
+        <Keyword>=</Keyword>
+        <Keyword>==</Keyword>
+        <Keyword>!</Keyword>
+        <Keyword>/</Keyword>
+        <Keyword>*</Keyword>
+        <Keyword>&gt;=</Keyword>
+        <Keyword>&lt;=</Keyword>
+        <Keyword>+</Keyword>
+        <Keyword>-</Keyword>
+        <Keyword>&gt;</Keyword>
+        <Keyword>&lt;</Keyword>
+        <Keyword>%</Keyword>
+        <Keyword>&amp;</Keyword>
+        <Keyword>|</Keyword>
+        <Keyword>^</Keyword>
+        <Keyword>~</Keyword>
+        <Keyword>.</Keyword>
+        <Keyword>?</Keyword>
+        <Keyword>:</Keyword>
+      </Keywords>
+    
+      <Keywords Name="Symbols" Style="JavaScript Symbols">
+        <Keyword>}</Keyword>
+        <Keyword>{</Keyword>
+        <Keyword>,</Keyword>
+        <Keyword>;</Keyword>
+        <Keyword>]</Keyword>
+        <Keyword>[</Keyword>
+        <Keyword>)</Keyword>
+        <Keyword>(</Keyword>
+      </Keywords>
+    
+      </Range>
+
+  <!-- END JAVASCRIPT -->
+
+  <!-- BEGIN CSS -->
+
+    <Range Name="CSS">
+      <TextStyle>CSS Selectors</TextStyle>
+      <OpenSymbol>&lt;STYLE</OpenSymbol>
+      <CloseSymbol>&lt;/STYLE&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+
+      <Range name="Comments">
+        <TextStyle>CSS Comments</TextStyle>
+        <OpenSymbol>/*</OpenSymbol>
+        <CloseSymbol>*/</CloseSymbol>
+      </Range>
+
+      <Keywords style="CSS Special Keywords">
+        <keyword>@import</keyword>
+        <keyword>@charset</keyword>
+        <keyword>@font-face</keyword>
+        <keyword>@media</keyword>
+        <keyword>@page</keyword>
+        <keyword>@namespace</keyword>
+      </Keywords>
+
+      <Range name="Urls">
+        <TextStyle>CSS Special Values</TextStyle>
+        <OpenSymbol>url(</OpenSymbol>
+        <CloseSymbol>)</CloseSymbol>
+      </Range>
+
+      <Range name="propslist">
+        <TextStyle>CSS Symbols</TextStyle>
+        <OpenSymbol>{</OpenSymbol>
+        <CloseSymbol>}</CloseSymbol>
+        <CaseSensitive>False</CaseSensitive>
+
+        <Keywords style="CSS Propertys">
+          <keyword>background</keyword>
+          <keyword>background-attachment</keyword>
+          <keyword>background-color</keyword>
+          <keyword>background-image</keyword>
+          <keyword>background-position</keyword>
+          <keyword>background-repeat</keyword>
+          <keyword>font</keyword>
+          <keyword>font-family</keyword>
+          <keyword>font-size</keyword>
+          <keyword>font-size-adjust</keyword>
+          <keyword>font-style</keyword>
+          <keyword>font-variant</keyword>
+          <keyword>font-weight</keyword>
+          <keyword>font-stretch</keyword>
+          <keyword>color</keyword>
+          <keyword>definition-src</keyword>
+          <keyword>panose-1</keyword>
+          <keyword>stemv</keyword>
+          <keyword>stemh</keyword>
+          <keyword>units-per-em</keyword>
+          <keyword>slope</keyword>
+          <keyword>cap-height</keyword>
+          <keyword>x-height</keyword>
+          <keyword>ascent</keyword>
+          <keyword>descent</keyword>
+          <keyword>baseline</keyword>
+          <keyword>centerline</keyword>
+          <keyword>mathline</keyword>
+          <keyword>topline</keyword>
+          <keyword>letter-spacing</keyword>
+          <keyword>text-align</keyword>
+          <keyword>text-shadow</keyword>
+          <keyword>text-decoration</keyword>
+          <keyword>text-indent</keyword>
+          <keyword>text-transform</keyword>
+          <keyword>word-spacing</keyword>
+          <keyword>letter-spacing</keyword>
+          <keyword>white-space</keyword>
+          <keyword>border</keyword>
+          <keyword>bottom</keyword>
+          <keyword>border-collapse</keyword>
+          <keyword>border-spacing</keyword>
+          <keyword>border-bottom</keyword>
+          <keyword>border-bottom-style</keyword>
+          <keyword>border-bottom-width</keyword>
+          <keyword>border-bottom-color</keyword>
+          <keyword>border-left</keyword>
+          <keyword>border-left-style</keyword>
+          <keyword>border-left-width</keyword>
+          <keyword>border-left-color</keyword>
+          <keyword>border-right</keyword>
+          <keyword>border-right-style</keyword>
+          <keyword>border-right-width</keyword>
+          <keyword>border-right-color</keyword>
+          <keyword>border-top</keyword>
+          <keyword>border-top-style</keyword>
+          <keyword>border-top-width</keyword>
+          <keyword>border-top-color</keyword>
+          <keyword>border-color</keyword>
+          <keyword>border-style</keyword>
+          <keyword>border-width</keyword>
+          <keyword>clear</keyword>
+          <keyword>float</keyword>
+          <keyword>height</keyword>
+          <keyword>outline</keyword>
+          <keyword>outline-width</keyword>
+          <keyword>outline-style</keyword>
+          <keyword>outline-color</keyword>
+          <keyword>margin</keyword>
+          <keyword>margin-bottom</keyword>
+          <keyword>margin-left</keyword>
+          <keyword>margin-right</keyword>
+          <keyword>margin-top</keyword>
+          <keyword>padding</keyword>
+          <keyword>padding-bottom</keyword>
+          <keyword>padding-left</keyword>
+          <keyword>padding-right</keyword>
+          <keyword>padding-top</keyword>
+          <keyword>clear</keyword>
+          <keyword>display</keyword>
+          <keyword>position</keyword>
+          <keyword>top</keyword>
+          <keyword>right</keyword>
+          <keyword>bottom</keyword>
+          <keyword>left</keyword>
+          <keyword>float</keyword>
+          <keyword>z-index</keyword>
+          <keyword>direction</keyword>
+          <keyword>unicode-bidi</keyword>
+          <keyword>unicode-range</keyword>
+          <keyword>width</keyword>
+          <keyword>min-width</keyword>
+          <keyword>max-width</keyword>
+          <keyword>height</keyword>
+          <keyword>min-height</keyword>
+          <keyword>max-height</keyword>
+          <keyword>line-height</keyword>
+          <keyword>vertical-align</keyword>
+          <keyword>overflow</keyword>
+          <keyword>clip</keyword>
+          <keyword>visibility</keyword>
+          <keyword>content</keyword>
+          <keyword>quotes</keyword>
+          <keyword>counter-reset</keyword>
+          <keyword>counter-increment</keyword>
+          <keyword>marker-offset</keyword>
+          <keyword>list-style</keyword>
+          <keyword>list-style-image</keyword>
+          <keyword>list-style-position</keyword>
+          <keyword>list-style-type</keyword>
+          <keyword>size</keyword>
+          <keyword>marks</keyword>
+          <keyword>page-break-before</keyword>
+          <keyword>page-break-after</keyword>
+          <keyword>page-break-inside</keyword>
+          <keyword>page</keyword>
+          <keyword>orphans</keyword>
+          <keyword>widows</keyword>
+          <keyword>caption-side</keyword>
+          <keyword>table-layout</keyword>
+          <keyword>border-collapse</keyword>
+          <keyword>border-spacing</keyword>
+          <keyword>empty-cells</keyword>
+          <keyword>speak-headers</keyword>
+          <keyword>cursor</keyword>
+          <keyword>azimuth</keyword>
+          <keyword>volume</keyword>
+          <keyword>speak</keyword>
+          <keyword>pause</keyword>
+          <keyword>pause-before</keyword>
+          <keyword>pause-after</keyword>
+          <keyword>cue</keyword>
+          <keyword>cue-before</keyword>
+          <keyword>cue-after</keyword>
+          <keyword>play-during</keyword>
+          <keyword>elevation</keyword>
+          <keyword>speech-rate</keyword>
+          <keyword>voice-family</keyword>
+          <keyword>pitch</keyword>
+          <keyword>pitch-range</keyword>
+          <keyword>stress</keyword>
+          <keyword>richness</keyword>
+          <keyword>speak-punctuation</keyword>
+          <keyword>speak-numeral</keyword>
+          <keyword>speak-header-cell</keyword>
+          <keyword>src</keyword>
+        </Keywords>
+
+        <Range name="values">
+          <TextStyle>CSS Values</TextStyle>
+          <OpenSymbol>:</OpenSymbol>
+          <Delimiters>;}</Delimiters>
+          <CaseSensitive>False</CaseSensitive>
+
+          <Keywords style="CSS Special Values">
+            <keyword>left-side</keyword>
+            <keyword>far-left</keyword>
+            <keyword>center-left</keyword>
+            <keyword>center</keyword>
+            <keyword>right</keyword>
+            <keyword>center-right</keyword>
+            <keyword>far-right</keyword>
+            <keyword>right-side</keyword>
+            <keyword>behind</keyword>
+            <keyword>leftwards</keyword>
+            <keyword>rightwards</keyword>
+            <keyword>inherit</keyword>
+            <keyword>scroll</keyword>
+            <keyword>fixed</keyword>
+            <keyword>transparent</keyword>
+            <keyword>none</keyword>
+            <keyword>repeat</keyword>
+            <keyword>repeat-x</keyword>
+            <keyword>repeat-y</keyword>
+            <keyword>no-repeat</keyword>
+            <keyword>collapse</keyword>
+            <keyword>separate</keyword>
+            <keyword>auto</keyword>
+            <keyword>mix</keyword>
+            <keyword>male</keyword>
+            <keyword>female</keyword>
+            <keyword>child</keyword>
+            <keyword>code</keyword>
+            <keyword>open-quote</keyword>
+            <keyword>close-quote</keyword>
+            <keyword>no-open-quote</keyword>
+            <keyword>no-close-quote</keyword>
+            <keyword>cue-before</keyword>
+            <keyword>cue-after</keyword>
+            <keyword>crosshair</keyword>
+            <keyword>default</keyword>
+            <keyword>pointer</keyword>
+            <keyword>move</keyword>
+            <keyword>e-resize</keyword>
+            <keyword>ne-resize</keyword>
+            <keyword>nw-resize</keyword>
+            <keyword>n-resize</keyword>
+            <keyword>se-resize</keyword>
+            <keyword>sw-resize</keyword>
+            <keyword>s-resize</keyword>
+            <keyword>w-resize</keyword>
+            <keyword>ltr</keyword>
+            <keyword>rtl</keyword>
+            <keyword>inline</keyword>
+            <keyword>block</keyword>
+            <keyword>list-item</keyword>
+            <keyword>run-in</keyword>
+            <keyword>compact</keyword>
+            <keyword>marker</keyword>
+            <keyword>table</keyword>
+            <keyword>inline-table</keyword>
+            <keyword>table-row-group</keyword>
+            <keyword>table-header-group</keyword>
+            <keyword>table-footer-group</keyword>
+            <keyword>table-row</keyword>
+            <keyword>table-column-group</keyword>
+            <keyword>table-column</keyword>
+            <keyword>table-cell</keyword>
+            <keyword>table-caption</keyword>
+            <keyword>below</keyword>
+            <keyword>level</keyword>
+            <keyword>above</keyword>
+            <keyword>higher</keyword>
+            <keyword>lower</keyword>
+            <keyword>show</keyword>
+            <keyword>hide</keyword>
+            <keyword>normal</keyword>
+            <keyword>wider</keyword>
+            <keyword>narrower</keyword>
+            <keyword>ultra-condensed</keyword>
+            <keyword>extra-condensed</keyword>
+            <keyword>condensed</keyword>
+            <keyword>semi-condensed</keyword>
+            <keyword>semi-expanded</keyword>
+            <keyword>expanded</keyword>
+            <keyword>extra-expanded</keyword>
+            <keyword>ultra-expanded</keyword>
+            <keyword>normal</keyword>
+            <keyword>italic</keyword>
+            <keyword>oblique</keyword>
+            <keyword>normal</keyword>
+            <keyword>xx-small</keyword>
+            <keyword>x-small</keyword>
+            <keyword>small</keyword>
+            <keyword>large</keyword>
+            <keyword>x-large</keyword>
+            <keyword>xx-large</keyword>
+            <keyword>thin</keyword>
+            <keyword>thick</keyword>
+            <keyword>smaller</keyword>
+            <keyword>larger</keyword>
+            <keyword>small-caps</keyword>
+            <keyword>inherit</keyword>
+            <keyword>bold</keyword>
+            <keyword>bolder</keyword>
+            <keyword>lighter</keyword>
+            <keyword>inside</keyword>
+            <keyword>outside</keyword>
+            <keyword>disc</keyword>
+            <keyword>circle</keyword>
+            <keyword>square</keyword>
+            <keyword>decimal</keyword>
+            <keyword>decimal-leading-zero</keyword>
+            <keyword>lower-roman</keyword>
+            <keyword>upper-roman</keyword>
+            <keyword>lower-greek</keyword>
+            <keyword>lower-alpha</keyword>
+            <keyword>lower-latin</keyword>
+            <keyword>upper-alpha</keyword>
+            <keyword>upper-latin</keyword>
+            <keyword>hebrew</keyword>
+            <keyword>armenian</keyword>
+            <keyword>georgian</keyword>
+            <keyword>cjk-ideographic</keyword>
+            <keyword>hiragana</keyword>
+            <keyword>katakana</keyword>
+            <keyword>hiragana-iroha</keyword>
+            <keyword>katakana-iroha</keyword>
+            <keyword>crop</keyword>
+            <keyword>cross</keyword>
+            <keyword>invert</keyword>
+            <keyword>hidden</keyword>
+            <keyword>always</keyword>
+            <keyword>avoid</keyword>
+            <keyword>x-low</keyword>
+            <keyword>low</keyword>
+            <keyword>high</keyword>
+            <keyword>x-high</keyword>
+            <keyword>absolute</keyword>
+            <keyword>fixed</keyword>
+            <keyword>relative</keyword>
+            <keyword>static</keyword>
+            <keyword>portrait</keyword>
+            <keyword>landscape</keyword>
+            <keyword>spell-out</keyword>
+            <keyword>digits</keyword>
+            <keyword>continuous</keyword>
+            <keyword>x-slow</keyword>
+            <keyword>slow</keyword>
+            <keyword>fast</keyword>
+            <keyword>x-fast</keyword>
+            <keyword>faster</keyword>
+            <keyword>slower</keyword>
+            <keyword>underline</keyword>
+            <keyword>overline</keyword>
+            <keyword>line-through</keyword>
+            <keyword>blink</keyword>
+            <keyword>capitalize</keyword>
+            <keyword>uppercase</keyword>
+            <keyword>lowercase</keyword>
+            <keyword>embed</keyword>
+            <keyword>bidi-override</keyword>
+            <keyword>baseline</keyword>
+            <keyword>sub</keyword>
+            <keyword>super</keyword>
+            <keyword>top</keyword>
+            <keyword>text-top</keyword>
+            <keyword>middle</keyword>
+            <keyword>bottom</keyword>
+            <keyword>text-bottom</keyword>
+            <keyword>visible</keyword>
+            <keyword>hidden</keyword>
+            <keyword>collapse</keyword>
+            <keyword>soft</keyword>
+            <keyword>loud</keyword>
+            <keyword>x-loud</keyword>
+            <keyword>pre</keyword>
+            <keyword>nowrap</keyword>
+            <keyword>dotted</keyword>
+            <keyword>dashed</keyword>
+            <keyword>solid</keyword>
+            <keyword>double</keyword>
+            <keyword>groove</keyword>
+            <keyword>ridge</keyword>
+            <keyword>inset</keyword>
+            <keyword>outset</keyword>
+            <keyword>once</keyword>
+            <keyword>both</keyword>
+            <keyword>silent</keyword>
+            <keyword>medium</keyword>
+            <keyword>text</keyword>
+            <keyword>wait</keyword>
+            <keyword>help</keyword>
+
+            <!-- important -->
+            <keyword>!important</keyword>
+
+            <!-- colors -->
+            <keyword>aliceblue</keyword>
+            <keyword>antiquewhite</keyword>
+            <keyword>aqua</keyword>
+            <keyword>aquamarine</keyword>
+            <keyword>azure</keyword>
+            <keyword>beige</keyword>
+            <keyword>bisque</keyword>
+            <keyword>black</keyword>
+            <keyword>blanchedalmond</keyword>
+            <keyword>blue</keyword>
+            <keyword>blueviolet</keyword>
+            <keyword>brown</keyword>
+            <keyword>burlywood</keyword>
+            <keyword>cadetblue</keyword>
+            <keyword>chartreuse</keyword>
+            <keyword>chocolate</keyword>
+            <keyword>coral</keyword>
+            <keyword>cornflowerblue</keyword>
+            <keyword>cornsilk</keyword>
+            <keyword>crimson</keyword>
+            <keyword>cyan</keyword>
+            <keyword>darkblue</keyword>
+            <keyword>darkcyan</keyword>
+            <keyword>darkgoldenrod</keyword>
+            <keyword>darkgray</keyword>
+            <keyword>darkgreen</keyword>
+            <keyword>darkgrey</keyword>
+            <keyword>darkkhaki</keyword>
+            <keyword>darkmagenta</keyword>
+            <keyword>darkolivegreen</keyword>
+            <keyword>darkorange</keyword>
+            <keyword>darkorchid</keyword>
+            <keyword>darkred</keyword>
+            <keyword>darksalmon</keyword>
+            <keyword>darkseagreen</keyword>
+            <keyword>darkslateblue</keyword>
+            <keyword>darkslategray</keyword>
+            <keyword>darkslategrey</keyword>
+            <keyword>darkturquoise</keyword>
+            <keyword>darkviolet</keyword>
+            <keyword>darkpink</keyword>
+            <keyword>deepskyblue</keyword>
+            <keyword>dimgray</keyword>
+            <keyword>dimgrey</keyword>
+            <keyword>dodgerblue</keyword>
+            <keyword>firebrick</keyword>
+            <keyword>floralwhite</keyword>
+            <keyword>forestgreen</keyword>
+            <keyword>fushia</keyword>
+            <keyword>gainsboro</keyword>
+            <keyword>ghostwhite</keyword>
+            <keyword>gold</keyword>
+            <keyword>goldenrod</keyword>
+            <keyword>gray</keyword>
+            <keyword>green</keyword>
+            <keyword>greenyellow</keyword>
+            <keyword>grey</keyword>
+            <keyword>honeydew</keyword>
+            <keyword>hotpink</keyword>
+            <keyword>indianred</keyword>
+            <keyword>indigo</keyword>
+            <keyword>ivory</keyword>
+            <keyword>khaki</keyword>
+            <keyword>lavender</keyword>
+            <keyword>lavenderblush</keyword>
+            <keyword>lawngreen</keyword>
+            <keyword>lemonchiffon</keyword>
+            <keyword>lightblue</keyword>
+            <keyword>lightcoral</keyword>
+            <keyword>lightcyan</keyword>
+            <keyword>lightgoldenrodyellow</keyword>
+            <keyword>lightgray</keyword>
+            <keyword>lightgreen</keyword>
+            <keyword>lightgrey</keyword>
+            <keyword>lightpink</keyword>
+            <keyword>lightsalmon</keyword>
+            <keyword>lightseagreen</keyword>
+            <keyword>lightskyblue</keyword>
+            <keyword>lightslategray</keyword>
+            <keyword>lightslategrey</keyword>
+            <keyword>lightsteelblue</keyword>
+            <keyword>lightyellow</keyword>
+            <keyword>lime</keyword>
+            <keyword>limegreen</keyword>
+            <keyword>linen</keyword>
+            <keyword>magenta</keyword>
+            <keyword>maroon</keyword>
+            <keyword>mediumaquamarine</keyword>
+            <keyword>mediumblue</keyword>
+            <keyword>mediumorchid</keyword>
+            <keyword>mediumpurple</keyword>
+            <keyword>mediumseagreen</keyword>
+            <keyword>mediumslateblue</keyword>
+            <keyword>mediumspringgreen</keyword>
+            <keyword>mediumturquoise</keyword>
+            <keyword>mediumvioletred</keyword>
+            <keyword>midnightblue</keyword>
+            <keyword>mintcream</keyword>
+            <keyword>mistyrose</keyword>
+            <keyword>mocassin</keyword>
+            <keyword>navawhite</keyword>
+            <keyword>navy</keyword>
+            <keyword>oldlace</keyword>
+            <keyword>olive</keyword>
+            <keyword>olidrab</keyword>
+            <keyword>orange</keyword>
+            <keyword>orangered</keyword>
+            <keyword>orchid</keyword>
+            <keyword>palegoldenrod</keyword>
+            <keyword>palegreen</keyword>
+            <keyword>paleturquoise</keyword>
+            <keyword>paletvioletred</keyword>
+            <keyword>papayawhip</keyword>
+            <keyword>peachpuff</keyword>
+            <keyword>peru</keyword>
+            <keyword>pink</keyword>
+            <keyword>plum</keyword>
+            <keyword>powderblue</keyword>
+            <keyword>purple</keyword>
+            <keyword>red</keyword>
+            <keyword>rosybrown</keyword>
+            <keyword>royalblue</keyword>
+            <keyword>saddlebrown</keyword>
+            <keyword>salmon</keyword>
+            <keyword>sandybrown</keyword>
+            <keyword>seagreen</keyword>
+            <keyword>seashell</keyword>
+            <keyword>sienna</keyword>
+            <keyword>silver</keyword>
+            <keyword>skyblue</keyword>
+            <keyword>slateblue</keyword>
+            <keyword>slategray</keyword>
+            <keyword>slategrey</keyword>
+            <keyword>snow</keyword>
+            <keyword>springgreen</keyword>
+            <keyword>steelblue</keyword>
+            <keyword>tan</keyword>
+            <keyword>teal</keyword>
+            <keyword>thistle</keyword>
+            <keyword>tomato</keyword>
+            <keyword>turquoise</keyword>
+            <keyword>violet</keyword>
+            <keyword>wheat</keyword>
+            <keyword>white</keyword>
+            <keyword>whitesmoke</keyword>
+            <keyword>yellow</keyword>
+            <keyword>yellowgreen</keyword>
+          </Keywords>
+
+          <Range name="Urls">
+            <TextStyle>CSS Special Values</TextStyle>
+            <OpenSymbol>url(</OpenSymbol>
+            <CloseSymbol>)</CloseSymbol>
+          </Range>
+
+          <ExtendedRange name="Rgb" Extends="Urls">
+            <OpenSymbol>rgb(</OpenSymbol>
+          </ExtendedRange>
+
+        </Range>
+      </Range>
+    </Range>
+
+  <!-- END CSS -->
+
+
+    <!-- BEGIN PHP -->
+      <Range Name="Php">
+      <TextStyle>PHP Identifiers</TextStyle>
+      <NumberStyle>PHP Numbers</NumberStyle>
+      <OpenSymbol>&lt;?php</OpenSymbol>
+      <CloseSymbol>?&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+
+      <!-- Strings -->
+
+      <Range Name="string1">
+        <TextStyle>PHP Strings</TextStyle>
+        <OpenSymbol>'</OpenSymbol>
+        <CloseSymbol>'</CloseSymbol>
+        <Keywords  Name="EscapeCharsHandler" style="Strings">
+          <Keyword>\'</Keyword>
+          <Keyword>\&quot;</Keyword>
+          <Keyword>\\</Keyword>
+        </Keywords>
+      </Range>
+
+      <ExtendedRange Name="string2" Extends="string1">
+        <OpenSymbol>&quot;</OpenSymbol>
+        <CloseSymbol>&quot;</CloseSymbol>
+        <!-- Escape char suport -->
+      </ExtendedRange>
+
+      <!-- Comments -->
+
+      <Range Name="LineComments">
+        <TextStyle>PHP Comments</TextStyle>
+        <OpenSymbol>//</OpenSymbol>
+        <CloseOnEol>True</CloseOnEol>
+      </Range>
+
+      <ExtendedRange Name="LineComments2" Extends="LineComments">
+        <OpenSymbol>#</OpenSymbol>
+      </ExtendedRange>
+
+      <Range Name="MultilineComments">
+        <TextStyle>PHP Comments</TextStyle>
+        <OpenSymbol>/*</OpenSymbol>
+        <CloseSymbol>*/</CloseSymbol>
+      </Range>
+
+      <!-- Reserved Keywords -->
+
+      <Keywords Name="Reserved" Style="PHP Keywords">
+        <keyword>and</keyword>
+        <keyword>or</keyword>
+        <keyword>xor</keyword>
+        <keyword>as</keyword>
+        <keyword>break</keyword>
+        <keyword>case</keyword>
+        <keyword>cfunction</keyword>
+        <keyword>class</keyword>
+        <keyword>const</keyword>
+        <keyword>continue</keyword>
+        <keyword>declare</keyword>
+        <keyword>default</keyword>
+        <keyword>do</keyword>
+        <keyword>else</keyword>
+        <keyword>elseif</keyword>
+        <keyword>enddeclare</keyword>
+        <keyword>endfor</keyword>
+        <keyword>endforeach</keyword>
+        <keyword>endif</keyword>
+        <keyword>endswitch</keyword>
+        <keyword>endwhile</keyword>
+        <keyword>eval</keyword>
+        <keyword>extends</keyword>
+        <keyword>for</keyword>
+        <keyword>foreach</keyword>
+        <keyword>function</keyword>
+        <keyword>global</keyword>
+        <keyword>if</keyword>
+        <keyword>new</keyword>
+        <keyword>old_function</keyword>
+        <keyword>static</keyword>
+        <keyword>switch</keyword>
+        <keyword>use</keyword>
+        <keyword>var</keyword>
+        <keyword>while</keyword>
+        <keyword>true</keyword>
+        <keyword>false</keyword>
+        <keyword>null</keyword>
+        <keyword>bool</keyword>
+        <keyword>boolean</keyword>
+        <keyword>int</keyword>
+        <keyword>integer</keyword>
+        <keyword>float</keyword>
+        <keyword>double</keyword>
+        <keyword>real</keyword>
+        <keyword>string</keyword>
+        <keyword>array</keyword>
+        <keyword>object</keyword>
+        <keyword>class</keyword>
+        <keyword>parent</keyword>
+        <keyword>stdclass</keyword>
+        <keyword>dir</keyword>
+      </Keywords>
+
+      <!-- Symbols -->
+
+      <Keywords Name="Symbols" Style="PHP Symbols">
+        <keyword>=</keyword>
+        <keyword>-&gt;</keyword>
+        <keyword>@</keyword>
+        <keyword>!</keyword>
+        <keyword>&gt;=</keyword>
+        <keyword>&lt;=</keyword>
+        <keyword>=</keyword>
+        <keyword>+</keyword>
+        <keyword>-</keyword>
+        <keyword>&gt;</keyword>
+        <keyword>&lt;</keyword>
+        <keyword>%</keyword>
+        <keyword>&amp;</keyword>
+        <keyword>|</keyword>
+        <keyword>^</keyword>
+        <keyword>~</keyword>
+        <keyword>.</keyword>
+        <keyword>]</keyword>
+        <keyword>[</keyword>
+        <keyword>(</keyword>
+        <keyword>)</keyword>
+        <keyword>}</keyword>
+        <keyword>{</keyword>
+        <keyword>,</keyword>
+        <keyword>;</keyword>
+        <keyword>/</keyword>
+        <keyword>*</keyword>
+        <keyword>?</keyword>
+        <keyword>:</keyword>
+      </Keywords>
+
+      <!-- Constants -->
+
+      <Keywords Name="Symbols" Style="PHP Constants">
+        <keyword>__FILE__</keyword>
+        <keyword>__LINE__</keyword>
+        <keyword>CL_EXPUNGE</keyword>
+        <keyword>CP_MOVE</keyword>
+        <keyword>CP_UID</keyword>
+        <keyword>CRYPT_BLOWFISH</keyword>
+        <keyword>CRYPT_EXT_DES</keyword>
+        <keyword>CRYPT_MD5</keyword>
+        <keyword>CRYPT_STD_DES</keyword>
+        <keyword>DOCUMENT_ROOT</keyword>
+        <keyword>E_CORE_ERROR</keyword>
+        <keyword>E_CORE_WARNING</keyword>
+        <keyword>E_ERROR</keyword>
+        <keyword>E_NOTICE</keyword>
+        <keyword>E_PARSE</keyword>
+        <keyword>E_WARNING</keyword>
+        <keyword>FT_INTERNAL</keyword>
+        <keyword>FT_PEEK</keyword>
+        <keyword>FT_UID</keyword>
+        <keyword>GATEWAY_INTERFACE</keyword>
+        <keyword>HTTP_ACCEPT</keyword>
+        <keyword>HTTP_ACCEPT_CHARSET</keyword>
+        <keyword>HTTP_ACCEPT_LANGUAGE</keyword>
+        <keyword>HTTP_CONNECTION</keyword>
+        <keyword>HTTP_ENCODING</keyword>
+        <keyword>HTTP_HOST</keyword>
+        <keyword>HTTP_REFERER</keyword>
+        <keyword>HTTP_USER_AGENT</keyword>
+        <keyword>LATT_MARKED</keyword>
+        <keyword>LATT_NOINFERIORS</keyword>
+        <keyword>LATT_NOSELECT</keyword>
+        <keyword>LATT_UNMARKED</keyword>
+        <keyword>LC_ALL</keyword>
+        <keyword>LC_COLLATE</keyword>
+        <keyword>LC_CTYPE</keyword>
+        <keyword>LC_MONETARY</keyword>
+        <keyword>LC_NUMERIC</keyword>
+        <keyword>LC_TIME</keyword>
+        <keyword>MCAL_APRIL</keyword>
+        <keyword>MCAL_AUGUST</keyword>
+        <keyword>MCAL_DECEMBER</keyword>
+        <keyword>MCAL_FEBRUARY</keyword>
+        <keyword>MCAL_FRIDAY</keyword>
+        <keyword>MCAL_JANUARY</keyword>
+        <keyword>MCAL_JULY</keyword>
+        <keyword>MCAL_MARCH</keyword>
+        <keyword>MCAL_MAYMCAL_JUNE</keyword>
+        <keyword>MCAL_MONDAY</keyword>
+        <keyword>MCAL_NOVEMBER</keyword>
+        <keyword>MCAL_OCTOBER</keyword>
+        <keyword>MCAL_RECUR_DAILY</keyword>
+        <keyword>MCAL_RECUR_MONTHLY_MDAY</keyword>
+        <keyword>MCAL_RECUR_MONTHLY_WDAY</keyword>
+        <keyword>MCAL_RECUR_NONE</keyword>
+        <keyword>MCAL_RECUR_WEEKLY</keyword>
+        <keyword>MCAL_RECUR_YEARLY</keyword>
+        <keyword>MCAL_SATURDAY</keyword>
+        <keyword>MCAL_SEPTEMBER</keyword>
+        <keyword>MCAL_SUNDAY</keyword>
+        <keyword>MCAL_THURSDAY</keyword>
+        <keyword>MCAL_TUESDAY</keyword>
+        <keyword>MCAL_WEDNESDAY</keyword>
+        <keyword>MCRYPT_CRYPT</keyword>
+        <keyword>MCRYPT_DES</keyword>
+        <keyword>MCRYPT_DES_COMPAT</keyword>
+        <keyword>MCRYPT_GOST</keyword>
+        <keyword>MCRYPT_IDEA</keyword>
+        <keyword>MCRYPT_RC2</keyword>
+        <keyword>MCRYPT_RC6</keyword>
+        <keyword>MCRYPT_SAFER128</keyword>
+        <keyword>MCRYPT_SAFER128</keyword>
+        <keyword>MCRYPT_SAFER64</keyword>
+        <keyword>MCRYPT_TEAN</keyword>
+        <keyword>MCRYPT_TWOFISH</keyword>
+        <keyword>MCRYPT_TWOFISH128</keyword>
+        <keyword>MCRYPT_TWOFISH192</keyword>
+        <keyword>MCRYPT_TWOFISH192</keyword>
+        <keyword>MCRYPT_ThreeWAY</keyword>
+        <keyword>MCRYPT_TripleDES</keyword>
+        <keyword>MHASH_CRC32</keyword>
+        <keyword>MHASH_CRC32B</keyword>
+        <keyword>MHASH_GOST</keyword>
+        <keyword>MHASH_HAVAL</keyword>
+        <keyword>MHASH_MD5</keyword>
+        <keyword>MHASH_RIPEMD128</keyword>
+        <keyword>MHASH_RIPEMD160</keyword>
+        <keyword>MHASH_SHA1</keyword>
+        <keyword>MHASH_SNEFRU</keyword>
+        <keyword>MHASH_TIGER</keyword>
+        <keyword>OCI_ASSOC</keyword>
+        <keyword>OCI_B_BLOB</keyword>
+        <keyword>OCI_B_CFILE</keyword>
+        <keyword>OCI_B_CLOB</keyword>
+        <keyword>OCI_B_FILE</keyword>
+        <keyword>OCI_B_ROWID</keyword>
+        <keyword>OCI_COMMIT_ON_SUCCESS</keyword>
+        <keyword>OCI_DEFAULT</keyword>
+        <keyword>OCI_D_FILE</keyword>
+        <keyword>OCI_D_LOB</keyword>
+        <keyword>OCI_D_ROWID</keyword>
+        <keyword>OCI_NUM</keyword>
+        <keyword>OCI_RETURN_LOBS</keyword>
+        <keyword>ODBC_BINMODE_CONVERT</keyword>
+        <keyword>ODBC_BINMODE_PASSTHRU</keyword>
+        <keyword>ODBC_BINMODE_RETURN</keyword>
+        <keyword>OP_ANONYMOUS</keyword>
+        <keyword>OP_HALFOPEN</keyword>
+        <keyword>OP_READONLY</keyword>
+        <keyword>PATH_TRANSLATED</keyword>
+        <keyword>PCRE_ANCHORED</keyword>
+        <keyword>PCRE_CASELESS</keyword>
+        <keyword>PCRE_DOLLAR_ENDONLY</keyword>
+        <keyword>PCRE_DOTALL</keyword>
+        <keyword>PCRE_EXTENDED</keyword>
+        <keyword>PCRE_EXTRA</keyword>
+        <keyword>PCRE_MULTILINE</keyword>
+        <keyword>PCRE_NOTBOL</keyword>
+        <keyword>PCRE_NOTEOL</keyword>
+        <keyword>PCRE_UNGREEDY</keyword>
+        <keyword>PGSQL_ASSOC</keyword>
+        <keyword>PGSQL_BOTH</keyword>
+        <keyword>PGSQL_NUM</keyword>
+        <keyword>PHP_OS</keyword>
+        <keyword>PHP_VERSION</keyword>
+        <keyword>PREG_PATTERN_ORDER</keyword>
+        <keyword>PREG_SET_ORDER</keyword>
+        <keyword>PREG_SPLIT_NO_EMPTY</keyword>
+        <keyword>QUERY_STRING</keyword>
+        <keyword>REMOTE_ADDR</keyword>
+        <keyword>REMOTE_PORT</keyword>
+        <keyword>REQUEST_METHOD</keyword>
+        <keyword>REQUEST_URI</keyword>
+        <keyword>RETURN_NULLS</keyword>
+        <keyword>SCRIPT_FILENAME</keyword>
+        <keyword>SCRIPT_NAME</keyword>
+        <keyword>SERVER_ADMIN</keyword>
+        <keyword>SERVER_NAME</keyword>
+        <keyword>SERVER_PORT</keyword>
+        <keyword>SERVER_PROTOCOL</keyword>
+        <keyword>SERVER_SIGNATURE</keyword>
+        <keyword>SERVER_SOFTWARE</keyword>
+        <keyword>SQL_CUR_DEFAULT</keyword>
+        <keyword>SQL_CUR_USE_DRIVER</keyword>
+        <keyword>SQL_CUR_USE_IF_NEEDED</keyword>
+        <keyword>SQL_CUR_USE_ODBC</keyword>
+        <keyword>XML_ERROR_ASYNC_ENTITY</keyword>
+        <keyword>XML_ERROR_ATTRIBUTE_EXTERNAL_ENTITY_REF</keyword>
+        <keyword>XML_ERROR_BAD_CHAR_REF</keyword>
+        <keyword>XML_ERROR_BINARY_ENTITY_REF</keyword>
+        <keyword>XML_ERROR_DUPLICATE_ATTRIBUTE</keyword>
+        <keyword>XML_ERROR_EXTERNAL_ENTITY_HANDLING</keyword>
+        <keyword>XML_ERROR_INCORRECT_ENCODING</keyword>
+        <keyword>XML_ERROR_INVALID_TOKEN</keyword>
+        <keyword>XML_ERROR_JUNK_AFTER_DOC_ELEMENT</keyword>
+        <keyword>XML_ERROR_MISPLACED_XML_PI</keyword>
+        <keyword>XML_ERROR_NONE</keyword>
+        <keyword>XML_ERROR_NO_ELEMENTS</keyword>
+        <keyword>XML_ERROR_NO_MEMORY</keyword>
+        <keyword>XML_ERROR_PARAM_ENTITY_REF</keyword>
+        <keyword>XML_ERROR_PARTIAL_CHAR</keyword>
+        <keyword>XML_ERROR_RECURSIVE_ENTITY_REF</keyword>
+        <keyword>XML_ERROR_SYNTAX</keyword>
+        <keyword>XML_ERROR_TAG_MISMATCH</keyword>
+        <keyword>XML_ERROR_UNCLOSED_CDATA_SECTION</keyword>
+        <keyword>XML_ERROR_UNCLOSED_TOKEN</keyword>
+        <keyword>XML_ERROR_UNDEFINED_ENTITY</keyword>
+        <keyword>XML_ERROR_UNKNOWN_ENCODING</keyword>
+        <keyword>XML_OPTION_CASE_FOLDING</keyword>
+        <keyword>XML_OPTION_TARGET_ENCODING</keyword>
+        <keyword>default_include_path</keyword>
+        <keyword>pear_install_dir</keyword>
+        <keyword>pear_extension_dir</keyword>
+        <keyword>php_extension_dir</keyword>
+        <keyword>php_bindir</keyword>
+        <keyword>php_libdir</keyword>
+        <keyword>php_datadir</keyword>
+        <keyword>php_sysconfdir</keyword>
+        <keyword>php_localstatedir</keyword>
+        <keyword>php_config_file_path</keyword>
+        <keyword>php_output_handler_start</keyword>
+        <keyword>php_output_handler_cont</keyword>
+        <keyword>php_output_handler_end</keyword>
+        <keyword>e_parse</keyword>
+        <keyword>e_notice</keyword>
+        <keyword>e_compile_error</keyword>
+        <keyword>e_compile_warning</keyword>
+        <keyword>e_user_error</keyword>
+        <keyword>e_user_warning</keyword>
+        <keyword>e_user_notice</keyword>
+        <keyword>e_all</keyword>
+        <keyword>__sleep</keyword>
+        <keyword>__wakeup</keyword>
+      </Keywords>
+
+    </Range>
+
+    <ExtendedRange Name="phpShortTag" Extends="Php">
+      <OpenSymbol>&lt;?</OpenSymbol>
+    </ExtendedRange>
+
+    <ExtendedRange Name="phpAspTag" Extends="Php">
+      <OpenSymbol>&lt;%</OpenSymbol>
+      <CloseSymbol>%&gt;</CloseSymbol>
+    </ExtendedRange>
+
+  <!-- END PHP -->
+
+
+     <!-- tags -->
+
+    <Range Name="InsideTags">
+      <TextStyle>HTML Tags</TextStyle>
+      <OpenSymbol>&lt;</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+
+      <!-- Attributes values -->
+
+      <Range Name="Values">
+        <TextStyle>HTML Values</TextStyle>
+        <OpenSymbol>&quot;</OpenSymbol>
+        <CloseSymbol>&quot;</CloseSymbol>
+      </Range>
+
+      <ExtendedRange Name="AposValues" Extends="Values">
+        <OpenSymbol>'</OpenSymbol>
+        <CloseSymbol>'</CloseSymbol>
+      </ExtendedRange>
+
+      <Keywords name="tagnames" style="HTML Tag Names">
+        <keyword>html</keyword>
+        <keyword>head</keyword>
+        <keyword>meta</keyword>
+        <keyword>body</keyword>
+        <keyword>form</keyword>
+        <keyword>div</keyword>
+        <keyword>tr</keyword>
+        <keyword>td</keyword>
+        <keyword>center</keyword>
+        <keyword>table</keyword>
+        <keyword>font</keyword>
+        <keyword>a</keyword>
+        <keyword>abbr</keyword>
+        <keyword>acronym</keyword>
+        <keyword>address</keyword>
+        <keyword>applet</keyword>
+        <keyword>area</keyword>
+        <keyword>b</keyword>
+        <keyword>base</keyword>
+        <keyword>basefont</keyword>
+        <keyword>bdo</keyword>
+        <keyword>big</keyword>
+        <keyword>blockquote</keyword>
+        <keyword>button</keyword>
+        <keyword>cite</keyword>
+        <keyword>br</keyword>
+        <keyword>caption</keyword>
+        <keyword>code</keyword>
+        <keyword>dd</keyword>
+        <keyword>dfn</keyword>
+        <keyword>col</keyword>
+        <keyword>colgroup</keyword>
+        <keyword>dir</keyword>
+        <keyword>dl</keyword>
+        <keyword>dt</keyword>
+        <keyword>em</keyword>
+        <keyword>fieldset</keyword>
+        <keyword>h2</keyword>
+        <keyword>iframe</keyword>
+        <keyword>h1</keyword>
+        <keyword>i</keyword>
+        <keyword>frame</keyword>
+        <keyword>frameset</keyword>
+        <keyword>h3</keyword>
+        <keyword>h4</keyword>
+        <keyword>h5</keyword>
+        <keyword>h6</keyword>
+        <keyword>hr</keyword>
+        <keyword>ilayer</keyword>
+        <keyword>img</keyword>
+        <keyword>input</keyword>
+        <keyword>isindex</keyword>
+        <keyword>kbd</keyword>
+        <keyword>label</keyword>
+        <keyword>legend</keyword>
+        <keyword>li</keyword>
+        <keyword>link</keyword>
+        <keyword>map</keyword>
+        <keyword>noframes</keyword>
+        <keyword>object</keyword>
+        <keyword>p</keyword>
+        <keyword>menu</keyword>
+        <keyword>ol</keyword>
+        <keyword>noscript</keyword>
+        <keyword>optgroup</keyword>
+        <keyword>option</keyword>
+        <keyword>param</keyword>
+        <keyword>pre</keyword>
+        <keyword>q</keyword>
+        <keyword>s</keyword>
+        <keyword>samp</keyword>
+        <keyword>select</keyword>
+        <keyword>small</keyword>
+        <keyword>span</keyword>
+        <keyword>strike</keyword>
+        <keyword>strong</keyword>
+        <keyword>sub</keyword>
+        <keyword>sup</keyword>
+        <keyword>tbody</keyword>
+        <keyword>text</keyword>
+        <keyword>textarea</keyword>
+        <keyword>tfoot</keyword>
+        <keyword>th</keyword>
+        <keyword>thead</keyword>
+        <keyword>title</keyword>
+        <keyword>tt</keyword>
+        <keyword>ul</keyword>
+        <keyword>u</keyword>
+        <keyword>var</keyword>
+      </Keywords>
+
+    </Range>
+
+    <!-- SGML Comments -->
+
+    <Range Name="SGMLComments">
+      <TextStyle>HTML Comments</TextStyle>
+      <OpenSymbol>&lt;!--</OpenSymbol>
+      <CloseSymbol>--&gt;</CloseSymbol>
+    </Range>
+
+    <!-- SGML entities -->
+    <Range Name="SGMLEntities">
+      <TextStyle>HTML Entities</TextStyle>
+      <OpenSymbol>&amp;</OpenSymbol>
+      <Delimiters spaces="true">;&gt;&lt;&amp;&quot;</Delimiters>
+    </Range>
+
+   <!--
+
+      XHTML SUPPORT
+      PI, CDATA
+
+    -->
+
+   <!-- CDATA -->
+
+    <Range Name="Cdatasec">
+      <TextStyle>XHTML CDATA</TextStyle>
+      <OpenSymbol>&lt;![CDATA[</OpenSymbol>
+      <CloseSymbol>]]&gt;</CloseSymbol>
+    </Range>
+
+
+    <!-- DTD -->
+
+    <Range Name="DTD">
+      <TextStyle>DTD Section</TextStyle>
+      <OpenSymbol>&lt;!</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+    </Range>
+
+    <!-- PI <?XML etc. -->
+
+    <Range Name="PI">
+      <TextStyle>XHTML PI Section</TextStyle>
+      <OpenSymbol>&lt;?</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+    </Range>
+
+ </Range>
+</NotesHighlighter>

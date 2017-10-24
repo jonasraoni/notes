@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Ajuda do Notes - Macros</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Macros</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="tools-other.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="macros-writing.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Introdução</h2>
+<br>
+Macros são úteis sempre quando você precisa repetir um certo número de tarefas
+no Notes. Você pode <a href="macros-writing.htm">escrever macros poderosas em
+JavaScript</a> ou gravar macros usando os menus do Notes.
+
+<br><br><br>
+<h3>Gravando e executando macros</h3>
+
+A gravação e execução de macros do Notes funcionam da mesma maneira que em
+qualquer outro editor:<br><br>
+
+1) Você aciona a gravação da macro indo em Macros >> Gravar macro/Para gravação.
+A Statusbar mostrará a mensagem "gravando" para que você possa saber que a
+macro está sendo gravada;<br>
+2) Você digita uma série de comandos (insere letras, deleta texto, cola texto
+da área de transferência) que você quer que sejam repetidos pelo Notes. Como
+nos outros editores, ações feitas pelo mouse no editor não são gravadas, então
+você deve selecionar texto sempre usando o teclado;<br>
+3) Você pára a gravação indo novamente em Macros &gt;&gt; Gravar macro/Para grava&ccedil;&atilde;o.
+A Statusbar não mostrará mais a mensagem "gravando";<br>
+4) Você vai em Macros >> Executar macro para que o Notes repita as ações
+que você gravou.<br><br>
+
+Ap&oacute;s gravar uma macro voc&ecirc; pode salv&aacute;-la indo em Macros &gt;&gt; Salvar macro como.
+<br><br>
+
+<i>Dica</i>: para gravar uma macro que faça uma operação em cada uma das linhas
+do arquivo, faça a macro ir para a próxima linha do arquivo depois que ela
+terminar de modificar a linha em que ela está. Assim você pode manter
+a tecla de atalho que você estiver usando para o comando "executar macro" pressionada
+para que as macros modifiquem todas as linhas do arquivo.
+<br><br>
+<i>Outra dica</i>: as macros gravadas são traduzidas para JavaScript. Você pode editar
+uma macro depois de salvá-la dentro do Notes, já que na verdade ela é um arquivo
+com código dentro :)
+<br><br>
+<i>Aviso</i>: as macros podem chamar diálogos do Notes mas não podem entrar textos
+nem manipular os controles, já que <a href="macros-ref.htm">a API para JavaScript do Notes</a>
+ainda não fornece meios de fazer isto.
+<br><br><br><br>
+</body>
+</html><br>

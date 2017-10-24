@@ -1,0 +1,1 @@
+<INPUT type="hidden" name="|" value="">

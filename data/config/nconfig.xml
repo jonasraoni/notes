@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><NotesConfig><FontName>Courier New</FontName>
+<Language></Language>
+<FontSize>10</FontSize>
+<RememberFileInfo>30</RememberFileInfo>
+<StartUp>0</StartUp>
+<AutoSaveInterval>0</AutoSaveInterval>
+<ShowGutter>1</ShowGutter>
+<ShowLinesInGutter>1</ShowLinesInGutter>
+<RightMargin>80</RightMargin>
+<DefaultFileType>Text</DefaultFileType>
+<SmartHome>1</SmartHome>
+<SmartTabs>1</SmartTabs>
+<TrimTrailingSpaces>1</TrimTrailingSpaces>
+<AllowMultipleInstances>0</AllowMultipleInstances>
+<ShellExt>1</ShellExt>
+<SmartHome>1</SmartHome>
+<SmartTabs>1</SmartTabs>
+<OfficeXPTheme>0</OfficeXPTheme>
+<AutoCloseSymbols>1</AutoCloseSymbols>
+<CaretAfterEOL>1</CaretAfterEOL>
+<HighlightBrakets>1</HighlightBrakets>
+<ShowSpecialChars>0</ShowSpecialChars>
+<LineAndColCountStartAt0>0</LineAndColCountStartAt0>
+<TrimTrailingSpaces>1</TrimTrailingSpaces>
+<BackupOnSave>0</BackupOnSave>
+</NotesConfig>

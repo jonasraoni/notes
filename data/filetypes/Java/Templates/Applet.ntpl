@@ -1,0 +1,16 @@
+import java.awt.*;
+
+public class MyApplet extends java.applet.Applet
+{
+
+    public void init()
+    {
+      
+    }
+
+    public void paint(Graphics g)
+	{
+		
+	}
+	
+}

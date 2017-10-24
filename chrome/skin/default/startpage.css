@@ -1,0 +1,158 @@
+#root{
+  width: 790px;
+  height: 434;
+  background-color: #FFFFFF;
+}
+
+#logo { src: url(chrome://skin/logo.bmp); }
+
+#row_arq_and_proj{
+  height: 266px;
+  width: 800px;
+  X: 0px;
+  Y: 56px;
+  fill: #E7E7E7;
+  stroke: none;
+}
+
+#bottom_rect {
+  height: 31px;
+  width: 800px;
+  X: 0px;
+  Y: 403px;
+  fill: #333366;
+  stroke: none;
+}
+
+#StartPageCaption {
+  color: #CCCCCC;
+  background-color: #333366;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 14pt;
+  left: 686px;
+  top: 406px;
+}
+
+.fileLinks, .projLinks {
+  background-color: #E7E7E7;
+  color: navy;
+  left: 10px;
+  font-size: 10pt;
+}
+
+.fileLinks:hover, .projLinks:hover {
+  color: black;
+  text-decoration: underline;
+  font-size: 10pt;
+}
+
+.projLinks { left: 388px; }
+
+#file1  { top: 116px; }
+#file2  { top: 136px; }
+#file3  { top: 156px; }
+#file4  { top: 176px; }
+#file5  { top: 196px; }
+#file6  { top: 216px; }
+#file7  { top: 236px; }
+#file8  { top: 256px; }
+#file9  { top: 276px; }
+#file10 { top: 296px; }
+
+#proj1  { top: 116px; }
+#proj2  { top: 136px; }
+#proj3  { top: 156px; }
+#proj4  { top: 176px; }
+#proj5  { top: 196px; }
+#proj6  { top: 216px; }
+#proj7  { top: 236px; }
+#proj8  { top: 256px; }
+#proj9  { top: 276px; }
+#proj10 { top: 296px; }
+
+#lbArquivos, #lbProjetos{
+  font-family: Arial, Heveltica, Verdana;
+  color: #000000;
+  background-color: #E7E7E7;
+  font-size: 13pt;
+  font-weight: bold;
+  top: 65px;
+  left: 5px;
+}
+
+#lbProjetos{ left: 378px; }
+
+.cmds, #fileCmdSeparator, #projCmdSeparator {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #666666;
+  background-color: #E7E7E7;
+  font-family: Arial, Heveltica, Verdana;
+}
+
+.cmds:hover {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: navy;
+  font-family: Arial, Heveltica, Verdana;
+}
+
+#newFile { left: 15px; top: 88px; }
+#openFile { left: 116px; top: 88px; }
+#fileCmdSeparator { left: 106px; top: 88px; font-weight: normal; }
+
+#newProj { left: 391px; top: 88px; }
+#openProj { left: 488px; top: 88px; }
+#projCmdSeparator { left: 480px; top: 88px; }
+
+#lbTutoriais, #lbWeb {
+  color: #EEEEEE;
+  font-size: 42pt;
+  font-family: Arial, Heveltica, Verdana, sans-serif;
+  top: 322px;
+  left: 100px;
+  font-weight: bold;
+}
+
+#lbWeb { left: 560px; }
+
+.bottomlinks {
+  font-color: #333333;
+  left: 10px;
+  font-size: 9pt;
+  text-decoration: none;
+}
+
+.bottomlinks:hover {
+  color: navy;
+  left: 10px;
+  font-size: 9pt;
+  text-decoration: underline;
+}
+
+#tut1 { left: 10px; top: 336px; }
+#tut2 { left: 10px; top: 356px; }
+#tut3 { left: 10px; top: 376px; }
+
+#web1 { left: 388px; top: 336px; }
+#web2 { left: 388px; top: 356px; }
+#web3 { left: 388px; top: 376px; }
+
+#moreLinks, #moreLinks:hover { left: 640px; top: 380px; font-size: 10pt; }
+
+line{
+  X1: 0px;
+  X2: 800px;
+  Y1: 55px;
+  Y2: 55px;
+  stroke: #CCCCCC;
+  stroke-width: 1px;
+}
+
+#lineb { Y1: 320px; Y2: 320px; }
+#linec { Y1: 401px; Y2: 401px; }
+
+#sepa {X1: 362px; X2: 362px; Y1: 60px; Y2: 314px;}
+#sepb {X1: 362px; X2: 362px; Y1: 326px; Y2: 396px;}
+

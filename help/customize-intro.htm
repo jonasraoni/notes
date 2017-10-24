@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Ajuda do Notes - Customizando</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Customizando</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="config-profiles.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="customize-highlighters.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Introdução</h2>
+<br>
+<h3>Conceitos b&aacute;sicos</h3>
+O suporte a linguagens de programa&ccedil;&atilde;o do Notes &eacute; totalmente extens&iacute;vel e
+exterior ao Notes. Atrav&eacute;s dele voc&ecirc; pode customizar o suporte de qualquer
+linguagem (por exemplo, modificando a forma como a colora&ccedil;&atilde;o &eacute; feita) ou
+at&eacute; mesmo adicionar linguagems que n&atilde;o vem por padr&atilde;o com o Notes.<br><br>
+
+No Notes as linguagens de programa&ccedil;&atilde;o s&atilde;o chamadas de &quot;Tipos de Arquivo&quot;
+(em ingl&ecirc;s, File Types). Este &eacute; um termo melhor, j&aacute; que nada impede que o
+Notes fa&ccedil;a colora&ccedil;&atilde;o de certos arquivos de configura&ccedil;&atilde;o (arquivos INI,
+por exemplo) e outros formatos de arquivo. Cada Tipo de Arquivo possui
+uma pasta s&oacute; sua em &quot;..\Pasta Do Profile Atual\FileTypes\Nome Do Tipo De Arquivo\&quot;.
+A pasta do profile atual fica em &quot;C:\Documents And Settings\Nome do Usu&aacute;rio\
+Dados de Aplicativos\Notes2004\Profiles\Nome Do Profile&quot; no Windows 2000/XP
+e em &quot;C:\Windows\Application Data\Notes2004\Profiles\Nome Do Profile&quot; no
+Windows 98/Me. Por exemplo, a pasta com suporte a PHP poderia ficar em:
+<br>
+<pre>
+C:\Documents and Settings\joao\Dados de aplicativos\Notes2004\profiles\default\filetypes\PHP
+</pre>
+<br>
+
+<h3>Arquivos e Pastas</h3>
+
+A pasta que cont&eacute;m o suporte a uma linguagem de programa&ccedil;&atilde;o tem a seguinte
+estrutura:
+<br>
+<pre>
+  ..\Library\ [1]
+  ..\Templates\ [2]
+  ..\ext.dat [3]
+  ..\Nome do Tipo de Arquivo.nhl [4]
+  ..\Nome do Tipo de Arquivo.nhs [5]
+  ..\Nome do Tipo de Arquivo.xml [6]
+  ..\Nome do Tipo de Arquivo.nsi [7]
+</pre><br>
+
+O item [1], chamado &quot;Library&quot;, &eacute; a pasta onde ficam os items da biblitoeca para
+aquele tipo de arquivo. Voc&ecirc; pode criar os items usando o painel biblioteca do
+Notes, ent&atilde;o n&atilde;o se preocupe em editar nada &agrave; m&atilde;o. O item [2] &eacute; a pasta onde
+ficam guardados os templates para novos arquivos (voc&ecirc; pode editar eles usando
+os di&aacute;logos do Notes). O item [3], &quot;ext.dat&quot;, &eacute; um arquivo onde ficam as
+extens&otilde;es para o tipo de arquivo. Estes precisam ser editados pelo di&aacute;logo
+de prefer&ecirc;ncias do Notes, pois o di&aacute;logo &quot;compila&quot; o conte&uacute;do deste arquivo
+em outros arquivos. O item [4] e o item [5] s&atilde;o os arquivos que fazem a
+colora&ccedil;&atilde;o do c&oacute;digo. O item [6] &eacute; o arquivo onde ficam guardadas as op&ccedil;&otilde;es
+para o tipo de arquivo. Ele pode ser criado e editado pelo di&aacute;logo de op&ccedil;&otilde;es do
+Notes, por&eacute;m algumas op&ccedil;&otilde;es avan&ccedil;adas s&oacute; podem ser editadas a m&atilde;o.
+O item [7] &eacute; o arquivo que cont&eacute;m as regras da engine de SmartIndent e s&oacute; pode ser
+editado manualmente.
+<br><br>
+</body>
+</html>

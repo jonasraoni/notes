@@ -1,0 +1,9 @@
+import something.*;
+
+public class MyClass extends AnotherClass{
+
+    public MyClass() {
+    
+    }
+
+}

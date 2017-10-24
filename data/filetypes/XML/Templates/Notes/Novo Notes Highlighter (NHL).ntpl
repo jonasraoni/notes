@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  XXXXXX Highlighter for Notes
+    by [Author XXXXXXXX]
+
+  Revisions:
+  * [date XXXXXXXX] - [information]
+-->
+
+<!--
+  This template is based on the JavaScript
+  highlighter. It's good for any "C-like" language...
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Identifiers</TextStyle>
+  <NumberStyle>Numbers</NumberStyle>
+
+  <!-- Strings (edit!) -->
+
+  <Range Name="string1">
+    <TextStyle>Strings</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseSymbol>'</CloseSymbol>
+  </Range>
+
+  <ExtendedRange Name="string2" Extends="string1">
+    <OpenSymbol>&quot;</OpenSymbol>
+    <CloseSymbol>&quot;</CloseSymbol>
+    <!-- Escape char suport -->
+    <Keywords  Name="EscapeCharsHandler" style="Strings">
+      <Keyword>\&quot;</Keyword>
+      <Keyword>\\</Keyword>
+    </Keywords>
+  </ExtendedRange>
+
+  <!-- Comments (edit!) -->
+
+  <Range Name="LineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>//</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Range Name="MultiLineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>/*</OpenSymbol>
+    <CloseSymbol>*/</CloseSymbol>
+  </Range>
+
+  <!-- Reserved Keywords -->
+
+  <Keywords Name="Reserved" Style="Reserved Keywords">
+    <!-- put the keywords here -->
+  </Keywords>
+
+  <!-- Operators & Symbols -->
+
+  <Keywords Name="Operators" Style="Operators">
+     <!-- operators here -->
+  </Keywords>
+
+  <Keywords Name="Symbols" Style="Symbols">
+     <!-- symbols here -->
+  </Keywords>
+
+  </Range>
+<NotesHighlighter>

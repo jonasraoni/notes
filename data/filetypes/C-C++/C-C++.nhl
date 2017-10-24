@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  C-C++ Highlighter for Notes
+
+  Revisions:
+  * 09 jul 2004 - first version
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Identifiers</TextStyle>
+  <NumberStyle>Numbers</NumberStyle>
+
+  <Range name="hexa">
+    <TextStyle>Numbers</TextStyle>
+    <OpenSymbol>0x</OpenSymbol>
+    <Delimiters space="true">+'*#@$%&*()-+=][]{}/\^.,&lt;&gt;=|&quot;~;</Delimiters>
+  </Range>
+
+  <!-- Strings -->
+  
+  <Range Name="string1">
+    <TextStyle>Strings</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseSymbol>'</CloseSymbol>
+    <CloseOnEol>True</CloseOnEol>
+    <!-- Escape char suport -->
+    <Keywords  Name="EscapeCharsHandler" style="Strings">
+      <Keyword>\'</Keyword>
+      <Keyword>\&quot;</Keyword>
+      <Keyword>\\</Keyword>
+    </Keywords>
+  </Range>
+
+  <ExtendedRange Name="string2" Extends="string1">
+    <OpenSymbol>&quot;</OpenSymbol>
+    <CloseSymbol>&quot;</CloseSymbol>
+  </ExtendedRange>
+
+  <!-- Comments -->
+
+  <Range Name="LineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>//</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Range Name="MultilineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>/*</OpenSymbol>
+    <CloseSymbol>*/</CloseSymbol>
+  </Range>
+
+  <!-- Keywords -->
+
+  <Keywords Name="preprocessor" Style="Preprocessor Statements">
+    <keyword>#define</keyword>
+    <keyword>#elif</keyword>
+    <keyword>#else</keyword>
+    <keyword>#endif</keyword>
+    <keyword>#error</keyword>
+    <keyword>#if</keyword>
+    <keyword>#ifdef</keyword>
+    <keyword>#ifndef</keyword>
+    <keyword>#pragma</keyword>
+    <keyword>#undef</keyword>
+    <keyword>#include</keyword>
+    <keyword>defined</keyword>
+  </Keywords>
+
+  <Keywords Name="Reserved" Style="Reserved Keywords">
+    <keyword>__asm</keyword>
+    <keyword>__based</keyword>
+    <keyword>__cdecl</keyword>
+    <keyword>__cplusplus</keyword>
+    <keyword>__emit</keyword>
+    <keyword>__export</keyword>
+    <keyword>__far</keyword>
+    <keyword>__fastcall</keyword>
+    <keyword>__fortran</keyword>
+    <keyword>__huge</keyword>
+    <keyword>__inline</keyword>
+    <keyword>__interrupt</keyword>
+    <keyword>__loadds</keyword>
+    <keyword>__near</keyword>
+    <keyword>__pascal</keyword>
+    <keyword>__saveregs</keyword>
+    <keyword>__segment</keyword>
+    <keyword>__segname</keyword>
+    <keyword>__self</keyword>
+    <keyword>__stdcall</keyword>
+    <keyword>__syscall</keyword>
+    <keyword>argc</keyword>
+    <keyword>argv</keyword>
+    <keyword>asm</keyword>
+    <keyword>auto</keyword>
+    <keyword>break</keyword>
+    <keyword>bool</keyword>
+    <keyword>case</keyword>
+    <keyword>char</keyword>
+    <keyword>class</keyword>
+    <keyword>const</keyword>
+    <keyword>catch</keyword>
+    <keyword>continue</keyword>
+    <keyword>default</keyword>
+    <keyword>delete</keyword>
+    <keyword>do</keyword>
+    <keyword>double</keyword>
+    <keyword>else</keyword>
+    <keyword>explicit</keyword>
+    <keyword>enum</keyword>
+    <keyword>envp</keyword>
+    <keyword>extern</keyword>
+    <keyword>float</keyword>
+    <keyword>for</keyword>
+    <keyword>friend</keyword>
+    <keyword>goto</keyword>
+    <keyword>if</keyword>
+    <keyword>inline</keyword>
+    <keyword>int</keyword>
+    <keyword>long</keyword>
+    <keyword>new</keyword>
+    <keyword>namespace</keyword>
+    <keyword>private</keyword>
+    <keyword>protected</keyword>
+    <keyword>public</keyword>
+    <keyword>register</keyword>
+    <keyword>return</keyword>
+    <keyword>short</keyword>
+    <keyword>signed</keyword>
+    <keyword>sizeof</keyword>
+    <keyword>static</keyword>
+    <keyword>struct</keyword>
+    <keyword>switch</keyword>
+    <keyword>typedef</keyword>
+    <keyword>throw</keyword>
+    <keyword>try</keyword>
+    <keyword>union</keyword>
+    <keyword>unsigned</keyword>
+    <keyword>using</keyword>
+    <keyword>virtual</keyword>
+    <keyword>void</keyword>
+    <keyword>volatile</keyword>
+    <keyword>wchar_t</keyword>
+    <keyword>while</keyword>
+    <keyword>wmain</keyword>
+    <keyword>__multiple_inheritance</keyword>
+    <keyword>__single_inheritance</keyword>
+    <keyword>__virtual_inheritance</keyword>
+    <keyword>const_cast</keyword>
+    <keyword>const_cast</keyword>
+    <keyword>dynamic_cast</keyword>
+    <keyword>mutable</keyword>
+    <keyword>operator</keyword>
+    <keyword>reinterpret_cast</keyword>
+    <keyword>static_cast</keyword>
+    <keyword>template</keyword>
+    <keyword>typeid</keyword>
+    <keyword>typename</keyword>
+    <keyword>false</keyword>
+    <keyword>this</keyword>
+    <keyword>true</keyword>
+    <keyword>NULL</keyword>
+    <keyword>compl</keyword>
+    <!-- logic operator should go here??! -->
+    <keyword>not</keyword>
+    <keyword>not_eq</keyword>
+    <keyword>or</keyword>
+    <keyword>or_eq</keyword>
+    <keyword>xor</keyword>
+    <keyword>xor_eq</keyword>
+    <keyword>and</keyword>
+    <keyword>and_eq</keyword>
+    <keyword>bitand</keyword>
+    <keyword>bitor</keyword>
+    <keyword>export</keyword>
+  </Keywords>
+
+  <!-- Operators & Symbols -->
+
+  <Keywords Name="Operators" Style="Operators">
+    <keyword>=</keyword>
+    <keyword>!</keyword>
+    <keyword>&gt;=</keyword>
+    <keyword>&lt;=</keyword>
+    <keyword>+</keyword>
+    <keyword>-</keyword>
+    <keyword>/</keyword>
+    <keyword>*</keyword>
+    <keyword>&gt;</keyword>
+    <keyword>&lt;</keyword>
+    <keyword>%</keyword>
+    <keyword>&amp;</keyword>
+    <keyword>|</keyword>
+    <keyword>^</keyword>
+    <keyword>~</keyword>
+  </Keywords>
+
+  <Keywords Name="Symbols" Style="Symbols">
+    <keyword>(</keyword>
+    <keyword>)</keyword>
+    <keyword>}</keyword>
+    <keyword>{</keyword>
+    <keyword>;</keyword>
+  </Keywords>
+
+</Range>
+<NotesHighlighter>

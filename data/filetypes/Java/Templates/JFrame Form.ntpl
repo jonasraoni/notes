@@ -1,0 +1,28 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MyFrame extends JFrame {
+
+    public MyFrame() {
+        initComponents();
+    }
+    private void initComponents() {
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                exitForm(evt);
+            }
+        });
+
+        pack();
+    }
+
+    private void exitForm(WindowEvent evt) {
+        // se não for o Form principal, use dispose() no lugar do System.exit
+        System.exit(0);
+    }
+
+    public static void main(String args[]) {
+        new MyFrame().show();
+    }
+}

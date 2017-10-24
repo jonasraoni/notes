@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Ajuda do Notes - Ferramentas externas</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Ferrametas Externas</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="tools-compilers.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="tools-other.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Fazendo preview de sites com o Notes</h2>
+<br>
+<h3>Sites em HTML</h3>
+Para fazer o preview de um site em HTML no navegador, vá no menu executar >>
+configurar ferramentas e escolha a opção "novo item". Dê um nome para o
+item. Logo depois, clique no botão com o símbolo de "mais" (+) ao lado
+direito do campo chamado "executar" e escolha a opção "procurar arquivo".
+Procure o executável do seu navegador (exemplo : C:\Arquivos de programas\mozilla.org\Mozilla\mozilla.exe)
+e clique em "abrir". Certifique-se que no campo "argumentos" esteja escrito
+"%file%" <i>com as aspas</i>. Dê ok para salvar as suas configurações. Pronto,
+basta usar o novo item que aparecerá no menu para fazer o preview do site
+site HTML no navegador. Você pode usar os mesmos passos para adicionar
+outros compiladores. Você pode também associar uma tecla de atalho que
+ao ser acionada chamará o navegador - basta voltar ao diálogo para configurar
+ferramentas, selecionar o item e clicar no botão "tecla de atalho".<br><br>
+
+<h3>Sites dinãmicos feitos em PHP, ASP, JSP, Perl, etc.</h3>
+Sites dinâmcios precisam ser executados através de um servidor. Você pode
+usar os mesmos passos descritos acima para as páginas normais, porém
+você precisa configurar o campo "argumentos" de uma forma um pouco
+diferente, preenchendo ele assim:
+<pre>http://meu_servidor/minha_pagina/%filename%</pre>
+Onde:<br>
+meu_servidor: é o seu servidor de teste<br>
+minha_pagina: é o nome da pasta raiz do seu projeto <br>
+%filename%: é uma macro que será substituída pelo nome do arquivo (Ex: index.php)<br>
+<br>
+Um exemplo de argumento seria:
+<pre>http://localhost/sitedonotes/%filename%</pre>
+<br><br><br>
+</body>
+</html>

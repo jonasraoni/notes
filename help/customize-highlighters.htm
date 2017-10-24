@@ -1,0 +1,276 @@
+<html>
+<head>
+<title>Ajuda do Notes - Customizando</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Customizando</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="customize-intro.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="customize-smartindent.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Customizando a Coloração de Sintaxe</h2>
+<br>
+
+<h3>Os arquivos de coloração</h3>
+O arquivo central da coloração do Notes é um arquivo
+NHL (Notes HighLighter) no formato XML. As tags deste
+arquivo especificam como o Notes deverá colorir
+certas partes do código fonte. Os estilos usados para
+colorir o código, porém, ficam em um arquivo externo
+NHS (Notes Highlighter Styles). (Se você sabe usar
+HTML e CSS, pense que o NHL é como o HTML
+e o arquivo de estilos é como um arquivo de CSS
+externo). Para adicionar coloração a uma linguagem no
+Notes você precisa criar tanto o NHL quanto o arquivo
+NHS. Os estilos do arquivo NHS são usados em
+um arquivo NHL chamando eles pelo nome. Por
+exemplo:
+<pre>
+&lt;Keywords Name=&quot;Reserved&quot; Style=&quot;JavaScript Keywords&quot;&gt;
+</pre>
+Esta tag faz que um grupo de keywords (chamado "Reserved")
+seja colorido usando o estilo "JavaScript Keywords" definido
+no arquivo NHS.<br>
+<pre>
+&nbsp; &lt;Range Name=&quot;InsideTags&quot;&gt;
+&nbsp; &nbsp; &nbsp; &lt;TextStyle&gt;HTML Tags&lt;/TextStyle&gt;
+</pre>
+A tag "TextStyle" faz o range (chamado "InsideTags") ser colorido
+usando o estilo "HTML Tags" que está definido no arquivo NHS.
+<br><br>
+Vamos começa explicando as tags do arquivo NHL. Se você
+nunca olhou um arquivo NHL, seria bom você olhar um antes
+de continuar. Eles ficam na pasta de configuração do Notes 2004
+(que fica dentro da pasta "Application Data" ou "Dados de
+Aplicativos" do windows).
+<br><br>
+Você deve iniciar um novo arquivo de coloração com o seguinte
+código:<br>
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;NotesHighlighter&gt;
+&nbsp; &lt;Range Name=&quot;Root&quot;&gt;
+&nbsp; &lt;!-- Ranges e keywords v&atilde;o aqui!!! --&gt;
+&nbsp; &lt;/Range&gt;
+&lt;/NotesHighlighter&gt;
+</pre><br>
+Como você vai ver, todas as tags precisam estar dentro
+de um range. Então já começamos definindo um range
+"raiz". Escrever o NHL é ir definindo novos ranges
+e Keywords dentro do range raiz ou de algum outro
+range. Mas, afinal, o que são estes tais de ranges?!
+<br>
+<br>
+<h3>Ranges</h3>
+O que é um range?<br>
+Range é uma série de caracteres que vai de um símbolo
+até outro símbolo. Por exemplo, comentários em C vão
+de '/*' até '*/' ou de '//' até o final da linha.
+Estes dois tipos de comentários são dois ranges.
+<br><br>
+Ranges são as tags básicas dos arquivos que fazem a
+coloração do Notes. Toda tag, inclusive ranges, podem (e devem)
+ficar dentro de um range.
+<br><br>
+Um novo Range é especificado usando a tag
+de nome "Range" e o atributo Name - que determina
+o nome do Range.
+<br><br><br>
+
+<b>Tags de um Range</b><br><br>
+
+ &nbsp;&nbsp;<i>TextStyle</i> - especifica que classe de estilo usar para os trechos com
+    caracteres alphanuméricos. Normalmente usado para aplicar cor nos
+    identificadores de uma linguagem.<br><br>
+
+ &nbsp;&nbsp; <i>NumberStyle</i> - especifica a classe de estilo usada para colorir trechos
+    de números. Usado para colorir integers. Se a tag não for usada, os
+    número serão coloridos usando o estilo usado para caracteres alphanuméricos.<br><br>
+
+ &nbsp;&nbsp; <i>OpenSymbol</i> - especifica o símbolo que abre o range<br><br>
+
+&nbsp;&nbsp;  <i>CloseSymbol</i> - especifica o símbolo que fecha o range<br><br>
+
+&nbsp;&nbsp;  <i>Delimiters</i> - especifica uma série de caracteres de terminação.
+    A aparição de qualquer caracter desta lista fechara o range. Se
+    você quiser que o range feche também em espaços e tabs,
+    declare o atributo "spaces" como "true": &lt;Delimiters spaces=&quot;true&quot;&gt;.<br><br>
+
+&nbsp;&nbsp;  <i>AnyTerm</i> - especifica se os símbolos delimitadores do range devem ser
+    procurados no meio de outros termos ou precisam ser um termo em
+    si.<br><br>
+
+&nbsp;&nbsp;  <i>CloseOnEol</i> - fecha o range no final da linha se setado para true.
+    Muito usado em comentários de linha única.<br><br>
+
+&nbsp;&nbsp;  <i>CaseSensitive</i> - especifica se o parser deve comparar os símbolos
+    de forma caso sensitiva. Usualmente deve ser setado para true
+    em linguagens caso sensitivas. Obeserve que ao ser setado para
+    true ele comparará de forma caso sensitiva os seguintes símbolos:
+    Keywords, símbolo de fechamento do range atual e símbolo de abertura
+    dos ranges que estiverem dentro dele.<br><br>
+
+&nbsp;&nbsp;  <i>Range</i> - um range pode ficar dentro de outro range.<br><br>
+
+&nbsp;&nbsp;  <i>Keywords</i> - vide a sessão sobre elas.<br><br>
+
+&nbsp;&nbsp; <i>ExtendedRange</i> - veja a sessão sobre eles.<br><br>
+
+Exemplo de um Range simples:
+<pre>
+&nbsp; &nbsp;  &lt;Range Name=&quot;MultiLineComments&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;TextStyle&gt;JavaScript Comments&lt;/TextStyle&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;OpenSymbol&gt;/*&lt;/OpenSymbol&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;CloseSymbol&gt;*/&lt;/CloseSymbol&gt;
+&nbsp; &nbsp; &nbsp; &lt;/Range&gt;
+</pre>
+<br><br><br>
+
+<h3>Keywords</h3>
+A tag Keywords é usada para colorir (adivinhe) as palavras-chaves e/ou
+palavras reservadas de uma linguagem. Muitas vezes são usados também
+para colorir operadores (+,-,*, etc.) e outros tipos de símbolos.
+<br><br>
+Uma nova tag Keywords deve ser definida sempre dentro de um range usando
+a tag "Keywords", seguida do atributo "name" que determina o nome e
+do atributo "style" que determina a classe de estilo que será usada para
+colorir as keywords.
+<br><br>
+A única tag aceita dentro de keywords é a "Keyword". O seu conteúdo
+deve ser a palavra, operador, símbolo, etc. que você quer ver colorido.
+Uma tag keywords pode ter infinitas tags keyword.<br><br>
+Exemplo de uma tag Keywords:
+<pre>
+&nbsp; &nbsp; &nbsp; &lt;Keywords name=&quot;tagnames&quot; style=&quot;HTML Tag Names&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;keyword&gt;html&lt;/keyword&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;keyword&gt;head&lt;/keyword&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;keyword&gt;meta&lt;/keyword&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;keyword&gt;body&lt;/keyword&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; ...
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;keyword&gt;var&lt;/keyword&gt;
+&nbsp; &nbsp; &nbsp; &lt;/Keywords&gt;
+</pre>
+<br><br><br>
+
+<h3>Extended Ranges</h3>
+ExtendeRanges permitem que você defina um novo range a partir
+do conteúdo de outro range. Como diz o nome, serve para "extender
+um outro range". É como se você copiasse a definição do range
+manualmente - só que mais rápido e mais fácil de manter. Você
+indica qual Range quer extender usando o atributo "Extends".
+<pre>
+&lt;ExtendedRange name=&quot;MoreHTMLTags&quot; Extends=&quot;HTMLTags&quot;&gt;
+</pre><br>
+Dentro do ExtendedRange você pode definir mais ranges e deletar
+ranges/keywords "herdados" usando a tag Remove.
+<pre>
+&lt;Remove&gt;RangeOuKeyword&lt;/Remove&gt;
+</pre><br>
+Você pode também modificar os atributos do Range que está
+sendo extendido. Por exemplo, se você tem que colorir valores
+que ficam entre " e " e também valores que ficam entre ' e ', você
+pode definir um range para colorir os valores entre " e " e depois
+extendê-lo:
+<pre>
+&nbsp; &nbsp;  &lt;ExtendedRange Name=&quot;AposValues&quot; Extends=&quot;Values&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;OpenSymbol&gt;'&lt;/OpenSymbol&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;CloseSymbol&gt;'&lt;/CloseSymbol&gt;
+&nbsp; &nbsp;  &lt;/ExtendedRange&gt;
+</pre> <br>
+Um dos usos dos ExtendedRanges é possibilitar vários inícios
+e finais diferentes para um mesmo range. Por exemplo, o código
+PHP pode iniciar no código HTML através de multiplas tags:
+&lt;?, &lt;?php e &lt;%. Você pode definir toda a coloração de php
+em um range que vai de &lt;? at&eacute; ?&gt; e depois criar dois ExtendedRanges
+para dar conta das multiplas regras de abertura.
+<br><br>
+Exemplo de um ExtendedRange:
+<pre>
+&nbsp; &nbsp; &nbsp; &lt;ExtendedRange Name=&quot;string2&quot; Extends=&quot;string1&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;OpenSymbol&gt;&quot;&lt;/OpenSymbol&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;CloseSymbol&gt;&quot;&lt;/CloseSymbol&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;!-- Escape char suport --&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;Keywords&nbsp; Name=&quot;EscapeCharsHandler&quot; style=&quot;Strings&quot;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Keyword&gt;\&quot;&lt;/Keyword&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;Keyword&gt;\\&lt;/Keyword&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;/Keywords&gt;
+&nbsp; &nbsp; &nbsp; &lt;/ExtendedRange&gt;
+</pre>
+<br><br><br>
+
+<h3>O arquivo de estilos (NHS)</h3>
+Agora que você já conhece o formato de um arquivo NHL,
+falta aprender a criar o arquivo NHS. É bastante fácil. Sugiro
+que você procure antes no seu arquivo NHL quais estilos
+você precisará definir e faça uma listinha. Exemplo:
+<pre>
+Keywords
+Operators
+Identifiers
+</pre><br>
+Fiquemos com 3 apenas. Primeiro você deve inserir os headers
+padrão deste arquivo:
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;NotesHighlighterStyles&gt;
+
+&lt;!-- o conte&uacute;do mesmo vai aqui!!! --&gt;
+
+&lt;/NotesHighlighterStyles&gt;
+</pre><br>
+Depois para cada estilo a ser definido você pode usar
+o código abaixo apenas modificando o nome (ou gravar
+uma macro para fazer isto por você):
+<pre>
+&nbsp; &lt;style&gt;
+&nbsp; &nbsp; &lt;name&gt;Ponha o nome aqui!!!!&lt;/name&gt;
+&nbsp; &nbsp; &lt;foreground&gt;0&lt;/foreground&gt;
+&nbsp; &nbsp; &lt;background&gt;16777215&lt;/background&gt;
+&nbsp; &nbsp; &lt;fontstyle&gt;&lt;/fontstyle&gt;
+&nbsp; &lt;/style&gt;
+</pre><br>
+Após fazer isto, você poderá modificar os estilos
+usando o diálogo de configuração do Notes :)
+
+Veja como ficaria o nosso exemplo:
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;NotesHighlighterStyles&gt;
+&nbsp; &lt;style&gt;
+&nbsp; &nbsp; &lt;name&gt;Keywords&lt;/name&gt;
+&nbsp; &nbsp; &lt;foreground&gt;0&lt;/foreground&gt;
+&nbsp; &nbsp; &lt;background&gt;16777215&lt;/background&gt;
+&nbsp; &nbsp; &lt;fontstyle&gt;&lt;/fontstyle&gt;
+&nbsp; &lt;/style&gt;
+&nbsp; &lt;style&gt;
+&nbsp; &nbsp; &lt;name&gt;Operators&lt;/name&gt;
+&nbsp; &nbsp; &lt;foreground&gt;0&lt;/foreground&gt;
+&nbsp; &nbsp; &lt;background&gt;16777215&lt;/background&gt;
+&nbsp; &nbsp; &lt;fontstyle&gt;&lt;/fontstyle&gt;
+&nbsp; &lt;/style&gt;
+&nbsp; &lt;style&gt;
+&nbsp; &nbsp; &lt;name&gt;Indentifiers&lt;/name&gt;
+&nbsp; &nbsp; &lt;foreground&gt;0&lt;/foreground&gt;
+&nbsp; &nbsp; &lt;background&gt;16777215&lt;/background&gt;
+&nbsp; &nbsp; &lt;fontstyle&gt;&lt;/fontstyle&gt;
+&nbsp; &lt;/style&gt;
+&lt;/NotesHighlighterStyles&gt;
+</pre><br>
+Pronto! Depois é só editar no Notes usando
+as cores e estilos de fonte que você quiser :)
+<br><br><br>
+</body>
+</html>

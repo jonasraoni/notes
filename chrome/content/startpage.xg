@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<xg xmlns="xg.wants.a.site">
+
+  <canvas id="root" autoscroll="false" left="0" top="0">
+  
+    <!-- logo do Notes -->
+    <image id="logo" lef="10" top="10" />
+
+    <rect id="row_arq_and_proj" />
+    <rect id="bottom_rect" />
+
+    <line id="linea" />
+    <line id="lineb" />
+    <line id="linec" />
+    
+    <line id="sepA" />
+    <line id="sepB" />
+    
+    <label id="StartPageCaption" caption="StartPage" />
+
+    <label id="lbProjetos" caption="Projetos" />
+    <label id="lbArquivos" caption="Arquivos" />
+    <label id="lbTutoriais" caption="Tutoriais" />
+    <label id="lbWeb" caption="Na Web" />
+    
+    <!-- arquivos recentes -->
+    <hyperlink id="file1"  class="fileLinks" />
+    <hyperlink id="file2"  class="fileLinks" />
+    <hyperlink id="file3"  class="fileLinks" />
+    <hyperlink id="file4"  class="fileLinks" />
+    <hyperlink id="file5"  class="fileLinks" />
+    <hyperlink id="file6"  class="fileLinks" />
+    <hyperlink id="file7"  class="fileLinks" />
+    <hyperlink id="file8"  class="fileLinks" />
+    <hyperlink id="file9"  class="fileLinks" />
+    <hyperlink id="file10" class="fileLinks" />
+
+    <hyperlink id="newFile"  class="cmds" caption="Novo Arquivo" onclick="DoNewFile" />
+    <hyperlink id="openFile" class="cmds" caption="Abrir Arquivo" onclick="DoOpenFile" />
+
+    <label id="fileCmdSeparator" caption="|" />
+
+    <!-- projetos recentes -->
+    <hyperlink id="proj1"  class="projLinks" />
+    <hyperlink id="proj2"  class="projLinks" />
+    <hyperlink id="proj3"  class="projLinks" />
+    <hyperlink id="proj4"  class="projLinks" />
+    <hyperlink id="proj5"  class="projLinks" />
+    <hyperlink id="proj6"  class="projLinks" />
+    <hyperlink id="proj7"  class="projLinks" />
+    <hyperlink id="proj8"  class="projLinks" />
+    <hyperlink id="proj9"  class="projLinks" />
+    <hyperlink id="proj10" class="projLinks" />
+
+    <hyperlink id="newProj"  class="cmds" caption="Novo Projeto" onclick="DoNewProject" />
+    <hyperlink id="openProj" class="cmds" caption="Abrir Projeto"  oclick="DoOpenProject" />
+
+    <label id="projCmdSeparator" caption="|" />
+
+    <!-- links para tutoriais -->
+    <hyperlink id="tut1"  class="bottomlinks" caption="Como compilar os seus programas com o Notes"/>
+    <hyperlink id="tut2"  class="bottomlinks" caption="Fazendo preview de páginas web"/>
+    <hyperlink id="tut3"  class="bottomlinks" caption="Tirando proveito dos novos recursos do Notes"/>
+
+    <!-- links para recursos na web -->
+    <hyperlink id="web1"  class="bottomlinks" caption="Tire suas dúvidas no fórum do Notes"/>
+    <hyperlink id="web2"  class="bottomlinks" caption="Reporte Bugs e envie suas sugestões"/>
+    <hyperlink id="web3"  class="bottomlinks" caption="Participe da equipe do Notes"/>
+
+  </canvas>
+</xg>
+
+

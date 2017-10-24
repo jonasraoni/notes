@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>Ajuda do Notes - Customizando</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Customizando</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="customize-smartindent.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="ref-cmd.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Adicionando suporte a novas linguagens</h2>
+<br>
+Para adicionar suporte a uma nova linguagem ao Notes você deve copiar
+o suporte de alguma das linguagems e renomear os arquivos para o nome
+da linguagem que você quer que o Notes entenda. O <a
+href="customize-intro.htm">primeiro capítulo</a> sobre cutomização ensina
+como funciona a estrutura dos tipos de arquivo e explica os conteitos básicos.
+<br><br>
+Depois você deve customizar a <a href="customize-highlighters.htm">
+coloração</a> e o <a href="customize-smartindent.htm">SmartIndent</a>.
+Por fim, você deve configurar o arquivo de opções como ensinado
+na próxima sessão.
+
+<br><br><br>
+<h3>O arquivo de opções</h3>
+O arquivo de opções (o que leva o nome da linguagem e a extensão "xml") precisa
+ser editado a mão. Há nele algumas tags que não aparecem no diálogo de
+preferências, pois se referem a sintaxe da linguagem, ou seja, não são
+extamente opções.
+<br><br>
+
+Copie o arquivo de opções de alguma outra linguagem e abra ele no
+Notes. Eis as tags que você deve editar:<br><br>
+
+&nbsp; &nbsp; <i>LineComment</i> - preencha com o comentário de linha mais usado
+na linguagem de programação que você está editando. Por exemplo,
+se fosse C/C++, preencheríamos com "//".<br><br>
+
+&nbsp; &nbsp; <i>MultilineCommentStart</i> - Início de comentários para multiplas
+linhas mais usado na linguagem. Para C/C++ usaríamos "/*"; para
+pascal "{".<br><br>
+
+&nbsp; &nbsp; <i>MultilineCommentEnd</i> - Final de comentários para multiplas
+linhas mais usado na linguagem. Para C/C++ usaríamos "*/"; para
+pascal "}".<br><br>
+
+&nbsp; &nbsp; <i>ScopeBegin</i> - Início comum do escopo para variáveis e objetos
+da linguagem. O formato é uma lista de símbolos separados por
+espaços.  Para C/C++ usaríamos "{"; para pascal "begin".<br><br>
+
+&nbsp; &nbsp; <i>ScopeEnd</i> - Final comum do escopo para variáveis e objetos
+da linguagem. O formato é uma lista de símbolos separados por
+espaços.  Para C/C++ usaríamos "}"; para pascal "end;".<br><br>
+
+
+É isto. Agora basta usar os diálogos do Notes para deixa o
+suporte para este tipo de arquivo bem completo!
+
+<br><br><br>
+</body>
+</html>

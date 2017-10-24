@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+
+  XML Highlighter for Notes
+
+  Revisions:
+  * 29 jun 2004 - first version
+
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Text</TextStyle>
+
+    <!-- tags -->
+
+    <Range Name="InsideTags">
+      <TextStyle>Tags</TextStyle>
+      <OpenSymbol>&lt;</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+
+      <!-- Attributes values -->
+
+      <Range Name="Values">
+        <TextStyle>Attribute Value</TextStyle>
+        <OpenSymbol>&quot;</OpenSymbol>
+        <CloseSymbol>&quot;</CloseSymbol>
+      </Range>
+
+      <ExtendedRange Name="AposValues" Extends="Values">
+        <OpenSymbol>'</OpenSymbol>
+        <CloseSymbol>'</CloseSymbol>
+      </ExtendedRange>
+
+    </Range>
+
+    <!-- SGML Comments -->
+
+    <Range Name="SGMLComments">
+      <TextStyle>Comments</TextStyle>
+      <OpenSymbol>&lt;!--</OpenSymbol>
+      <CloseSymbol>--&gt;</CloseSymbol>
+    </Range>
+
+   <!-- CDATA -->
+
+    <Range Name="Cdatasec">
+      <TextStyle>CDATA Section</TextStyle>
+      <OpenSymbol>&lt;![CDATA[</OpenSymbol>
+      <CloseSymbol>]]&gt;</CloseSymbol>
+    </Range>
+
+
+    <!-- DTD -->
+
+    <Range Name="DTD">
+      <TextStyle>DTD Section</TextStyle>
+      <OpenSymbol>&lt;!</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+    </Range>
+
+    <!-- PI <?XML etc. -->
+
+    <Range Name="PI">
+      <TextStyle>PI Section</TextStyle>
+      <OpenSymbol>&lt;?</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+    </Range>
+
+    <!-- SGML entities -->
+    <Range Name="SGMLEntities">
+      <TextStyle>Entities</TextStyle>
+      <OpenSymbol>&amp;</OpenSymbol>
+      <Delimiters>;&gt;&lt;&amp;&quot;</Delimiters>
+    </Range>
+
+ </Range>
+</NotesHighlighter>

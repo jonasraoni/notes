@@ -1,0 +1,1 @@
+Função que quando chamada cria uma popup. Exemplo de uso: Npopup('teste.htm', 'width=300, height=400');

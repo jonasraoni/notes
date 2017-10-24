@@ -1,0 +1,57 @@
+body, tr {
+    font-size: 12px;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+.header {
+    background-color: #F3F3F3;
+    color: #333366;
+    font-size: 14pt;
+}
+
+a {
+    font-size: 12px;
+    text-decoration : underline;
+    color: #333366;
+    border-bottom: 0px solid #FFFFFF;
+}
+
+a:hover {
+    text-decoration : none;
+    color: #333366;
+    border-bottom: 3px solid #333333;
+}
+
+
+pre {
+    color: #333366;
+    font-family: "Courier New", Courier, mono;
+}
+
+h3{
+    color: #333333;
+    border-bottom: 1px dashed #eeeecc;
+}
+
+.params{
+    margin-left: 14px;
+    margin-top: 8px;
+}
+
+table, .jsfunction{
+	color: black;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+    background-color: #F3F3F3;
+}
+
+.jsfunction b, .jsfunction i{
+    color: #333366;
+    font-family: "Courier New", Courier, mono;
+}
+
+.jsfunction u{
+    text-decoration: none;
+    color: #333366;
+    font-family: Tahoma, Arial, sans-serif;
+}
+

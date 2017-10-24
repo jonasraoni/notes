@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<NotesHighlighterStyles>
+
+  <style>
+    <name>Identifiers</name>
+    <foreground>10485760</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Numbers</name>
+    <foreground>179</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Strings</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Comments</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>Reserved Keywords</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Operators</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Symbols</name>
+    <foreground>8388736</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Compiler Directives</name>
+    <foreground>8421504</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+</NotesHighlighterStyles>

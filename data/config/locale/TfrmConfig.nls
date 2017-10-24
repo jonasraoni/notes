@@ -1,0 +1,164 @@
+# 
+# Localization file create by Notes
+# 
+# * Comments: lines that start with # are ignored by the translator component
+# * Messages: lines that start with $ are localizations of messages
+#   used in dialogs, errors messages, etc.
+# * Lines that do not start with a special character are localizations
+#   of Notes propertys like Captions of buttons, Hints, etc.
+# 
+tsGeneral.Caption=Geral
+tsColors.Caption=Cores
+tsEditor.Caption=Editor
+tsSystem.Caption=Sistema
+
+gbEditorLook.Caption=Aparência
+lFont.Caption=&Fonte:
+lFont.Hint=
+lSize.Caption=&Tamanho:
+lSize.Hint=
+lRightMargin.Caption=Posição da &margem direita:
+lRightMargin.Hint=
+lScope.Caption=&Escopo:
+lScope.Hint=
+cbFont.Hint=
+cbSize.Hint=
+chShowGutter.Caption=Mostrar &Gutter
+chShowGutter.Hint=
+chLineNum.Caption=Mostrar &linhas na Gutter
+chLineNum.Hint=
+edRightMargin.Hint=
+cbScope.Hint=
+chHighlightMatchingBrackets.Caption=Mostrar &braços pares
+chHighlightMatchingBrackets.Hint=
+gbEditorSaveOptions.Caption=Backup de arquivos
+gbEditorSaveOptions.Hint=
+lAutoSave.Caption=Salvar automaticamente &a cada
+lAutoSave.Hint=
+lMin.Caption=minutos
+lMin.Hint=
+chBackupOnSave.Caption=Criar backup do arquivo ao &salvar
+chBackupOnSave.Hint=
+edAutoSaveInterval.Hint=
+gbOtherOptions.Caption=Outras opções
+lDefaultFileType.Caption=&Tipo de arquivo padrão:
+lDefaultFileType.Hint=
+lAtInit.Caption=Ao &iniciar:
+lAtInit.Hint=
+lLanguage.Caption=Li&nguagem:
+lLanguage.Hint=
+chAllowMultipleInstances.Caption=Permitir &múltiplas instâncias do Notes
+chAllowMultipleInstances.Hint=
+cbDefaultFileType.Hint=
+cbStartup.Hint=
+chRemeberFileInfo.Caption=Lembrar da última &posição de edição e dos marcadores 
+chRemeberFileInfo.Hint=
+chOfficeXP.Caption=Desenhar controles com o estilo do Office &XP
+chOfficeXP.Hint=
+cbLanguage.Hint=
+lFileType.Caption=Cores &para:
+lFileType.Hint=
+gbSyntax.Caption=Coloração da sintaxe
+shForeground.Hint=
+shBackground.Hint=
+lSelToken.Caption=Selecione uma categoria abai&xo:
+lSelToken.Hint=
+lsTokens.Hint=
+chBold.Caption=&Negrito
+chBold.Hint=
+chItalic.Caption=&Itálico
+chItalic.Hint=
+chUnderline.Caption=&Sublinhado
+chUnderline.Hint=
+chStrikeOut.Caption=&Riscado
+chStrikeOut.Hint=
+btForeground.Caption=Cor do &Texto...
+btForeground.Hint=
+btBackground.Caption=Cor do &Fundo...
+btBackground.Hint=
+cbColorFileType.Hint=
+gbOtherColors.Caption=Outras cores
+shEditorColor.Hint=
+shGutterTextColor.Hint=
+shGutterColor.Hint=
+shMarginColor.Hint=
+shLineColor.Hint=
+shScopeColor.Hint=
+shMatchingBraketsColor.Hint=
+shErrorColor.Hint=
+btEditorColor.Caption=Cor do &Editor...
+btEditorColor.Hint=
+btGutterTextColor.Caption=Cor do Te&xto da gutter...
+btGutterTextColor.Hint=
+btGutterColor.Caption=Cor da &Gutter...
+btGutterColor.Hint=
+btMarginColor.Caption=Cor da &Margem...
+btMarginColor.Hint=
+btLineColor.Caption=Cor da &linha atual...
+btLineColor.Hint=
+btScopeColor.Caption=Co&r do Escopo atual...
+btScopeColor.Hint=
+btMatchingBraketsColor.Caption=Cor dos &braços pares...
+btMatchingBraketsColor.Hint=
+btErrorColor.Caption=Cor p&ara Erros...
+btErrorColor.Hint=
+gbGeneralEditorOpt.Caption=Opções gerais:
+chSmartHome.Caption=Smart&Home (a tecla home posiciona o cursor no primeiro caracter)
+chSmartHome.Hint=
+chSmartTab.Caption=&SmartTab (tab, delete e backspace ajudam a identar o código)
+chSmartTab.Hint=
+chDelTrailingSpaces.Caption=Limpar espaços &inúteis ao fim da linha
+chDelTrailingSpaces.Hint=
+chLineColStartAt0.Caption=Contagem de linha e coluna iniciam em 0 (&zero)
+chLineColStartAt0.Hint=
+chAllowCaretAfterEOL.Caption=Permitir cursor após o &fim da linha/fim do arquivo
+chAllowCaretAfterEOL.Hint=
+chShowSpecialChars.Caption=&Mostrar caracteres especiais
+chShowSpecialChars.Hint=
+chAutoCloseSymbols.Caption=Fechar &aspas, chaves, parênteses, etc. automaticamente
+chAutoCloseSymbols.Hint=
+gbEspecificEditorOpt.Caption=Opções por tipo de arquivo
+lIndentSize.Caption=Tamanho da ide&ntação:
+lIndentSize.Hint=
+lTabSize.Caption=Tamanho do caracter &tab:
+lTabSize.Hint=
+lOnEnter.Caption=Ao quebrar a linha:
+lOnEnter.Hint=
+lOptionsFileType.Caption=O&pções para:
+lOptionsFileType.Hint=
+lFilter.Caption=Filtro de arqui&vos:   
+lFilter.Hint=
+edIdentSize.Hint=
+edTabSize.Hint=
+chTabToSpaces.Caption=Usar &espaços no lugar de Tab
+chTabToSpaces.Hint=
+rbAutoIndent.Caption=&Usar AutoIndent
+rbAutoIndent.Hint=
+rbBlockIndent.Caption=Usar &BlockIndent
+rbBlockIndent.Hint=
+rbNoAutoIndent.Caption=Não usar na&da
+rbNoAutoIndent.Hint=
+cbOptionsFileType.Hint=
+chAutoCloseTags.Caption=Fechar tags HTML/&XML automaticamente
+chAutoCloseTags.Hint=
+edFilters.Hint=
+gbAssoc.Caption=Associações de arquivo
+lChooseAssoc.Caption=Escolha os tipos de arquivo que você quer &associar ao Notes:
+lChooseAssoc.Hint=
+clAssoc.Hint=
+gbShellExt.Caption=Shell Extension
+chShellExt.Caption=Colocar itens do Notes no &menu de contexto do Windows
+chShellExt.Hint=
+btCancel.Caption=&Cancelar
+btCancel.Hint=
+btOK.Caption=&OK
+btOK.Hint=
+
+# Messages
+
+$MsgFilters=Os filtros devem estar como no exemplo: %s. Nada de pontos, asteriscos e caracteres inválidos, ok?! :)
+$FrmCaption=Configurar preferências...
+
+
+
+

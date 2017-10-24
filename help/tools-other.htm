@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Ajuda do Notes - Ferramentas externas</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Ferrametas Externas</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="tools-browser.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="macros-intro.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Outras ferramentas</h2> <br>
+
+O menu executar pode executar qualquer programa, permitindo que voc&ecirc; integre
+ao Notes as ferramentas que voc&ecirc; usa. Vamos dar o exemplo de como configurar
+uma ferramenta no Notes, j&aacute; que o processo &eacute; bastate semelhante para todas elas.
+
+<h3>Integrando o CTAGS ao Notes</h3>
+
+Uma das ferramentas muito usada pelos programadores em geral é o ctags,
+ferramenta que gera um arquivo com os símbolos de programação (funções,
+variáveis, classes) e a linha que eles ocorreram. Uma maneira de integrar
+o CTAGS ao Notes é usar o menu executar. Se você não conhece o ctags, vale
+à pena conhecê-lo: <a href="http://ctags.sf.net">http://ctags.sf.net</a>.
+<br><br>
+
+No menu executar, crie um novo item chamado "ctags" e preencha com os
+seguintes dados:<br>
+<pre>
+Executar: [Caminho para o CTAGS]\ctags.exe
+Argumentos: -x "%file%"
+Dir. Inicial: %path%
+</pre>
+
+Depois escolha a opção "Capturar saída no painel saída" e
+clique no botão "ver opções". Nós vamos usar uma expressão
+regular para que o Notes interprete corretamente as "tags"
+produzidas pelo CTAGS, já que o parser automático do Notes
+é voltado apenas para compiladores/interpretadores. Desmarque
+a opção que diz para o Notes usar o parser automático e
+entre os seguinte dados:<br>
+<pre>
+Expressão regultar para interpretar a saída:
+^[0-9a-zA-Z_\.]+[ \t]+[0-9a-zA-Z_\.]+[ \t]+([0-9]+)[ \t]+([a-zA-Z]:.+\.[0-9a-zA-Z_\.]+)[ \t]
+Sub-expressão do arquivo: 2
+Sub-expressão da linha: 1
+</pre><br>
+
+Pronto, basta salvar e executar o item CTAGS com um arquivo de código C/C++, Java,
+Pascal, JavaScript, PHP, etc. e você terá um "code explorer".<br><br>
+
+A maior dificuldade para configurar uma ferramenta como o CTAGS é construir
+a expressão regular que irá interpretar a saída do erro, principalmente se
+você não tiver um bom entendimento sobre expressões regulares. No caso
+de você ter dificuldades, peça ajuda no
+<a href="https://github.com/jonasraoni/notes">fórum do Notes</a>. Lembre-se
+de colocar um exemplo da saída da ferramenta para que as pessoas possam ajuda-lo.
+<br><br>
+</body>
+</html>

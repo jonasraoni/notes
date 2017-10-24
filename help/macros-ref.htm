@@ -1,0 +1,1927 @@
+<html>
+<head>
+<title>Ajuda do Notes - Macros</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Macros</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="macros-writing.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="config-pref.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Api para macros do Notes</h2>
+<br>
+Este documento descreve as funções que uma macro do Notes pode usar para
+se comunicar com o Notes e o sistema operacional, podendo assim acessar
+arquivos, manipular o editor, etc. <br><br>
+
+O Notes implementa 5 objetos que você pode usar em seus scripts: "notes",
+"editor", "tabs", "dlgs" e "os". Todas as funções destes objetos estão
+descritas abaixo. Após a descrição destes objetos, não descritas as ações
+e propriedades do Notes e de seus painéis que você pode usar em seus
+scripts (elas podem ser passada em funções do objeto "notes").
+
+<br><br><br>
+
+<h3>O objeto "notes"</h3>
+O objeto "notes" permite que a macro se comunique com o Notes, peça informações
+para ele e execute ações do Notes.<br><br>
+
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.getNotesDir()
+</b><br>
+
+  Retorna o diretório do Notes
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.getMacrosDir()
+</b><br>
+
+  Retorna o diretório das macros
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.getSettingsDir()
+</b><br>
+
+  Retorna o diretório de configurações do Notes
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.getActiveProfile()
+</b><br>
+
+  Retorna o profile atual
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.getDefaultFileType()
+</b><br>
+
+  Retorna o tipo de arquivo padrão
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.exec(ActionName)
+</b><br>
+
+  Executa a ação passada
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>ActionName</i>  - nome da ação a ser executada. Veja a lista de ações no final desta referência.<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.update()
+</b><br>
+
+  Força o Notes a atualizar. Importante apenas dentro de algum loop muito demorado.
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.panelSetProperty(PanelName, Property, Value)
+</b><br>
+
+  Seta uma propriedade de um painel do Notes
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>PanelName</i>  - O nome do painel<br>
+<i>Property</i>  - Nome da propriedade que se quer alterar<br>
+<i>Value</i>  - Valor que será assinalado a propriedade<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.panelGetProperty(PanelName, Property)
+</b><br>
+
+  Retorna o valor de uma propriedade de um painel do Notes
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>PanelName</i>  - O nome do painel<br>
+<i>Property</i>  - Nome da propriedade de que se quer saber o valor<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.panelExec(PanelName, ActionName, Param)
+</b><br>
+
+  Executa uma ação de um painel
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>PanelName</i>  - O nome do painel<br>
+<i>ActionName</i>  - Nome da ação a executar<br>
+<i>Param</i>  - parâmetro passado para a ação<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>notes.status(Text)
+</b><br>
+
+  Coloca o texto na statusbar do Notes
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Text</i>  - o texto a ser mostrado na StatusBar<br>
+</div>
+</td></tr></table>
+<br><br><br>
+
+<h3>Objeto "editor"</h3>
+O objeto editor permite que você manipule o editor do Notes. Por padrão as
+funções manipulam o editor que estiver ativo. Elas podem também manipular
+os editores que não estão ativos se você passar o índice do editor que
+você quer manipular no último parâmetro. Por exemplo, se você quiser
+manipular o primeiro editor, passe 0 como último parâmetro.
+<br><br>
+
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.insert(Text, [EditorIndex])
+</b><br>
+
+  Insere texto na posição atual do editor. Versão mais rápida e menos segura de setSelText
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Text</i>  - O texo a ser inserido<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getText([EditorIndex])
+</b><br>
+
+  Retorna o texto do editor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setText([EditorIndex])
+</b><br>
+
+  Seta o texto do editor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getSelText([EditorIndex])
+</b><br>
+
+  Retorna o texto selecionado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setSelText([EditorIndex])
+</b><br>
+
+  Seta o texto selecionado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getLineText([Line][,EditorIndex])
+</b><br>
+
+  Retorna o conteúdo da linha. Se nenhum parâmentro é passado, retorna o
+  conteúdo da linha atual
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Line</i>  (opcional) - Linha a ser manipulada<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setLineText(Text [, Line][, EditorIndex])
+</b><br>
+
+  Permite modificar o conteúdo da linha
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Line</i>  (opcional) - Linha a ser manipulada<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getLine([EditorIndex])
+</b><br>
+
+  Retorna o número da linha atual
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setLine(Value [, EditorIndex])
+</b><br>
+
+  Permite modificar o número da linha atual
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - nova linha atual<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getCol([EditorIndex])
+</b><br>
+
+  Retorna a linha atual
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Col</i>  - Modifica a coluna atual<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getSelStart([EditorIndex])
+</b><br>
+
+  Retorna a posição do cursosr/início da seleção
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setSelStart(Value [, EditorIndex])
+</b><br>
+
+  Permite modificar a posição do cursor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - valor para o qual deve ser mudada a posição do cursor<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getSelLength([EditorIndex])
+</b><br>
+
+  Retorna o tamanho da seleção
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setSelLength(Value [, EditorIndex])
+</b><br>
+
+  Permite modificar o tamanho da seleção
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo tamanho da seleção<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getLinesCount([EditorIndex])
+</b><br>
+
+  Retorna o número de linhas existentes no editor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.geFileType([EditorIndex])
+</b><br>
+
+  Retorna o tipo de arquivo do editor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getTabSize([EditorIndex])
+</b><br>
+
+  Retorna o tamanho do caracter tab
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setTabSize(Value [, EditorIndex])
+</b><br>
+
+  Permite modificar o tamanho do caracter tab
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo valor<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getIndentSize([EditorIndex])
+</b><br>
+
+  Retorna a quantidade de caracters espaços usados para identar o código
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setIndentSize(Value [, EditorIndex])
+</b><br>
+
+  Permite modificar a quantidade de caracters espaços usados para identar o código
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo valor<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getModified([EditorIndex])
+</b><br>
+
+  Retorna true se o texto tiver sido modificado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setModified(Value [, EditorIndex])
+</b><br>
+
+  Permite mudar o status de modificado do texto
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo valor<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getReadOnly([EditorIndex])
+</b><br>
+
+  Retorna true se o editor for read-only
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.setReadOnly(Value [, EditorIndex])
+</b><br>
+
+  Permite modiicar o status de leitura/escrita do editor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo valor<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.lockUpdates()
+</b><br>
+
+  Faz o editor parar de atualizar. Você deve chamar "update" posteriormente ou
+  o editor não voltará a ser pintado.
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.update()
+</b><br>
+
+  Atualiza o editor ou volta a atualizá-lo após um lockUpdates
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.inserLineBreak([EditorIndex]);
+</b><br>
+
+  Insere uma quebra de linha
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getMark(Index, [, EditorIndex])
+</b><br>
+
+  Retorna o número da linha para a posição pedida em Index
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Index</i>  - posição no array de marcadores<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.getMarksCount([EditorIndex]))
+</b><br>
+
+  Retorna o número de marcadores
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.AddMark(Line [, EditorIndex])
+</b><br>
+
+  Marca uma linha
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>line</i>  - linha a ser marcada<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.removeMark(Line [, EditorIndex])
+</b><br>
+
+  Remove a marca da linha passada
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Line</i>  - linha que deve ter o marcador removido<br>
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>editor.clearMarks([EditorIndex]);
+</b><br>
+
+  Limpa todos os marcadores do editor
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br><br><br>
+
+
+<h3>O objeto "tabs"</h3>
+O objeto tabs permite manipular as tabs (abas) do Notes. Usando ele você
+pode abrir arquivos, criar novos arquivos, mudar o documento (tab) ativo, etc.
+<br><br>
+
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.nextTab()
+</b><br>
+
+  Vai para o próximo documento
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.previusTab()
+</b><br>
+
+  Vai para o documento anterior
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.gotoFile(FileName)
+</b><br>
+
+  Vai para o arquivo especificado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.gotoFileAndMarkLine(fileName, line)
+</b><br>
+
+  Vai para o arquivo especificado e marca a linha em vermelho
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+<i>Line</i>  - linha a ser marcada<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.getTabIndex()
+</b><br>
+
+  Retorna o índice da tab atual
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.setTabIndex(Value)
+</b><br>
+
+  Permite modificar qual tab está ativa
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.getTabCaption([TabIndex])
+</b><br>
+
+  Pega o título da tab
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do tab a ser manipulada<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.getFileName([TabIndex])
+</b><br>
+
+  Retorna o nome do arquivo, incluindo  o caminho completo para ele
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do tab a ser manipulada<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.openFile(fileName);
+</b><br>
+
+  Abre o arquivo especificado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - arquivo que deverá ser aberto<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>tabs.getCount()
+</b><br>
+
+  retorna "startpage, newfile, file, none"
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+</div>
+</td></tr></table>
+<br><br><br>
+
+<h3>O objeto "os"</h3>
+O objeto os permite a macro se comunicar com o sistema operacional. Através
+dele é possível manipular arquivos, as variáveis do ambiente, etc.
+<br><br>
+
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.exec(Application, Args)
+</b><br>
+
+  Executa um programa
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>EditorIndex</i>  (opcional) - índice do editor a ser manipulado<br>
+<i>Application</i>  - programa a ser executado<br>
+<i>Args</i>  - argumentos que devem ser passados ao programa<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.execAndWait(Application, Args)
+</b><br>
+
+  Executa um programa e aguarda ele terminar. Retorna o exit code do processo.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Application</i>  - programa a ser executado<br>
+<i>Args</i>  - argumentos que devem ser passados ao programa<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getClipboard()
+</b><br>
+
+  Retorna o conteúdo da clipboard (área de transferência)
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.setClipboard(Value)
+</b><br>
+
+  Seta o conteúdo da clipboard
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo valor<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getCurDir()
+</b><br>
+
+  Retorna o diretório atual do sistema operacional
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.setCurDir(Value)
+</b><br>
+
+  Permite modificar o diretório atual
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - novo diretório<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.setEnv(name, value)
+</b><br>
+
+  Modifica ou cria uma variável de ambiente
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>name</i>  - nome da variável<br>
+<i>Value</i>  - novo valor<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getEnv(name)
+</b><br>
+
+  Retonra o valor de uma variávle de ambiente
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>name</i>  - nome da variável<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getDirDelimiter()
+</b><br>
+
+  Retorna o delimitador de diretórios do sistema operacional.
+  Exemplo: "\" no windows e "/" no linux, BSD, etc.
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getName()
+</b><br>
+
+  Retorna o nome do sistema operacional
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getUser()
+</b><br>
+
+  Retorna o nome do usuário
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.getVersion()
+</b><br>
+
+  Retorna a versão do sistema operacional
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileGetContents(filename)
+</b><br>
+
+  Retorna o conteúdo de um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.filePutContents(filename, content)
+</b><br>
+
+  Modifica o conteúdo de um arquivo/cria um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+<i>Content</i>  - conteúdo que será salvo no arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileAppend(filename, content)
+</b><br>
+
+  Adiciona uma string ao conteúdo de um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+<i>Content</i>  - conteúdo que será salvo no arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileCopy(fromfile, tofile [, overwrite = true]) bool
+</b><br>
+
+  Copia um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>fromfile</i>  - arquivo a ser copiado<br>
+<i>tofile</i>  - arquivo para onde o arquivo orginal deve ser copiado<br>
+<i>overwrite</i>  (opcional) - diz se a função pode sobrescrever arquivos durante o processo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileDelete(filename)
+</b><br>
+
+  Deleta um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileSearch(dirname [, mask = '*'] [, recursive = false])
+</b><br>
+
+  Busca um arquivo. Retorna uma string com os nomes dos arquivos separados por
+  uma quebra de linha. Voce pode usar "os.fileSearch().split('\n')" para pegar
+  o resultado como um array.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>DirName</i>  - nome do diretório onde a pesquisa deverá ser feita<br>
+<i>Mask</i>  (opcional) - máscara de busca, ex: "*.cpp"<br>
+<i>Recursive</i>  (opcional) - se a busca deve ser recursiva<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileIsReadOnly(filename)
+</b><br>
+
+  Retorna true se o arquivo for readonly
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileSize(filename)
+</b><br>
+
+  Retorna o tamanho do arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.fileExists(filename)
+</b><br>
+
+  Retorna true se o arquivo existir
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>FileName</i>  - nome do arquivo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.dirExists(dirname)
+</b><br>
+
+  Retorna true se o diretório existir
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>DirName</i>  - nome do diretório<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.dirCopy(fromdir, todir [, mask = '*' ][, overwrite = true])
+</b><br>
+
+  Copia um diretório
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>fromdir</i>  - diretório a ser copiado<br>
+<i>todir</i>  - diretório para onde o diretório orginal deve ser copiado<br>
+<i>Mask</i>  (opcional) - máscara de busca, ex: "*.cpp"<br>
+<i>overwrite</i>  (opcional) - diz se a função pode sobrescrever arquivos durante o processo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.dirDelTree(dirname [, mask = '*' ])
+</b><br>
+
+  Deleta uma árvore de diretórios
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>DirName</i>  - nome do diretório<br>
+<i>Mask</i>  (opcional) - máscara de busca, ex: "*.cpp"<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.dirDelete(dirname)
+</b><br>
+
+  Deleta um diretório vazio
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>DirName</i>  - nome do diretório<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.dirCreate(dirname [, force])
+</b><br>
+
+  Cria um diretório
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>DirName</i>  - nome do diretório<br>
+<i>force</i>  - se true, a função tentará criar todos os diretórios necessários para criar o caminho pedido<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.move(name)
+</b><br>
+
+  Move um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Name</i>  - nome do arquivo/diretório<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>os.rename(name)
+</b><br>
+
+  Renomeia um arquivo
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Name</i>  - nome do arquivo/diretório<br>
+</div>
+</td></tr></table>
+<br><br><br>
+
+
+<h3>O objeto "dlgs"</h3>
+O objeto dlgs permite chamar diálogos para que a macro possa interagir com
+o usuário. Até mesmo um diálogo para fazer IntelliSense está disponível.
+<br><br>
+
+<table width="100%" class="jsfunction"><tr><td>
+<b>alert(msg)
+</b><br>
+
+  Mostra uma mensagem para o usuário
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>msg</i>  - mensagem<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>prompt(title[, value])
+</b><br>
+
+  Mostra um diálogo que permite ao usuário entrar uma string
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>value</i>  (opcional) - valor incial<br>
+<i>title</i>  - título do diálogo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.message(msg)
+</b><br>
+
+  Mostra uma mensagem para o usuário
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>msg</i>  - mensagem<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.confirm(msg)
+</b><br>
+
+  Mostra uma mensagem para o usuário de confirmação, usada antes
+  de operações que o usuário possa querer cancelar. Retorna "yes",
+  "no" ou "cancel"
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>msg</i>  - mensagem<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.question(msg)
+</b><br>
+
+  Mostra uma pergunta ao usuário. Retorna "yes" ou "no"
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>msg</i>  - mensagem<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.error(msg)
+</b><br>
+
+  Mostra uma mensagem de erro para o usuário
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>msg</i>  - mensagem<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.input(title[, value])
+</b><br>
+
+  Mostra um diálogo que permite ao usuário entrar uma string. Retorna a string preenchida pelo usuário.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>value</i>  (opcional) - valor incial<br>
+<i>title</i>  - título do diálogo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.fileOpen()
+</b><br>
+
+  Permite ao usuário selecionar um arquivo
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.fileSave()
+</b><br>
+
+  Permite ao usuário entrar o nome de um arquivo que ainda não existe
+  e pergunta se o usuário quer substituir o arquivo no caso do usuário
+  entra o caminho para um arquivo existente.
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.folder([title])
+</b><br>
+
+  Permite ao usuário selecionar uma pasta
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>title</i>  - título do diálogo<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.color()
+</b><br>
+
+  Permite ao usuário selecionar uma cor. Retorna a cor no formato hexadecimal, como usando em HTML, CSS, etc.
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.list(title, values [, quickfind])
+</b><br>
+
+  Permite ao usuário selecionar uma das entras de uma lista. Retorna o item selecionado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>title</i>  - título do diálogo<br>
+<i>Values</i>  - deve conter uma lista de strings separadas por quebras de linha<br>
+<i>QuickFind</i>  - se true, mostra um campo que permite selecionar a entrada rapidamente<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>dlgs.codeCompletition(VisibleValues [, HiddenValues])
+</b><br>
+
+  Mostra um listbox para fazer CodeCompletition/Intellisense. Depois de chamado
+  o diálogo será mostrado ao usuário até ele escolher um item ou cancelar a
+  operação. A função retornará logo que o diálogo for mostrado, isto é, não
+  aguardará o usuário selecionar um item ou cancelar a operação. Se o usuário
+  escolher um item, ele será inserido no editor. Se tiverem sido passado valores
+  no parâmetro HiddenValues, o valor de HiddenValues será inserido no lugar do
+  valor correspondente de VisibleValues.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>VisibleValues</i>  - valores que serão mostrados ao usuário. Devem estar separados por quebras de linha.<br>
+<i>HiddenValues</i>  - valores que serão inseridos se existirem no lugar do valor escolhido pelo usuário.<br>
+</div>
+</td></tr></table>
+<br><br><br>
+
+<h3>Ações internas do Notes</h3>
+As ações descritas na tabela abaixo podem ser invocadas usando 'notes.exec("ação")'.
+<br><br>
+
+<table style="width: 100%; text-align: left;" border="1" cellpadding="5"
+ cellspacing="0">
+    <tr>
+      <td width="30%">actFileNew</td>
+      <td>Mostra o di&aacute;logo para criar novos arquivos</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileOpen</td>
+      <td>Mostra o di&aacute;logo para abrir um arquivo</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileRevert</td>
+      <td>Desfaz todas as altera&ccedil;&otilde;es revertendo o arquivo
+para o seus estado inicial</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileSave</td>
+      <td>Salva as modifica&ccedil;&otilde;es feitas no arquivo</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileSaveAs</td>
+      <td>Mostra um di&aacute;logo que permite salvar o documento atual
+com o nome que voc&ecirc; escolher</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileSaveAll</td>
+      <td>Salva todos os arquivos</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileSaveSelection</td>
+      <td>Mostra um di&aacute;logo que permite salvar o trecho
+selecionado do documento</td>
+    </tr>
+    <tr>
+      <td width="30%">actFilePrint</td>
+      <td>Mostra um di&aacute;logo que permite imprimir o documento</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileClose</td>
+      <td>Fecha o documento atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileCloseAll</td>
+      <td>Fecha todos os documentos</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileExit</td>
+      <td>Sai do programa</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditUndo</td>
+      <td>Desfaz a &uacute;ltima altera&ccedil;&atilde;o feita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditRedo</td>
+      <td>Refaz a &uacute;ltima altera&ccedil;&atilde;o desfeita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditCut</td>
+      <td>Recorta o texto selecioado para a &aacute;rea de
+transfer&ecirc;ncia</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditCopy</td>
+      <td>Copia o texto selecioado para a &aacute;rea de
+transfer&ecirc;ncia</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditPaste</td>
+      <td>Cola o conte&uacute;do da &aacute;rea de transfer&ecirc;ncia
+no documento</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditSmartPaste</td>
+      <td>Cola o conte&uacute;do da &aacute;rea de transfer&ecirc;ncia
+adequando esta a identa&ccedil;&atilde;o</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditAddToClipboard</td>
+      <td>Adciona o texto selecionado ao conte&uacute;do da &aacute;rea
+de transfer&ecirc;ncia</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditDel</td>
+      <td>Deleta o texto selecionado ou o caracter atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditSelectAll</td>
+      <td>Seleciona todo o texto</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditLineDel</td>
+      <td>Deleta a linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditLineSelect</td>
+      <td>Seleciona a linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditLineDuplicate</td>
+      <td>Cria uma c&oacute;pia da linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditFormatUppercase</td>
+      <td>Converte os caracteres selecionados ou a palavra atual para
+mai&uacute;sculas</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditFormatLowercase</td>
+      <td>Converte todos os caracteres ou a palavra atual para
+min&uacute;sculas</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditFormatTitlecase</td>
+      <td>Deixa todas as palavras com a primeira letra em
+mai&uacute;scula</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditFormatToggleCase</td>
+      <td>Transforma os caracteres mai&uacute;sculos para
+min&uacute;sculas e vice-versa</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditComment</td>
+      <td>Comenta as linhas selecionadas</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditUncomment</td>
+      <td>Descomenta as linhas selecionadas</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditIndent</td>
+      <td>Aumenta a identa&ccedil;&atilde;o das linhas selecionadas ou
+da linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditUnindent</td>
+      <td>Diminu&iacute; a identa&ccedil;&atilde;o das linhas
+selecionadas ou da linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchFind</td>
+      <td>Mostra um di&aacute;logo que permite localizar no documento
+atual e em outros documentos</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchFindPrevius</td>
+      <td>Localiza uma ocorr&ecirc;ncia anterior da palavra no texto</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchFindNext</td>
+      <td>Localiza a pr&oacute;xima ocorr&ecirc;ncia da palavra no texto</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchReplace</td>
+      <td>Mostra um di&aacute;logo quer permite substituir neste e em
+outros documentos</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchGotoline</td>
+      <td>Mostra um di&aacute;logo que permite ir para uma linha exta
+do documento</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchGotocol</td>
+      <td>Mostra um di&aacute;logo que permite ir para uma coluna exata
+da linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchToggleMark</td>
+      <td>Adicionar ou remove um marcador &agrave; linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchNextMark</td>
+      <td>Pula para o pr&oacute;ximo marcador no texto</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchPreviusMark</td>
+      <td>Pula para o marcador anterior</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchGotoMark</td>
+      <td>Mostra um di&aacute;logo que permite pular para um dos
+marcadores do arquivo</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchClearMarks</td>
+      <td>Deleta todos os marcadores</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchNextProblem</td>
+      <td>Pula para o pr&oacute;ximo problema</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchPreviusProblem</td>
+      <td>Pula para o problema anterior</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchClearProblems</td>
+      <td>Limpa a lista de problemas</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchForward</td>
+      <td>Avan&ccedil;a para um ponto em que voc&ecirc; j&aacute; esteve</td>
+    </tr>
+    <tr>
+      <td width="30%">actSearchBack</td>
+      <td>Volta para um ponto em que voc&ecirc; j&aacute; esteve</td>
+    </tr>
+    <tr>
+      <td width="30%">actViewNexttab</td>
+      <td>Mostra o pr&oacute;ximo documento</td>
+    </tr>
+    <tr>
+      <td width="30%">actViewPreviustab</td>
+      <td>Mostra o documento anterior</td>
+    </tr>
+    <tr>
+      <td width="30%">actViewStatusBar</td>
+      <td>Mostra/esconde a barra de status</td>
+    </tr>
+    <tr>
+      <td width="30%">actViewToolbar</td>
+      <td>Mostra/esconde a barra de ferramentas</td>
+    </tr>
+    <tr>
+      <td width="30%">actProjectNew</td>
+      <td>Mostra um di&aacute;logo que permite criar um novo projeto</td>
+    </tr>
+    <tr>
+      <td width="30%">actProjectOpen</td>
+      <td>Mostra um di&aacute;logo que permite abrir um documento do
+projeto</td>
+    </tr>
+    <tr>
+      <td width="30%">actProjectOpenAll</td>
+      <td>Abre todos os documentos do projeto</td>
+    </tr>
+    <tr>
+      <td width="30%">actProjectAdd</td>
+      <td>Mostra um di&aacute;logo que permite adicionar um documento
+ao projeto</td>
+    </tr>
+    <tr>
+      <td width="30%">actProjectRemove</td>
+      <td>Mostra um di&aacute;logo que permite remover um documento do
+projeto</td>
+    </tr>
+    <tr>
+      <td width="30%">actProjectOptions</td>
+      <td>Mostra um di&aacute;logo que permite editar as
+op&ccedil;&otilde;es do projeto</td>
+    </tr>
+    <tr>
+      <td width="30%">actRunLast</td>
+      <td>Executa o &uacute;ltimo item executado</td>
+    </tr>
+    <tr>
+      <td width="30%">actRunFile</td>
+      <td>Executa o arquivo atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actRunConfigure</td>
+      <td>Mostra um di&aacute;logo que permite configurar as
+ferramentas externas que podem ser executadas</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsUndo</td>
+      <td>Desfaz todas as altera&ccedil;&otilde;es feitas pelo
+&uacute;ltimo comando</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsFixlinebreaks</td>
+      <td>Corrige as quebra de linhas do documento atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsWrap</td>
+      <td>Mostra um di&aacute;logo que permite quebrar as linhas a cada
+X caracteres</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsInsertFile</td>
+      <td>Mostra um di&aacute;logo que permite inserir o
+conte&uacute;do de um arquivo no documento atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsInsertDateTime</td>
+      <td>Insere a data e hora atuais</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsInsertImage</td>
+      <td>Mostra um di&aacute;logo que permite inserir a tag HTML para
+mostrar a imagem selecionada</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsConvertSpecialHtmlChars</td>
+      <td>Converte caracteres especiais para o seu c&oacute;digo HTML</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsCompressHtml</td>
+      <td>Remove caracteres desnecess&aacute;rios do HTML diminuindo o
+tamanho da sua webpage</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsVerifyHTML</td>
+      <td>Verifica o c&oacute;digo HTML usando o HTMLTidy</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsFixHTML</td>
+      <td>Tenta corrigir os erros do c&oacute;digo HTML</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsHTMLtoXHTML</td>
+      <td>Converte c&oacute;digo HTML para XHTML</td>
+    </tr>
+    <tr>
+      <td width="30%">actCommandsVerifyXML</td>
+      <td>Verifica a sintaxe XML sem necessitar de um DTD</td>
+    </tr>
+    <tr>
+      <td width="30%">actOptionsTopmost</td>
+      <td>Faz a janela do Notes ficar sempre no topo das outras janelas</td>
+    </tr>
+    <tr>
+      <td width="30%">actOptionsReadonly</td>
+      <td>Permite escolher se o arquivo &eacute; somente leitura</td>
+    </tr>
+    <tr>
+      <td width="30%">actOptionsProfiles</td>
+      <td>Mostra um di&aacute;logo que permite configurar os profiles</td>
+    </tr>
+    <tr>
+      <td width="30%">actOptionsTemplates</td>
+      <td>Mostra um di&aacute;logo que permite configurar os templates
+usados para criar novos arquivos</td>
+    </tr>
+    <tr>
+      <td width="30%">actOptionsPreferences</td>
+      <td>Mostra um di&aacute;logo que permite configurar as
+prefer&ecirc;ncias</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpIndex</td>
+      <td>Mostra o &iacute;ndice da ajuda do Notes</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpReadme</td>
+      <td>Mostra o arquivo Readme do Notes</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpCopy</td>
+      <td>Mostra a licen&ccedil;a do Notes</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpWebsite</td>
+      <td>Mostra o site do Notes</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpBugreport</td>
+      <td>Mostra uma p&aacute;gina que permite reportar bugs do Notes</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpTellAFriend</td>
+      <td>Permite recomendar o Notes aos seus amigos</td>
+    </tr>
+    <tr>
+      <td width="30%">actHelpAbout</td>
+      <td>Mostra um di&aacute;logo com mais informa&ccedil;&otilde;es
+sobre o Notes</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorLeft</td>
+      <td>Move o cursor para a esquerda</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorRight</td>
+      <td>Move o cursor para a direita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorUp</td>
+      <td>Move o cursor para cima</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorDown</td>
+      <td>Move o cursor para baixo</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorWordLeft</td>
+      <td>Vai para a pr&oacute;xima palavra para esquerda</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorWordRight</td>
+      <td>Vai para a pr&oacute;xima palavra</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorLineStart</td>
+      <td>Move o cursor para o in&iacute;cio da linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorLineEnd</td>
+      <td>Move o cursor para o fim da linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorPageUp</td>
+      <td>Move o cursor uma p&aacute;gina para cima</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorPageDown</td>
+      <td>Move o cursor uma p&aacute;gina para baixo</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorPageLeft</td>
+      <td>Move o cursor uma p&aacute;gina para a esquerda</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorPageRight</td>
+      <td>Move o cursor uma p&aacute;gina para a direita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorPageTop</td>
+      <td>Move o cursor para o topo da p&aacute;gina</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorPageBottom</td>
+      <td>Move o cursor para o fim da p&aacute;gina</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorEditorTop</td>
+      <td>Move o cursor para o topo do editor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorEditorBottom</td>
+      <td>Move o cursor para a &uacute;ltima linha vis&iacute;vel do
+editor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelWord</td>
+      <td>Seleciona a palavra sobre o cursor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelLeft</td>
+      <td>Seleciona para a esquerda</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelRight</td>
+      <td>Seleciona para a direita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelUp</td>
+      <td>Seleciona para cima</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelDown</td>
+      <td>Seleciona para baixo</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelWordLeft</td>
+      <td>Seleciona at&eacute; a pr&oacute;xima palavra a esquerda</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelWordRigth</td>
+      <td>Seleciona at&eacute; a pr&oacute;xima palavra a direita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelLinestart</td>
+      <td>Seleciona at&eacute; o in&iacute;cio da linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelLineEnd</td>
+      <td>Seleciona at&eacute; o final da linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelPageUp</td>
+      <td>Seleciona uma p&aacute;gina para cima</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelPageDown</td>
+      <td>Seleciona uma p&aacute;gina para baixo</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelPageLeft</td>
+      <td>Seleciona uma p&aacute;gina para a esquerda</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelPageRight</td>
+      <td>Seleciona uma p&aacute;gina para a direita</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelPageTop</td>
+      <td>Seleciona at&eacute; o topo da p&aacute;gina</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelPageBottom</td>
+      <td>Seleciona at&eacute; o fim da p&aacute;gina</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelEditorTop</td>
+      <td>Seleciona at&eacute; o topo do editor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorSelEditorBottom</td>
+      <td>Seleciona at&eacute; o fim do editor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorScrollUp</td>
+      <td>Move para cima sem mover o cursor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorScrollDown</td>
+      <td>Move para baixo sem mover o cursor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorScrollLeft</td>
+      <td>Move para a esquerda sem mover o cursor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorScrollRight</td>
+      <td>Move para a direita sem mover o cursor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorTogleMode</td>
+      <td>Muda entre inserir e sobrescrever</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorGotoMatchBracket</td>
+      <td>Vai para o bra&ccedil;o par</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorDeleteLastChar</td>
+      <td>Deleta o caracter anterior</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorDeleteWord</td>
+      <td>Deleta a palavra atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorDeleteLastWord</td>
+      <td>Deleta a palavra anterior</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorDeleteBOL</td>
+      <td>Deleta at&eacute; o in&iacute;cio da linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorDeleteEOL</td>
+      <td>Deleta at&eacute; o final da linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorClearAll</td>
+      <td>Deleta todo o texto</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorBreakLine</td>
+      <td>Quebra a linha</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorBreakLineFromEOL</td>
+      <td>Quebra a linha a partir do fim da linha atual</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorBreakLineNoMove</td>
+      <td>Quebra a linha sem mover o cursor</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorTab</td>
+      <td>Insere o caracter tab</td>
+    </tr>
+    <tr>
+      <td width="30%">actEditorShiftTab</td>
+      <td>Chama as fun&ccedil;&otilde;es de shift + tab</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileMruClear</td>
+      <td>Deleta a lista de arquivos recentes</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileStatistics</td>
+      <td>Mostra as estat&iacute;sticas do documento</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileBookmakersAdd</td>
+      <td>Adiciona o documento a lista de arquivos favoritos</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileBookmakersEdit</td>
+      <td>Mostra um di&aacute;logo que permite editar os arquivos
+favoritos</td>
+    </tr>
+    <tr>
+      <td width="30%">actFileOpenAtCursor</td>
+      <td>Abre o arquivo, pasta ou url que estiver sobre o cusor</td>
+    </tr>
+    <tr>
+      <td width="30%">actViewHidePanels</td>
+      <td>Esconde todos os pain&eacute;is</td>
+    </tr>
+</table>
+<br><br><br>
+
+<h3>Painel biblioteca ("Library")</h3>
+Uma macro pode se comunicar o painel biblioteca e outro painéis usando as funções
+"notes.panelExec", "notes.panelGetProperty" e "notes.panelSetProperty". O nome
+do painel deve ser passado como primeiro parâmetro. Ex: "notes.panelExec('Library',
+'expand', '')" expande a árvore de items da biblioteca.
+<br><br>
+
+<table width="100%" class="panels">
+    <tr>
+      <td><b>(a&ccedil;&atilde;o) expand</b><br>
+Expande todas as categorias da biblioteca.
+      </td>
+    </tr>
+</table>
+<br>
+<table width="100%" class="panels">
+    <tr>
+      <td><b>(a&ccedil;&atilde;o) collapse</b><br>
+Fecha todas as categorias da biblioteca.
+      </td>
+    </tr>
+</table>
+<br>
+<table width="100%" class="panels">
+    <tr>
+      <td><b>(a&ccedil;&atilde;o) insert</b><br>
+Insere o item que estiver selecionado na biblioteca.
+      </td>
+    </tr>
+</table>
+<br>
+
+<table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade)FileType</b><br>
+Permite ler e modificar o tipo de arquivo que est&aacute; sendo mostrado na
+biblitoeca do Notes.
+      </td>
+    </tr>
+</table>
+<br><br><br>
+
+<h3>Painel sa&iacute;da ('Output')</h3>
+Voc&ecirc; pode chamar as a&ccedil;&otilde;es e acessar as propriedades
+do painel sa&iacute;da usando o nome "Output". O painel sa&iacute;da
+permite que voc&ecirc; rode aplicativos e captura a sa&iacute;da no
+painel ou no editor. Voc&ecirc; pode tamb&eacute;m manipular o
+conte&uacute;do do painel e modificar v&aacute;rias
+op&ccedil;&otilde;es. Abaixo est&aacute; uma
+lista com as a&ccedil;&otilde;es e propriedades deste painel:<br>
+<br>
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) run</b><br>
+Executa o arquivo especificado em "FileToRun" com as configurações atuais.
+      </td>
+    </tr>
+</table>    <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) getoutput  </b><br>
+Retorna o conteúdo do painel saída.
+      </td>
+    </tr>
+</table>        <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) add</b><br>
+Adiciona a string passada como parâmetro a saída.
+      </td>
+    </tr>
+</table>            <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) scanproblems</b><br>
+Faz o painel buscar erros (de compilação) na saída e reportar eles ao Notes. O painel faz isto automaticamente quando "AutoScanForProblems" está ativado.
+      </td>
+    </tr>
+</table>                <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) clear</b><br>
+Limpa o conteúdo do painel.
+      </td>
+    </tr>
+</table>                    <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) stop</b><br>
+Tenta parar o programa que esta sendo executado.
+      </td>
+    </tr>
+</table><br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) Running</b><br>
+Permite saber se o painel está rodando algum programa e capturando a saída.
+      </td>
+    </tr>
+</table>    <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) CaptureTo</b><br>
+Especifica para onde a saída do arquivo executado deve ser capturada. Usando "outputwindow" captura no próprio painel de saída. Se setado para "editor" captura no editor.
+      </td>
+    </tr>
+</table><br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) FileToRun</b><br>
+Arquivo que o painel deve rodar e capturar a saída.
+      </td>
+    </tr>
+</table>    <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) Arguments</b><br>
+Argumentos que serão passados ao arquivo especificado em "FileToRun" quando ele for executado (isto é, quando a ação "run" for chamada).
+      </td>
+    </tr>
+</table><br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) WorkDir</b><br>
+Permite setar o diretório de trabalho do sistema operacional antes de executar o arquivo especificado em "FileToRun".
+      </td>
+    </tr>
+</table>    <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) ErrorsAutoParse</b><br>
+Indica se o parser automático de erros de compilação deve ser usado. Se setado para false, tentará usar a expressão regular setada em "ErrorsRegexParser" para entender a saída.
+      </td>
+    </tr>
+</table>        <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) ErrorsReFilePos</b><br>
+Posição em que a expressão regular retornará o nome do arquivo com erro.
+      </td>
+    </tr>
+</table>            <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) ErrorsReLinePos</b><br>
+Posição em que a expressão regular retornará a linha.
+      </td>
+    </tr>
+</table><br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) ErrorsValidFiles</b><br>
+String como uma lista de arquivos em cada linha. Usada quando arquivos com caminhos relativos e/ou  incompletos são reportados como tendo erros pelo compilador para completar o nome do arquivo. Em geral setado para os arquivos abertoso no Notes e os arquivos do projeto atual.
+      </td>
+    </tr>
+</table>    <br>
+
+
+ <table width="100%" class="panels">
+    <tr>
+      <td><b>(propriedade) AutoScanForProblems</b><br>
+Se setado para true, busca por erros na saída e preenche a lista de problemas (aquela que mostra os ícones de erro na gutter) com o que encontrar.
+      </td>
+    </tr>
+</table>
+<br><br><br>
+
+
+<h3>Painel de verficação ('Verification')</h3>
+Você pode chamar as ações e acessar as propriedades do painel de verificação usando o nome "Verification". O painel de verificação usa o HTMLTidy para corrigir e verifica código HTML, XML e XHTML. Através das ações você pode fazer as mesmas verificações feitas pelo Notes e combiná-las para atingir outros resultados. Abaixo está uma lista com as ações e propriedades deste painel.
+<br><br>
+  <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) fixHTML</b><br>
+Tenta corrigir o código HTML do editor atual. O código HTML corrigido será retornado se o código orginal não tiver problemas que não podem ser corrigidos automaticamente. O painel exibirá os erros e avisos encontrados.
+      </td>
+    </tr>
+</table><br>
+
+  <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) fixXHTML</b><br>
+O mesmo que fixHTML. Porém, o código de saída será XHTML e não HTML. Pode ser usado para converter documentos HTML em documentos XHTML.
+      </td>
+    </tr>
+</table>    <br>
+
+  <table width="100%" class="panels">
+    <tr>
+      <td><b>(ação) fixXML</b><br>
+O mesmo que fixHTML. Não é possível converter um documento HTML para XML (use fixXHTML para isto), pois esta opção faz o HTMLTidy usar um parser XML e verificar qualquer incompatibilidade com as especificações do XML.
+      </td>
+    </tr>
+</table><br>
+
+</body>
+</html>
+

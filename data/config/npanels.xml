@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><NotesPanelsOptions><PanelsHosts><Search>Em baixo</Search>
+<Library>Direita</Library>
+<Output>Em baixo</Output>
+<Verification>Em baixo</Verification>
+</PanelsHosts>
+<PanelsOptions><Search></Search>
+<Library><LastLibFileType>Text</LastLibFileType>
+</Library>
+<Output><AutoOpen>1</AutoOpen>
+<AutoGoToFirstError>1</AutoGoToFirstError>
+</Output>
+<Verification></Verification>
+</PanelsOptions>
+</NotesPanelsOptions>

@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>Ajuda do Notes - Customizando</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Customizando</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="customize-highlighters.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="customize-filetypes.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Customizando o SmartIndent</h2>
+<br>
+A engine de SmartIndent do Notes é comandada por um arquivo NSI
+(Notes Smart Indent) que especifica uma série de regras que dizem como o
+código deve ser identado a partir da linha anterior. Por exemplo, as
+regras do NSI para C-C++ especificam que se a linha anterior termina
+com o caracter "{" a linha atual deverá ser identada uma vez a mais
+do que a linha atual.
+<br>
+<br>
+Um arquivo NSI contém as seguintes tags básicas:
+<pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;NotesSmartIndent skip=&quot;&quot; casesensitive=&quot;false&quot;&gt;
+
+&lt;/NotesSmartIndent&gt;
+</pre><br>
+
+A tag raiz de um arquivo NSI chama-se "NotesSmartIndent" e tem os
+seguintes atributos:
+<br>
+<br>
+&nbsp; &nbsp; <i>skip</i> - específica uma expressão regular que será buscada
+em cada uma das linhas. Se a expressão regular for encontrada, a linha não
+será levada em consideração para determinar a identação da próxima linha. você
+pode usar este atributo para pular linhas que contém somente comentários.
+<br>
+<br>
+&nbsp; &nbsp; <i>casesensitive</i> - especifica se as buscas deverão ser
+casesensitve ou não.
+<br>
+<br>
+Dentro da tag principal existem as regras e os triggers. A tag triggers
+é escrita como no exemplo abaixo:
+<pre>
+&nbsp; &lt;triggers&gt;
+&nbsp; &nbsp; &nbsp; &lt;trigger&gt;}&lt;/trigger&gt;
+&nbsp; &lt;/triggers&gt;
+</pre>
+
+Os triggers acionam a engine de identação quando são digitados pelo usuário.
+Por exemplo, com o trigger "}" declarado, ao pressionar "}" a linha será
+reidentada. Resumindo: triggers fazem a linha ser re-indentada quando
+são digitados. <br><br>
+
+O último tipo de tag de um arquivo de SmartIdent são as regras ("rules") de
+identação. Elas possuem o seguinte formato:
+<pre>
+&lt;rule match=&quot;&quot; nextline=&quot;&quot; curline=&quot;&quot; /&gt;
+</pre><br>
+
+A tag rule especifica no atributo match uma expressão regular que será buscada
+na linha. Se a expressão for encontrada, a linha passará a ser coordenada pela
+regra. A regra especifica acções de identação para a linha atual (atributo
+cur) e para a próxima linha (atributo next). As ações disponíveis são:<br><br>
+
+&nbsp; &nbsp; <i>Clear</i> - Remove toda a identação<br><br>
+&nbsp; &nbsp; <i>Keep</i> - Mantém a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Inc</i> - Aumenta em uma identação relativo a linha anterior<br><br>
+&nbsp; &nbsp; <i>Dec</i> - Diminuí em uma identação relativo a linha anterior<br><br>
+&nbsp; &nbsp; <i>HalfInc</i> - Aumenta em meia identação relativo a linha anterior<br><br>
+&nbsp; &nbsp; <i>HalfDec</i> - Diminuí em meia identação relativo a linha anterior<br><br>
+&nbsp; &nbsp; <i>DoubleInc</i> - Aumenta em duas identações relativo a linha anterior<br><br>
+&nbsp; &nbsp; <i>DoubleDec</i> - Diminuí em duas identações relativo a linha anterior<br><br>
+&nbsp; &nbsp; <i>SpaceInc</i> - Aumenta a identação em um espaço<br><br>
+&nbsp; &nbsp; <i>SpaceDec</i> - Diminuí a identação em um espaço<br><br>
+&nbsp; &nbsp; <i>One</i> - Faz a linha ficar com exatamente uma identação, sem importar a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Two</i> - Faz a linha ficar com exatamente duas identações, sem importar a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Three</i> - Faz a linha ficar com exatamente 3 identações, sem importar a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Four</i> - Faz a linha ficar com exatamente 4 identações, sem importar a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Five</i> - Faz a linha ficar com exatamente 5 identações, sem importar a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Six</i> - Faz a linha ficar com exatamente 6 identações, sem importar a identação da linha anterior<br><br>
+&nbsp; &nbsp; <i>Seven</i> - Faz a linha ficar com exatamente 7 identações, sem importar a identação da linha anterior<br><br>
+
+<br><br>
+</body>
+</html>

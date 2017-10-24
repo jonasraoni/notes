@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><NotesFileTypeOptions><TabToSpaces>1</TabToSpaces>
+<AutoCloseTags>1</AutoCloseTags>
+<IndentSize>4</IndentSize>
+<TabSize>8</TabSize>
+<LineComment>//</LineComment>
+<MultilineCommentStart></MultilineCommentStart>
+<MultilineCommentEnd></MultilineCommentEnd>
+<ScopeBegin>{</ScopeBegin>
+<ScopeEnd>}</ScopeEnd>
+<LineBreakAction>2</LineBreakAction>
+<MatchingBracketsColor>32896</MatchingBracketsColor>
+<EditorColor>16777215</EditorColor>
+<MarginColor>-16777201</MarginColor>
+<ScopeColor>12632256</ScopeColor>
+<GutterColor>16250871</GutterColor>
+<GutterTextColor>12615808</GutterTextColor>
+<CurrentLineColor>12320767</CurrentLineColor>
+<ErrorsColor>255</ErrorsColor>
+</NotesFileTypeOptions>

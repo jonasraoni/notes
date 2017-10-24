@@ -1,0 +1,1 @@
+Label serve para especificar o que o usuário deve entrar em um campo de um formulário. Clicando no label, o formulário indicado em "for" recebe o foco.

@@ -1,0 +1,1 @@
+<A href="" onMouseOver="status='?'; return true;"   onMouseOut="status=' ' ">|</A> 

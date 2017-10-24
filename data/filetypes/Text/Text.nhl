@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  Text Highlighter for Notes
+
+  Revisions:
+  * 5 jun 2004 - first version
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Text</TextStyle>
+  </Range>
+<NotesHighlighter>

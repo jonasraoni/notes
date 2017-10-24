@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<NotesHighlighterStyles>
+
+  <style>
+    <name>Text</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Tags</name>
+    <foreground>128</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Attribute Value</name>
+    <foreground>10485760</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Attribute Name</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Comments</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>DTD Section</name>
+    <foreground>0</foreground>
+    <background>8453888</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>CDATA Section</name>
+    <foreground>8421504</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>PI Section</name>
+    <foreground>0</foreground>
+    <background>8454143</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Entities</name>
+    <foreground>4227200</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+</NotesHighlighterStyles>les>

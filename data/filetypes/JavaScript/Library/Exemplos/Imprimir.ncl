@@ -1,0 +1,1 @@
+function nImprimir() { print(document); }

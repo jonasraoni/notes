@@ -1,0 +1,1 @@
+@mysql_select_db("|", ) or die "ERRO: não foi possível acessar o banco de dados.";

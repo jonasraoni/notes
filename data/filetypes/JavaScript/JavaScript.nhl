@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  JavaScript Highlighter for Notes
+
+  Revisions:
+  * 29 jun 2004 - first version
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Identifiers</TextStyle>
+  <NumberStyle>Numbers</NumberStyle>
+
+  <!-- Strings -->
+
+  <Range Name="string1">
+    <TextStyle>Strings</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseSymbol>'</CloseSymbol>
+    <CloseOnEOL>True</CloseOnEOL>
+    <!-- Escape char suport -->
+    <Keywords  Name="EscapeCharsHandler" style="Strings">
+      <Keyword>\'</Keyword>
+      <Keyword>\&quot;</Keyword>
+      <Keyword>\\</Keyword>
+    </Keywords>
+  </Range>
+
+  <ExtendedRange Name="string2" Extends="string1">
+    <OpenSymbol>&quot;</OpenSymbol>
+    <CloseSymbol>&quot;</CloseSymbol>
+  </ExtendedRange>
+
+
+  <!-- Comments -->
+
+  <Range Name="LineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>//</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <Range Name="MultilineComments">
+    <TextStyle>Comments</TextStyle>
+    <OpenSymbol>/*</OpenSymbol>
+    <CloseSymbol>*/</CloseSymbol>
+  </Range>
+
+  <!-- Reserved Keywords -->
+
+  <Keywords Name="Reserved" Style="Reserved Keywords">
+    <keyword>break</keyword>
+    <keyword>case</keyword>
+    <keyword>class</keyword>
+    <keyword>continue</keyword>
+    <keyword>const</keyword>
+    <keyword>debugger</keyword>
+    <keyword>default</keyword>
+    <keyword>delete</keyword>
+    <keyword>do</keyword>
+    <keyword>else</keyword>
+    <keyword>export</keyword>
+    <keyword>extends</keyword>
+    <keyword>false</keyword>
+    <keyword>final</keyword>
+    <keyword>finally</keyword>
+    <keyword>for</keyword>
+    <keyword>function</keyword>
+    <keyword>goto</keyword>
+    <keyword>implements</keyword>
+    <keyword>if</keyword>
+    <keyword>import</keyword>
+    <keyword>in</keyword>
+    <keyword>item</keyword>
+    <keyword>new</keyword>
+    <keyword>null</keyword>
+    <keyword>return</keyword>
+    <keyword>switch</keyword>
+    <keyword>this</keyword>
+    <keyword>typeof</keyword>
+    <keyword>true</keyword>
+    <keyword>var</keyword>
+    <keyword>void</keyword>
+    <keyword>while</keyword>
+    <keyword>with</keyword>
+    <keyword>NaN</keyword>
+    <keyword>Infinity</keyword>
+    <keyword>synchronized</keyword>
+    <keyword>throw</keyword>
+    <keyword>throws</keyword>
+    <keyword>transient</keyword>
+    <keyword>try</keyword>
+    <keyword>volatile</keyword>
+    <keyword>private</keyword>
+    <keyword>protected</keyword>
+    <keyword>public</keyword>
+  </Keywords>
+
+  <!-- Operators & Symbols -->
+
+  <Keywords Name="Operators" Style="Operators">
+    <Keyword>/</Keyword>
+    <Keyword>=</Keyword>
+    <Keyword>==</Keyword>
+    <Keyword>!</Keyword>
+    <Keyword>*</Keyword>
+    <Keyword>&gt;=</Keyword>
+    <Keyword>&lt;=</Keyword>
+    <Keyword>+</Keyword>
+    <Keyword>-</Keyword>
+    <Keyword>&gt;</Keyword>
+    <Keyword>&lt;</Keyword>
+    <Keyword>%</Keyword>
+    <Keyword>&amp;</Keyword>
+    <Keyword>|</Keyword>
+    <Keyword>^</Keyword>
+    <Keyword>~</Keyword>
+    <Keyword>.</Keyword>
+    <Keyword>?</Keyword>
+    <Keyword>:</Keyword>
+  </Keywords>
+
+  <Keywords Name="Symbols" Style="Symbols">
+    <Keyword>}</Keyword>
+    <Keyword>{</Keyword>
+    <Keyword>,</Keyword>
+    <Keyword>;</Keyword>
+    <Keyword>]</Keyword>
+    <Keyword>[</Keyword>
+    <Keyword>)</Keyword>
+    <Keyword>(</Keyword>
+  </Keywords>
+
+  </Range>
+<NotesHighlighter>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  XXXXX Highlighter for Notes
+    by [Author XXXX]
+
+  Revisions:
+  * [Date XXXX] - [Information]
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>HTML Text</TextStyle>
+  <CaseSensitive>False</CaseSensitive>
+
+  <!-- BEGIN   Y O U R    L A N G U A G E -->
+
+    <Range Name="MyLanguage">
+      <TextStyle>MyLanguage Identifiers</TextStyle>
+      <NumberStyle>MyLanguage Numbers</NumberStyle>
+      <OpenSymbol></OpenSymbol>
+      <CloseSymbol></CloseSymbol>
+      
+        <!-- Edit me! -->
+      
+    </Range>
+
+  <!-- END   Y O U R    L A N G U A G E -->
+
+
+  <!-- BEGIN JAVASCRIPT -->
+      <Range Name="JavaScript">
+      <TextStyle>JavaScript Identifiers</TextStyle>
+      <NumberStyle>JavaScript Numbers</NumberStyle>
+      <OpenSymbol>&lt;SCRIPT</OpenSymbol>
+      <CloseSymbol>&lt;/SCRIPT&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+
+      <Range Name="HTMLTags">
+        <TextStyle>HTML Tags</TextStyle>
+        <OpenSymbol>src=</OpenSymbol>
+        <Delimiters>&gt;&lt;</Delimiters>
+      </Range>
+
+      <ExtendedRange name="OtherHTML" Extends="HTMLTags">
+        <OpenSymbol>type=</OpenSymbol>
+      </ExtendedRange>
+
+      <Keywords Name="Moretags" Style="HTMLTags">
+        <keyword>&lt;!--</keyword>
+        <keyword>--&gt;</keyword>
+      </Keywords>
+
+      <!-- Strings -->
+
+      <Range Name="string1">
+        <TextStyle>JavaScript Strings</TextStyle>
+        <OpenSymbol>'</OpenSymbol>
+        <CloseSymbol>'</CloseSymbol>
+      </Range>
+
+      <ExtendedRange Name="string2" Extends="string1">
+        <OpenSymbol>&quot;</OpenSymbol>
+        <CloseSymbol>&quot;</CloseSymbol>
+        <!-- Escape char suport -->
+        <Keywords  Name="EscapeCharsHandler" style="Strings">
+          <Keyword>\&quot;</Keyword>
+          <Keyword>\\</Keyword>
+        </Keywords>
+      </ExtendedRange>
+
+      <!-- Comments -->
+
+      <Range Name="LineComments">
+        <TextStyle>JavaScript Comments</TextStyle>
+        <OpenSymbol>//</OpenSymbol>
+        <CloseOnEol>True</CloseOnEol>
+      </Range>
+
+      <Range Name="MultilineComments">
+        <TextStyle>JavaScript Comments</TextStyle>
+        <OpenSymbol>/*</OpenSymbol>
+        <CloseSymbol>*/</CloseSymbol>
+      </Range>
+
+      <!-- Reserved Keywords -->
+
+      <Keywords Name="Reserved" Style="JavaScript Keywords">
+        <keyword>break</keyword>
+        <keyword>case</keyword>
+        <keyword>class</keyword>
+        <keyword>continue</keyword>
+        <keyword>const</keyword>
+        <keyword>debugger</keyword>
+        <keyword>default</keyword>
+        <keyword>delete</keyword>
+        <keyword>do</keyword>
+        <keyword>else</keyword>
+        <keyword>export</keyword>
+        <keyword>extends</keyword>
+        <keyword>false</keyword>
+        <keyword>final</keyword>
+        <keyword>finally</keyword>
+        <keyword>for</keyword>
+        <keyword>function</keyword>
+        <keyword>goto</keyword>
+        <keyword>implements</keyword>
+        <keyword>if</keyword>
+        <keyword>import</keyword>
+        <keyword>in</keyword>
+        <keyword>item</keyword>
+        <keyword>new</keyword>
+        <keyword>null</keyword>
+        <keyword>return</keyword>
+        <keyword>switch</keyword>
+        <keyword>this</keyword>
+        <keyword>typeof</keyword>
+        <keyword>true</keyword>
+        <keyword>var</keyword>
+        <keyword>void</keyword>
+        <keyword>while</keyword>
+        <keyword>with</keyword>
+        <keyword>NaN</keyword>
+        <keyword>Infinity</keyword>
+        <keyword>synchronized</keyword>
+        <keyword>throw</keyword>
+        <keyword>throws</keyword>
+        <keyword>transient</keyword>
+        <keyword>try</keyword>
+        <keyword>volatile</keyword>
+        <keyword>private</keyword>
+        <keyword>protected</keyword>
+        <keyword>public</keyword>
+      </Keywords>
+
+      <!-- Operators & Symbols -->
+
+      <Keywords Name="Operators" Style="JavaScript Operators">
+        <Keyword>=</Keyword>
+        <Keyword>==</Keyword>
+        <Keyword>!</Keyword>
+        <Keyword>/</Keyword>
+        <Keyword>*</Keyword>
+        <Keyword>&gt;=</Keyword>
+        <Keyword>&lt;=</Keyword>
+        <Keyword>+</Keyword>
+        <Keyword>-</Keyword>
+        <Keyword>&gt;</Keyword>
+        <Keyword>&lt;</Keyword>
+        <Keyword>%</Keyword>
+        <Keyword>&amp;</Keyword>
+        <Keyword>|</Keyword>
+        <Keyword>^</Keyword>
+        <Keyword>~</Keyword>
+        <Keyword>.</Keyword>
+        <Keyword>?</Keyword>
+        <Keyword>:</Keyword>
+      </Keywords>
+
+      <Keywords Name="Symbols" Style="JavaScript Symbols">
+        <Keyword>}</Keyword>
+        <Keyword>{</Keyword>
+        <Keyword>,</Keyword>
+        <Keyword>;</Keyword>
+        <Keyword>]</Keyword>
+        <Keyword>[</Keyword>
+        <Keyword>)</Keyword>
+        <Keyword>(</Keyword>
+      </Keywords>
+
+      </Range>
+
+  <!-- END JAVASCRIPT -->
+
+  <!-- BEGIN CSS -->
+
+    <Range Name="CSS">
+      <TextStyle>CSS Selectors</TextStyle>
+      <OpenSymbol>&lt;STYLE</OpenSymbol>
+      <CloseSymbol>&lt;/STYLE&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+
+      <Range name="propslist">
+        <TextStyle>CSS Propertys</TextStyle>
+        <OpenSymbol>{</OpenSymbol>
+        <CloseSymbol>}</CloseSymbol>
+
+        <Range name="values">
+          <TextStyle>CSS Values</TextStyle>
+          <OpenSymbol>:</OpenSymbol>
+          <Delimiters>;}</Delimiters>
+        </Range>
+
+      </Range>
+
+    </Range>
+
+  <!-- END CSS -->
+
+     <!-- tags -->
+
+    <Range Name="InsideTags">
+      <TextStyle>HTML Tags</TextStyle>
+      <OpenSymbol>&lt;</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+      <CaseSensitive>False</CaseSensitive>
+
+      <!-- Attributes values -->
+
+      <Range Name="Values">
+        <TextStyle>HTML Values</TextStyle>
+        <OpenSymbol>&quot;</OpenSymbol>
+        <CloseSymbol>&quot;</CloseSymbol>
+      </Range>
+
+      <ExtendedRange Name="AposValues" Extends="Values">
+        <OpenSymbol>'</OpenSymbol>
+        <CloseSymbol>'</CloseSymbol>
+      </ExtendedRange>
+
+      <Keywords name="tagnames" style="HTML Tag Names">
+        <keyword>html</keyword>
+        <keyword>head</keyword>
+        <keyword>meta</keyword>
+        <keyword>body</keyword>
+        <keyword>form</keyword>
+        <keyword>div</keyword>
+        <keyword>tr</keyword>
+        <keyword>td</keyword>
+        <keyword>center</keyword>
+        <keyword>table</keyword>
+        <keyword>font</keyword>
+        <keyword>a</keyword>
+        <keyword>abbr</keyword>
+        <keyword>acronym</keyword>
+        <keyword>address</keyword>
+        <keyword>applet</keyword>
+        <keyword>area</keyword>
+        <keyword>b</keyword>
+        <keyword>base</keyword>
+        <keyword>basefont</keyword>
+        <keyword>bdo</keyword>
+        <keyword>big</keyword>
+        <keyword>blockquote</keyword>
+        <keyword>button</keyword>
+        <keyword>cite</keyword>
+        <keyword>br</keyword>
+        <keyword>caption</keyword>
+        <keyword>code</keyword>
+        <keyword>dd</keyword>
+        <keyword>dfn</keyword>
+        <keyword>col</keyword>
+        <keyword>colgroup</keyword>
+        <keyword>dir</keyword>
+        <keyword>dl</keyword>
+        <keyword>dt</keyword>
+        <keyword>em</keyword>
+        <keyword>fieldset</keyword>
+        <keyword>h2</keyword>
+        <keyword>iframe</keyword>
+        <keyword>h1</keyword>
+        <keyword>i</keyword>
+        <keyword>frame</keyword>
+        <keyword>frameset</keyword>
+        <keyword>h3</keyword>
+        <keyword>h4</keyword>
+        <keyword>h5</keyword>
+        <keyword>h6</keyword>
+        <keyword>hr</keyword>
+        <keyword>ilayer</keyword>
+        <keyword>img</keyword>
+        <keyword>input</keyword>
+        <keyword>isindex</keyword>
+        <keyword>kbd</keyword>
+        <keyword>label</keyword>
+        <keyword>legend</keyword>
+        <keyword>li</keyword>
+        <keyword>link</keyword>
+        <keyword>map</keyword>
+        <keyword>noframes</keyword>
+        <keyword>object</keyword>
+        <keyword>p</keyword>
+        <keyword>menu</keyword>
+        <keyword>ol</keyword>
+        <keyword>noscript</keyword>
+        <keyword>optgroup</keyword>
+        <keyword>option</keyword>
+        <keyword>param</keyword>
+        <keyword>pre</keyword>
+        <keyword>q</keyword>
+        <keyword>s</keyword>
+        <keyword>samp</keyword>
+        <keyword>select</keyword>
+        <keyword>small</keyword>
+        <keyword>span</keyword>
+        <keyword>strike</keyword>
+        <keyword>strong</keyword>
+        <keyword>sub</keyword>
+        <keyword>sup</keyword>
+        <keyword>tbody</keyword>
+        <keyword>text</keyword>
+        <keyword>textarea</keyword>
+        <keyword>tfoot</keyword>
+        <keyword>th</keyword>
+        <keyword>thead</keyword>
+        <keyword>title</keyword>
+        <keyword>tt</keyword>
+        <keyword>ul</keyword>
+        <keyword>u</keyword>
+        <keyword>var</keyword>
+      </Keywords>
+
+    </Range>
+
+    <!-- SGML Comments -->
+
+    <Range Name="SGMLComments">
+      <TextStyle>HTML Comments</TextStyle>
+      <OpenSymbol>&lt;!--</OpenSymbol>
+      <CloseSymbol>--&gt;</CloseSymbol>
+    </Range>
+
+    <!-- SGML entities -->
+    <Range Name="SGMLEntities">
+      <TextStyle>HTML Entities</TextStyle>
+      <OpenSymbol>&amp;</OpenSymbol>
+      <Delimiters>;&gt;&lt;&amp;&quot;</Delimiters>
+    </Range>
+
+   <!--
+
+      XHTML SUPPORT
+      PI, CDATA
+
+    -->
+
+   <!-- CDATA -->
+
+    <Range Name="Cdatasec">
+      <TextStyle>XHTML CDATA</TextStyle>
+      <OpenSymbol>&lt;![CDATA[</OpenSymbol>
+      <CloseSymbol>]]&gt;</CloseSymbol>
+    </Range>
+
+
+    <!-- DTD -->
+
+    <Range Name="DTD">
+      <TextStyle>DTD Section</TextStyle>
+      <OpenSymbol>&lt;!</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+    </Range>
+
+    <!-- PI <?XML etc. -->
+
+    <Range Name="PI">
+      <TextStyle>XHTML PI Section</TextStyle>
+      <OpenSymbol>&lt;?</OpenSymbol>
+      <CloseSymbol>&gt;</CloseSymbol>
+    </Range>
+
+ </Range>
+</NotesHighlighter>

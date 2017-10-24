@@ -1,0 +1,32 @@
+# 
+# Localization file create by Notes
+# 
+# * Comments: lines that start with # are ignored by the translator component
+# * Messages: lines that start with $ are localizations of messages
+#   used in dialogs, errors messages, etc.
+# * Lines that do not start with a special character are localizations
+#   of Notes propertys like Captions of buttons, Hints, etc.
+# 
+PanelTab.Caption=Verificação
+PanelTab.Hint=
+mnGoToLine.Caption=&Ir para a linha
+mnGoToLine.Hint=
+mnCopyLine.Caption=&Copiar mensagem
+mnCopyLine.Hint=
+mnCopyAllLines.Caption=Copiar &todas as mensagens
+mnCopyAllLines.Hint=
+mnClearAll.Caption=&Limpar mensagens
+mnClearAll.Hint=
+
+# Messages
+
+$ColMessage=Mensagens
+$ColLine=Linha
+$ColColumn=Coluna
+$MsgError=Erro
+$MsgWarning=Aviso
+$MsgInfo=Informação
+
+# %d will de replaced by warnings/erros count; %s by the file name...
+$MsgErrorsFound=Encontrados %d erros, %d avisos e %d avisos de acessibilidade em %s
+

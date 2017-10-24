@@ -1,0 +1,1 @@
+pega/seta o valor de um campo de formulário. Exemplo: document.nomedoformulário.nomedocampo.value = "novo valor";

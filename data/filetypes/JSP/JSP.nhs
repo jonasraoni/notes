@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<NotesHighlighterStyles>
+
+  <style>
+    <name>JSP Tags</name>
+    <foreground>4227200</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>JSP Tags Values</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>JSP Comments</name>
+    <foreground>16744448</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>Java Keywords</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Java Javadoc Keywords</name>
+    <foreground>8421376</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Java Comments</name>
+    <foreground>8421376</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>Java Strings</name>
+    <foreground>10485760</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Java Indentifiers</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Java Numbers</name>
+    <foreground>4210816</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Java Symbols</name>
+    <foreground>8388736</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Java Operators</name>
+    <foreground>4227200</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Java Basic Types</name>
+    <foreground>8421504</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Java Commom Classes</name>
+    <foreground>12615808</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>HTML Text</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>HTML Tags</name>
+    <foreground>27136</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>HTML Values</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>HTML Tag Names</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>HTML Comments</name>
+    <foreground>12615680</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>DTD Section</name>
+    <foreground>0</foreground>
+    <background>8453888</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>XHTML CDATA</name>
+    <foreground>12615680</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>XHTML PI Section</name>
+    <foreground>0</foreground>
+    <background>8454143</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>HTML Entities</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Identifiers</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Numbers</name>
+    <foreground>179</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Strings</name>
+    <foreground>10485760</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Comments</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Keywords</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Operators</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>JavaScript Symbols</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Propertys</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Selectors</name>
+    <foreground>2894892</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Values</name>
+    <foreground>4227200</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Symbols</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Comments</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Special Values</name>
+    <foreground>6710886</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Special Keywords</name>
+    <foreground>6710886</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+</NotesHighlighterStyles>

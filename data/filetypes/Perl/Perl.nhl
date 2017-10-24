@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+  Perl Highlighter for Notes
+
+  Revisions:
+  * 09 jul 2004 - first version
+-->
+
+<NotesHighlighter>
+  <Range Name="Root">
+  <TextStyle>Perl Identifiers</TextStyle>
+  <NumberStyle>Perl Numbers</NumberStyle>
+
+  <!-- variables -->
+  
+  <Range name="variables">
+    <TextStyle>Perl Variables</TextStyle>
+    <OpenSymbol>$</OpenSymbol>
+    <Delimiters spaces="True">!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^`{|}~</Delimiters>
+  </Range>
+
+  <ExtendedRange extends="variables">
+    <OpenSymbol>@</OpenSymbol>
+  </ExtendedRange>
+
+  <ExtendedRange extends="variables">
+    <OpenSymbol>%</OpenSymbol>
+  </ExtendedRange>
+
+  <Range name="variables2">
+    <TextStyle>Perl Variables</TextStyle>
+    <OpenSymbol>${</OpenSymbol>
+    <CloseSymbol>}</CloseSymbol>
+  </Range>
+  
+  <ExtendedRange Extends="variables2">
+    <OpenSymbol>@{</OpenSymbol>
+  </ExtendedRange>
+
+  <ExtendedRange Extends="variables2">
+    <OpenSymbol>%{</OpenSymbol>
+  </ExtendedRange>
+
+  <!-- Strings -->
+
+  <Range Name="string1">
+    <TextStyle>Perl Strings</TextStyle>
+    <OpenSymbol>'</OpenSymbol>
+    <CloseSymbol>'</CloseSymbol>
+  </Range>
+
+  <ExtendedRange Name="string2" Extends="string1">
+    <OpenSymbol>&quot;</OpenSymbol>
+    <CloseSymbol>&quot;</CloseSymbol>
+    <!-- Escape char suport -->
+    <Keywords  Name="EscapeCharsHandler" style="Strings">
+      <Keyword>\&quot;</Keyword>
+      <Keyword>\\</Keyword>
+    </Keywords>
+  </ExtendedRange>
+
+  <!-- Comments -->
+
+  <Range Name="LineComments">
+    <TextStyle>Perl Comments</TextStyle>
+    <OpenSymbol>#</OpenSymbol>
+    <CloseOnEol>True</CloseOnEol>
+  </Range>
+
+  <!-- Reserved Keywords -->
+
+  <Keywords Name="Reserved" Style="Perl Keywords">
+    <keyword>new</keyword>
+    <keyword>if</keyword>
+    <keyword>until</keyword>
+    <keyword>while</keyword>
+    <keyword>elsif</keyword>
+    <keyword>else</keyword>
+    <keyword>unless</keyword>
+    <keyword>for</keyword>
+    <keyword>foreach</keyword>
+    <keyword>BEGIN</keyword>
+    <keyword>END</keyword>
+    <keyword>caller</keyword>
+    <keyword>continue</keyword>
+    <keyword>die</keyword>
+    <keyword>do</keyword>
+    <keyword>dump</keyword>
+    <keyword>eval</keyword>
+    <keyword>exit</keyword>
+    <keyword>goto</keyword>
+    <keyword>last</keyword>
+    <keyword>next</keyword>
+    <keyword>redo</keyword>
+    <keyword>return</keyword>
+    <keyword>sub</keyword>
+    <keyword>wantarray</keyword>
+    <keyword>local</keyword>
+    <keyword>my</keyword>
+    <keyword>our</keyword>
+    <keyword>package</keyword>
+    <keyword>use</keyword>
+    <keyword>import</keyword>
+    <keyword>no</keyword>
+    <keyword>require</keyword>
+  </Keywords>
+
+  <Keywords Name="functions" Style="Perl Functions">
+    <keyword>abs</keyword>
+    <keyword>accept</keyword>
+    <keyword>alarm</keyword>
+    <keyword>atan2</keyword>
+    <keyword>bind</keyword>
+    <keyword>binmode</keyword>
+    <keyword>bless</keyword>
+    <keyword>chdir</keyword>
+    <keyword>chmod</keyword>
+    <keyword>chomp</keyword>
+    <keyword>chop</keyword>
+    <keyword>chown</keyword>
+    <keyword>chr</keyword>
+    <keyword>chroot</keyword>
+    <keyword>close</keyword>
+    <keyword>closedir</keyword>
+    <keyword>connect</keyword>
+    <keyword>cos</keyword>
+    <keyword>crypt</keyword>
+    <keyword>dbmclose</keyword>
+    <keyword>dbmopen</keyword>
+    <keyword>default</keyword>
+    <keyword>defined</keyword>
+    <keyword>delete</keyword>
+    <keyword>each</keyword>
+    <keyword>endgrent</keyword>
+    <keyword>endhostent</keyword>
+    <keyword>endnetent</keyword>
+    <keyword>endprotoent</keyword>
+    <keyword>endpwent</keyword>
+    <keyword>endservent</keyword>
+    <keyword>eof</keyword>
+    <keyword>exec</keyword>
+    <keyword>exists</keyword>
+    <keyword>exp</keyword>
+    <keyword>fcntl</keyword>
+    <keyword>fileno</keyword>
+    <keyword>flock</keyword>
+    <keyword>fork</keyword>
+    <keyword>format</keyword>
+    <keyword>formline</keyword>
+    <keyword>getc</keyword>
+    <keyword>getgrent</keyword>
+    <keyword>getgrgid</keyword>
+    <keyword>getgrnam</keyword>
+    <keyword>gethostbyaddr</keyword>
+    <keyword>gethostbyname</keyword>
+    <keyword>gethostent</keyword>
+    <keyword>getlogin</keyword>
+    <keyword>getnetbyaddr</keyword>
+    <keyword>getnetbyname</keyword>
+    <keyword>getnetent</keyword>
+    <keyword>getpeername</keyword>
+    <keyword>getpgrp</keyword>
+    <keyword>getppid</keyword>
+    <keyword>getpriority</keyword>
+    <keyword>getprotobynumber</keyword>
+    <keyword>getprotoent</keyword>
+    <keyword>getpwent</keyword>
+    <keyword>getpwnam</keyword>
+    <keyword>getpwuid</keyword>
+    <keyword>getservbyport</keyword>
+    <keyword>getservent</keyword>
+    <keyword>getsockname</keyword>
+    <keyword>getsockopt</keyword>
+    <keyword>glob</keyword>
+    <keyword>gmtime</keyword>
+    <keyword>grep</keyword>
+    <keyword>hex</keyword>
+    <keyword>index</keyword>
+    <keyword>int</keyword>
+    <keyword>ioctl</keyword>
+    <keyword>join</keyword>
+    <keyword>keys</keyword>
+    <keyword>kill</keyword>
+    <keyword>lc</keyword>
+    <keyword>lcfirst</keyword>
+    <keyword>length</keyword>
+    <keyword>length</keyword>
+    <keyword>link</keyword>
+    <keyword>listen</keyword>
+    <keyword>local</keyword>
+    <keyword>localtime</keyword>
+    <keyword>log</keyword>
+    <keyword>lstat</keyword>
+    <keyword>map</keyword>
+    <keyword>mkdir</keyword>
+    <keyword>msgctl</keyword>
+    <keyword>msgget</keyword>
+    <keyword>msgrcv</keyword>
+    <keyword>msgsnd</keyword>
+    <keyword>oct</keyword>
+    <keyword>open</keyword>
+    <keyword>opendir</keyword>
+    <keyword>ord</keyword>
+    <keyword>pack</keyword>
+    <keyword>pipe</keyword>
+    <keyword>pop</keyword>
+    <keyword>pos</keyword>
+    <keyword>print</keyword>
+    <keyword>printf</keyword>
+    <keyword>push</keyword>
+    <keyword>qq</keyword>
+    <keyword>quotemeta</keyword>
+    <keyword>qw</keyword>
+    <keyword>qx</keyword>
+    <keyword>rand</keyword>
+    <keyword>read</keyword>
+    <keyword>readdir</keyword>
+    <keyword>readlink</keyword>
+    <keyword>readpipe</keyword>
+    <keyword>recv</keyword>
+    <keyword>ref</keyword>
+    <keyword>rename</keyword>
+    <keyword>reset</keyword>
+    <keyword>reverse</keyword>
+    <keyword>rewinddir</keyword>
+    <keyword>rindex</keyword>
+    <keyword>rmdir</keyword>
+    <keyword>scalar</keyword>
+    <keyword>seek</keyword>
+    <keyword>seekdir</keyword>
+    <keyword>select</keyword>
+    <keyword>semctl</keyword>
+    <keyword>semget</keyword>
+    <keyword>semop</keyword>
+    <keyword>send</keyword>
+    <keyword>setgrent</keyword>
+    <keyword>sethostent</keyword>
+    <keyword>setnetent</keyword>
+    <keyword>setpgrp</keyword>
+    <keyword>setpriority</keyword>
+    <keyword>setprotoent</keyword>
+    <keyword>setpwent</keyword>
+    <keyword>setservent</keyword>
+    <keyword>setsockopt</keyword>
+    <keyword>shift</keyword>
+    <keyword>shmctl</keyword>
+    <keyword>shmget</keyword>
+    <keyword>shmread</keyword>
+    <keyword>shmwrite</keyword>
+    <keyword>shutdown</keyword>
+    <keyword>sin</keyword>
+    <keyword>sleep</keyword>
+    <keyword>socket</keyword>
+    <keyword>socketpair</keyword>
+    <keyword>sort</keyword>
+    <keyword>splice</keyword>
+    <keyword>split</keyword>
+    <keyword>sprintf</keyword>
+    <keyword>sqrt</keyword>
+    <keyword>srand</keyword>
+    <keyword>stat</keyword>
+    <keyword>study</keyword>
+    <keyword>substr</keyword>
+    <keyword>switch</keyword>
+    <keyword>symlink</keyword>
+    <keyword>syscall</keyword>
+    <keyword>sysread</keyword>
+    <keyword>sysseek</keyword>
+    <keyword>system</keyword>
+    <keyword>syswrite</keyword>
+    <keyword>tell</keyword>
+    <keyword>telldir</keyword>
+    <keyword>tie</keyword>
+    <keyword>time</keyword>
+    <keyword>times</keyword>
+    <keyword>tr</keyword>
+    <keyword>truncate</keyword>
+    <keyword>uc</keyword>
+    <keyword>ucfirst</keyword>
+    <keyword>umask</keyword>
+    <keyword>undef</keyword>
+    <keyword>unlink</keyword>
+    <keyword>unpack</keyword>
+    <keyword>unshift</keyword>
+    <keyword>untie</keyword>
+    <keyword>us</keyword>
+    <keyword>utime</keyword>
+    <keyword>values</keyword>
+    <keyword>vec</keyword>
+    <keyword>wait</keyword>
+    <keyword>waitpid</keyword>
+    <keyword>warn</keyword>
+    <keyword>write</keyword>
+  </Keywords>
+
+  <Keywords style="Perl Pragma">
+    <keyword>constant</keyword>
+    <keyword>diagnostics</keyword>
+    <keyword>integer</keyword>
+    <keyword>less</keyword>
+    <keyword>locale</keyword>
+    <keyword>sigtrap</keyword>
+    <keyword>strict</keyword>
+    <keyword>subs</keyword>
+    <keyword>vars</keyword>
+  </Keywords>
+
+  <Keywords style="Perl Operators">
+    <keyword>cmp</keyword>
+    <keyword>and</keyword>
+    <keyword>eq</keyword>
+    <keyword>ge</keyword>
+    <keyword>gt</keyword>
+    <keyword>le</keyword>
+    <keyword>lt</keyword>
+    <keyword>ne</keyword>
+    <keyword>not</keyword>
+    <keyword>or</keyword>
+    <keyword>xor</keyword>
+  </Keywords>
+
+  <Keywords Name="Symbols" Style="Perl Symbols">
+    <keyword>|</keyword>
+    <keyword>&amp;</keyword>
+    <keyword>!</keyword>
+    <keyword>&gt;</keyword>
+    <keyword>&lt;</keyword>
+    <keyword>)</keyword>
+    <keyword>(</keyword>
+    <keyword>=</keyword>
+    <keyword>!</keyword>
+    <keyword>+</keyword>
+    <keyword>-</keyword>
+    <keyword>/</keyword>
+    <keyword>*</keyword>
+    <keyword>^</keyword>
+    <keyword>~</keyword>
+    <keyword>}</keyword>
+    <keyword>{</keyword>
+    <keyword>.</keyword>
+    <keyword>,</keyword>
+    <keyword>;</keyword>
+    <keyword>?</keyword>
+    <keyword>:</keyword>
+    <keyword>]</keyword>
+    <keyword>[</keyword>
+  </Keywords>
+
+</Range>
+<NotesHighlighter>

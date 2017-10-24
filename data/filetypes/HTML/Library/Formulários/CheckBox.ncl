@@ -1,0 +1,1 @@
+<INPUT type="checkbox" name="|" value="">

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<NotesHighlighterStyles>
+
+  <style>
+    <name>CSS Propertys</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Selectors</name>
+    <foreground>2894892</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Values</name>
+    <foreground>4227200</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Symbols</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Comments</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Special Values</name>
+    <foreground>6710886</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>CSS Special Keywords</name>
+    <foreground>6710886</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+</NotesHighlighterStyles>s>

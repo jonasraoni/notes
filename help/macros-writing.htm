@@ -1,0 +1,452 @@
+<html>
+<head>
+<title>Ajuda do Notes - Macros</title>
+<link rel="stylesheet" href="help.css" type="text/css">
+<meta name="generator" content="Notes, https://github.com/jonasraoni/notes">
+</head>
+<body bgcolor="#ffffff" text="#000000">
+
+<table class="header" width="100%">
+  <tr>
+    <td>
+      <h1>Ajuda do Notes - Macros</h1>
+    </td>
+    <td>
+      <div style="text-align: right;" class="header">
+        <a href="macros-intro.htm">&lt; Anterior</a> |
+        <a href="index.htm">&Iacute;ndice</a> |
+        <a href="macros-ref.htm">Pr&oacute;xima &gt;</a>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<h2>Escrevendo macros em JavaScript</h2>
+<br>
+Você pode escrever macros para o Notes usando JavaScript. JavaScript é a mais
+conhecida implementação do ECMAScript, a linguagem de script padrão conforme
+a ECMA. O Notes suporta todas as features do JavaScript 1.5 já que usa a mesma
+engine de JavaScript do projeto <a href="http://wwww.mozilla.org">Mozilla</a>,
+porém o Notes não implementa a DOM, especificação do W3C para manipular
+página web. O Notes tem a sua própria API para JavaScript que permite que
+você se comunique com o Notes, manipule o editor, leia e escreva em arquivos,
+etc. Esta API está descrita <a href="macros-ref.htm">no próximo capítulo</a>.
+O texto que segue mostra exemplos comentados de macros do Notes e mostra
+algumas funções do JavaScript. Para aprender JavaScript você pode usar os vários
+tutoriais que existem na internet sobre o assunto. Abaixo vão alguns links
+que poderão ajudá-lo:
+<br><br>
+- Tutorial introdutório em português sobre JavaScript <br>
+<a href="http://www.artifice.web.pt/tutoriais/cntd/intro_js1.html">http://www.artifice.web.pt/tutoriais/cntd/intro_js1.html</a><br>
+- Referência do JavaScript 1.5 do DevEdge<br>
+<a href="http://devedge.netscape.com/library/manuals/2000/javascript/1.5/reference/">http://devedge.netscape.com/library/manuals/2000/javascript/1.5/reference/</a><br>
+- Referência do ECMAScript<br>
+<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">http://www.ecma-international.org/publications/standards/Ecma-262.htm</a><br>
+<br><br>
+
+<h3>Hello World</h3>
+Todo tutorial de programação começa mostrando como "imprimir" "Hello World!", não
+vamos fugir da regra. Mas nós vamos mostrar 3 maneiras de imprimir "Hello World!"
+ao invés de uma.<br><br>
+
+Antes de tudo voc&ecirc; ter&aacute; que criar uma nova macro. V&aacute; em
+Macros &gt;&gt; Configurar macros  e clique em "Adicionar". Dê um nome para
+a macro. O item com o nome da macro que você criou vai aparecer no diálogo e
+o arquivo da macro será aberto no Notes para que você possa entrar o código
+da macro. Você pode adicionar uma tecla de atalho a sua macro selecionando
+o item que você criou e clicando em "Tecla de atalho". Depois disto é
+só fechar o diálogo e entrar os códigos passados aqui no arquivo que o
+Notes abriu para você. Para executar a macro, basta selecionar ela
+no menu "macros" ou usar a tecla de atalho que você configurou.
+
+<br><br>
+A primeira maneira de imprimir uma mensagem é a mais comum em JavaScript,
+motrar um diálogo com a mensagem ao usuário:
+<pre>
+alert('Hello World');
+</pre>    <br>
+Outra maneira de imprimir "Hello Wolrd!" é mostrar a mensagem na stautsbar do
+Notes:
+<pre>
+notes.status('Hello World!');
+</pre><br>
+Uma terceira maneira é mostrar a mensagem no painel de saída do Notes. <i>No
+painel de saída?!?!</i> Sim! As macros podem "conversar" com os painéis
+do Notes. (Dica: o painel de saída pode servir como um bom "debuger" para
+as macros, já que você pode mandar sucessivas strings para ele sem ter que
+ficar apertando Ok, como ocorre com os diálogos). Veja como é fácil imprimir
+no painel de saída:
+<pre>
+notes.panelExec('Output', 'add', 'Hello World!');
+</pre><br>
+Neste exemplo, pedimos que o painel de saída ("Output") execute a ação "add"
+que adiciona o parâmetro passado a saída (no caso passamos o nosso 'Hello World').
+O final do próximo capítulo contém todas as ações dos painéis que você pode
+executar (e são muitas).
+<br><br><br>
+
+<h3>Um exemplo mais complicado</h3>
+Uma das coisas mais interessantes que uma macro pode fazer é o
+CodeCompletition/IntelliSense. Vamos escrever uma pequena macro que pode ajudar
+a completar palavras já digitadas no texto. Ela vai funcionar buscando no texto
+usando as letras que o usuário já digitou e pegando todas as palavras que inciam
+com elas. Logo depois ela vai mostrar o diálogo de CodeCompletition para que o
+usuário escolha qual a palavra que ele quer digitar. <br><br>
+Nós vamos começar escrevendo duas funções que nos ajudarão a fazer o que queremos.
+A primeira delas retorna true se uma string já está presente em um array:
+<pre>
+// retorna true se o valor (string) está no objeto
+function isIn(avalue, aobject){
+
+    // Variável que guardará se achamos o valor ou não
+    var aham= false;
+    
+    // Colocamos o valor passado em minúsculas para podermos
+    // fazer comparação sem ligar para maiúsculas/minúsculas
+    var val= String(avalue).toLowerCase();
+    
+    // Olhamos elemento a elemento do array passado para ver se encotramos o valor
+    for(var i in aobject){
+
+        // se econtramos o valor, quebramos o loop e indicamos que o valor foi encontrado
+        if (String(aobject[i]).toLowerCase() == val) {
+          aham= true;
+          break;
+        }
+    }
+    
+    // Retornamos se o valor foi ou não foi encontrado
+    return aham;
+}
+</pre><br>
+Mas para que definimos esta função?! Quando buscarmos pelas palavras que podem
+servir para completar as letras que o usuário já digitou vamos muitas vezes
+pegar resultados repetidos. Nós temos que eleminar os resultados repetidos
+para facilitar a vida do usuário. Esta função que acabamos de definir servirá
+então para sabermos se o array já contém o resultado. Agora vamos definir a
+função que removerá os resultados duplicados:
+<pre>
+// Remove as entras duplicadas e coloca elas em ordem alfabética
+function sortAndRemoveDuplicates(unsortedArray){
+
+    // cria um novo Array
+    var a = new Array();
+
+    // Olhamos se o item já existe no novo array. Se não existe, adicionamos
+    for (var i in unsortedArray){
+        if (!isIn(unsortedArray[i], a)){
+            a[a.length]= unsortedArray[i];
+        }
+    }
+
+    // Chamamos o método "sort" dos arrays para colocar os elementos em ordem alfabética
+    a.sort();
+
+    // Retornamos o novo array
+    return a;
+}
+</pre><br>
+Pronto. Com estas duas funções definidas já podemos criar a função que fará o
+trabalho "de verdade":
+<pre>
+function WordComplete(){
+
+    // Começamos chamando a ação "actEditorSelWord". Esta ação seleciona a palavra
+    // que esta sob o cursor no editor ativo. Nós poderíamos fazer isto apenas
+    // apenas usando JavaScript, mas como o Notes pode fazer isto por nós...
+    notes.exec('actEditorSelWord');
+
+    // Definimos uma variável que vai guardar a palavra selecionada
+    var s= editor.getSelText();
+    
+    // Manipulamos o cursor para que ele fique logo após a palavra
+    // que o Notes selecionou para nós.
+    editor.setSelStart( editor.getSelStart() + editor.getSelLength() );
+
+    // Se a string não for vazia, isto é, tiver alguma letra para buscar no texto...
+    if (s.length > 0){
+
+        // Criamos uma expressão regular assim:
+        // [Delimitador de palavra] + [Letras já digitadas] + [Delimitador de palavra]
+        var reg= new RegExp("\\b" + s + "\\w+\\b", "gi");
+
+        // Colocamos em txt o texto que está no editor atual
+        var txt= editor.getText();
+        
+        // Usamos o método match para buscar no texto a nossa expressão regular.
+        // Ele retornará um array com todos os resultados encontrados
+        var words = txt.match(reg);
+        
+        // Verificamos se o array foi mesmo retornado
+        if (words != null && words != 'undefined'){
+        
+            // Passamos o array para a função que criamos antes
+            words= sortAndRemoveDuplicates(words);
+            
+            // Mostramos o diálogo de codeCompletition
+            dlgs.codeCompletition(words.join('\n'));
+        }
+    }
+}
+</pre><br>
+Pronto. Veja que interagir com o editor é muito fácil usando a API que o Notes
+implementa para as macros. Em geral você usa o objeto "editor" (o que poderia
+ser mais óbvio?) e diz a ele o que quer: getText (me dê o texto), seSelStart
+(modifique o início da seleção), etc. Bom, agora só falta chamarmos a função
+que nós definimos para que tudo funcione:
+<pre>
+// chama a função que definimos
+WordComplete();
+</pre><br>
+Era isto. Tendo dúvidas sobre como escrever macros, lembre de perguntar no
+<a href="https://github.com/jonasraoni/notes">fórum do Notes</a>. Boas
+macros!
+
+<br><br><br>
+<h3>Métodos e Objetos mais usados</h3>
+Eis uma lista para consulta rápida dos métodos e objetos do JavaScript que você
+mais vai usar criando macros para o Notes. <br><br>
+
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String] = new String(Value); OU [String] = Value;
+</b><br>
+
+  Constrói uma nova String.
+  Exemplo: MinhaStr= 'Olá mundo';
+  É possível acessar caracters da string usando a mesma sintaxe dos arrays.
+  Exemplo: alert(MinhaStr[0]);
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - valor incial da String<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].length
+</b><br>
+
+  Retorna o número de caracters que a string contém.
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].indexOf(searchValue [, fromIndex])
+</b><br>
+
+  Busca um valor em uma string e retorna a posição em que ele foi encontrado.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>searchValue</i>  - a string que deve ser buscada no texto<br>
+<i>fromIndex</i>  (opcional) - aonde a busca deve começar (0 se omitido).<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].lastIndexOf(searchValue [, fromIndex])
+</b><br>
+
+  Busca um valor em uma string  <i>de traz para frente</i> e retorna a posição em que ele foi encontrado.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>searchValue</i>  - a string que deve ser buscada no texto<br>
+<i>fromIndex</i>  (opcional) - aonde a busca deve começar (último caracter da string se omitido).<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].split([separator] [, limit])
+</b><br>
+
+  Quebra uma string em um array. A função busca pelo valor de "separator" e
+  cada vez que o encontra cria um novo item no array que será retornado.
+  Exemplo: "'o l a'.split(' ');" retornará um array contendo 'o', 'l' e 'a' como elementos.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>separator</i>  (opcional) - string ou expressão regular usada para separa a string em items. Se omitido a função retornará um array com um único item.<br>
+<i>limit</i>  (opcional) - número máximo de elementos a serem encontrados. Se omitido, não haverá limite na quantida de elementos retornados.<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].match(regexp)
+</b><br>
+
+  Use match para buscar uma expressão regular em uma string.
+  Se a expressão regular foi construída com o parâmetro "g", retornará
+  uma array com todos os resultados da busca.
+  Exemplo: "MeuArray= MinhaStr.match(MinhaRegExp);"
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>regexp</i>  - a expressão regular a ser buscada<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].replace(regexp, newSubStr)
+</b><br>
+
+  Substituí uma string por outra dentro da string.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>regexp</i>  - expressão regular a ser buscada no texto<br>
+<i>newSubStr</i>  - string que será colocada no lugar das strings encontradas<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].search(regexp)
+</b><br>
+
+  Busca uma expressão regular na string
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>regexp</i>  - a expressão regular a ser encontrada<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].slice(beginslice [, endSlice])
+</b><br>
+
+  Copia um pedaço da string retornando um novo objeto do tipo string
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>beginslice</i>  - primeiro caracter a ser copiado<br>
+<i>endSlice</i>  (opcional) - último caracter a ser copiado. Se omitido copia até o final da string<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].substring(indexA, indexB)
+</b><br>
+
+  Retorna um pedaço da string, como o método "slice".
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>indexA</i>  - primeiro caracter a ser copiado<br>
+<i>indexB</i>  - último caracter a ser copiado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].toLowerCase()
+</b><br>
+
+  Retorna a string com todas os caracteres em letras minúsculas
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[String].toUpperCase()
+</b><br>
+
+  Retorna a string com todas os caracteres em letras maiúsculas
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[RegExp] = new RegExp(pattern [, flags]);
+</b><br>
+
+  Cria uma nova expressão regular.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>pattern</i>  - string contendo a expressão regular. Dica: tome cuidado com os caracteres de escape<br>
+<i>flags</i>  - string contendo: 'i' (ignorar case), 'g' (buscar todos os resultados), 'm' (processar o texto como tendo múltiplas linhas)<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[Array] = new Array();
+</b><br>
+
+  Constrói um novo array. [Array] é uma variável do tipo array.
+  Você pode acessar os elementos do array usando a sintaxe [Array][Índice].
+  Exemplo: "teste = new Array('olá', 'este', 'é', 'um teste'); alert(teste[0]);"
+  vai mostra uma mensagem com "olá".
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[Array].join(separator)
+</b><br>
+
+  Junta todos os elementos de um array em uma string. Cada elemento é separado pelo parâmetro passado
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>separator</i>  - string que separará um elemento de outro na string criada<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[Array].length
+</b><br>
+
+  Retorna o número de elementos do array
+<br>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>[Array].slice(begin [, end])
+</b><br>
+
+  Copia um pedaço do array retornando um novo array
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>begin</i>  - primeiro elemento a ser copiado<br>
+<i>end</i>  (opcional) - último elemento a ser copiado. Se omitido copia até o último item.<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>eval(code)
+</b><br>
+
+  Avalia e executa a string passado como sendo JavaScript.
+  Você pode carregar o conteúdo de um arquivo usando as APIs
+  do Notes em uma string e depois passar a string para o método
+  eval() para fazer "includes" (incluir um arquivo de código em outro)
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>code</i>  - código a ser avaliado<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>String(Value)
+</b><br>
+
+  Converte um objeto ou variável para um objeto do tipo String.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - objeto ou variável a ser convertido.<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>parseInt(Value)
+</b><br>
+
+  Converte o valor para um inteiro.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - objeto ou variável a ser convertido.<br>
+</div>
+</td></tr></table>
+<br>
+<table width="100%" class="jsfunction"><tr><td>
+<b>parseFloat(Value)
+</b><br>
+
+  Converte um valor para um número de ponto flutuante.
+<br>
+<u>Parâmetros:</u><br><div class="params">
+<i>Value</i>  - objeto ou variável a ser convertido.<br>
+</div>
+</td></tr></table>
+<br>
+
+
+<br><br><br>
+</body>
+</html>

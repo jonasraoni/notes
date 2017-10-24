@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<NotesHighlighterStyles>
+
+  <style>
+    <name>Perl Identifiers</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Numbers</name>
+    <foreground>4210816</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Strings</name>
+    <foreground>10485760</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Comments</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle>I</fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Variables</name>
+    <foreground>8421440</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Keywords</name>
+    <foreground>8404992</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Operators</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Symbols</name>
+    <foreground>4194432</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Functions</name>
+    <foreground>2763306</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+  <style>
+    <name>Perl Pragma</name>
+    <foreground>5855577</foreground>
+    <background>16777215</background>
+    <fontstyle>B</fontstyle>
+  </style>
+
+</NotesHighlighterStyles>

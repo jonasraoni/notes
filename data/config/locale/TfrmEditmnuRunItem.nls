@@ -1,0 +1,95 @@
+#
+# Localization file create by Notes
+# 
+# * Comments: lines that start with # are ignored by the translator component
+# * Messages: lines that start with $ are localizations of messages
+#   used in dialogs, errors messages, etc.
+# * Lines that do not start with a special character are localizations
+#   of Notes propertys like Captions of buttons, Hints, etc.
+# 
+btOK.Caption=&OK
+btOK.Hint=
+btCancel.Caption=&Cancelar
+btCancel.Hint=
+gbPaths.Caption=Caminhos
+gbPaths.Hint=
+lFileToRun.Caption=&Executar:
+lArgs.Caption=Ar&gumentos:
+lDir.Caption=&Dir. inicial:
+edCmd.Hint=Programa (compilador, navegador, interpretador, etc.) a ser executado
+edArgs.Hint=Argumentos que você quer passar ao programa executado
+edDir.Hint=Diretório inicial
+gbOptions.Caption=Opções
+lRegEx.Caption=Expressão &regular para interpretar a saída:
+lFilePos.Caption=Sub-expressão do ar&quivo:
+lLinePos.Caption=Sub-expressão da &linha:
+edRegEx.Hint=
+edFilePos.Hint=
+edLinePos.Hint=
+chAutoUnderstandOutput.Caption=Dei&xar o Notes entender a saída automaticamente
+chAutoUnderstandOutput.Hint=
+chSaveBeforeRun.Caption=&Salvar arquivo antes de executar
+chSaveBeforeRun.Hint=Especifica se o Notes deve salvar o arquivo antes de executar o programa
+btOptions.Hint=Mais opções para a captura da saída do aplicativo
+
+mnuInsertFileName.Caption=Procurar Arquivo...
+mnuInsertFileName.Hint=
+mnuArgsFolder.Caption=Procurar Pasta...
+mnuArgsFolder.Hint=
+mnuVarsProj.Caption=Variáveis do projeto
+mnuVarsProj.Hint=
+mnuFileVars.Caption=Variáveis do arquivo
+mnuFileVars.Hint=
+mnuVarsText.Caption=Variáveis do texto
+mnuVarsText.Hint=
+mnuFuncs.Caption=Funções
+mnuFuncs.Hint=
+
+pvProjName.Caption=Nome do projeto                 %ProjName%
+pvProjName.Hint=Macro que insere o nome do projeto
+pvProjDir.Caption=Diretório do projeto            %ProjDir%
+pvProjDir.Hint=Macro que insere o diretório do projeto
+pvProjFile.Caption=Arquivo do Projeto             %ProjFile%
+pvProjFile.Hint=Nome do arquivo do projeto
+pvFile.Caption=Arquivo                           %File%
+pvFile.Hint=Macro que insere o caminho completo para o arquivo
+pvFileTitle.Caption=Nome sem extensão       %FileTitle%
+pvFileTitle.Hint=Macro para inserir o nome do arquivo sem extensão e sem o caminho
+pvFileName.Caption=Nome do arquivo            %FileName%
+pvFileName.Hint=Macro para inserir o nome do arquivo sem o caminho
+pvPath.Caption=Diretório do arquivo        %Path%
+pvPath.Hint=Macro que insere o caminho completo para o arquivo
+pvExt.Caption=Extensão do arquivo       %Ext%
+pvExt.Hint=Macro que insere a extensão do arquivo (sem o ponto)
+pvSelLength.Caption=Tamanho da Seleção       %SelLength%
+pvSelLength.Hint=Macro que insere o tamanho do texto selecionado
+pvSelStart.Caption=Início da seleção             %SelStart%
+pvSelStart.Hint=Macro que insere a posição do cursor/início da seleção
+pvWordAtCursor.Caption=Palavra no cursor           %WordAtCursor%
+pvWordAtCursor.Hint=Macro que insere a palavra que estiver sob o cursor
+pvLine.Caption=Linha atual                      %Line%
+pvLine.Hint=Macro que insere a linha atual
+pvCol.Caption=Coluna atual                   %Col%
+pvCol.Hint=Macro que insere a coluna atual
+pvLinesCount.Caption=Número de linhas           %LinesCount%
+pvLinesCount.Hint=Macro que insere o número de linhas
+pfAskFile.Caption=Perguntar por arquivo             %AskFile()%
+pfAskFile.Hint=Macro que pede para o usuário escolher um arquivo
+pfAskStr.Caption=Perguntar por string                 %AskStr()%
+pfAskStr.Hint=Macro que pede ao usuário uma string
+pfEnv.Caption=Inserir Enviroment Variable      %Env()%
+pfEnv.Hint=Macro que insere uma variável de ambiente
+
+# Messages
+
+$FrmCaption=Editando o item "%s"...
+$btOptionsView=Ver O&pções
+$btOptionsHide=Esconder O&pções
+$MsgBrowseForDir=Encontre a pasta cujo nome você quer inserir e clique em OK.
+$OutputNone=Não capturar saída
+$OutputStandard=Capturar saída no painel "Saída"
+$OutputEditor=Capturar saída no editor
+$OutputSelText=Capturar saída no texto selecionado
+
+#
+

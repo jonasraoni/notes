@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<NotesHighlighterStyles>
+
+  <style>
+    <name>Text</name>
+    <foreground>0</foreground>
+    <background>16777215</background>
+    <fontstyle></fontstyle>
+  </style>
+
+</NotesHighlighterStyles>

@@ -1,0 +1,190 @@
+----------------------------------------------
+ HISTÓRICO DE DESENVOLVIMENTO DO NOTES 2004
+----------------------------------------------
+
+Este histórico esta bastante incompleto, mas dá
+alguma idéia das modificações principais que foram
+feitas no Notes :)
+
+---------------------------------
+ Notes 2004 Alpha 3 (em progresso)
+---------------------------------
+* Suporte a macros escritas em JavaScript. É possível
+  também gravar e executar macros como em outros editores.
+* Busca em arquivos. Um dos sistemas mais rápidos de
+  busca já visto em um editor - talvez o mais rápido!
+* Nova documentação.
+* Diálogo de estatísticas.
+* SmartIndent - o Notes agora pode identar o código
+  automaticamente de forma inteligente de acordo com
+  o conteúdo da linha anterior e da linha atual.
+* Grandes mudanças no componente que faz a coloração
+  do código a partir de um arquivo XML. Mudanças no
+  formato do arquivo da coloração que agora está
+  separado em dois: NHL (regras) e NHS (estilos de
+  fonte e cores);
+* Quebra automática de linhas (WordWrap);
+* Instalador/Desintalador completo;
+* O editor agora pode lembrar da última posição
+  de edição do arquivo e dos marcadores para
+  qualquer arquivo aberto no Notes nos últimos
+  30 dias. (A opção "Lembrar da última posição
+  e dos marcadores" deve estar ativada no
+  diálogo de preferências.)
+* Grandes mudanças no diálogo de preferências;
+* Melhoras no menu executar. É possível fazer
+  o Notes interpretar erros da saída de compiladores
+  usando expressões regulares. O menu agora pode
+  ser organizado em pastas e sub-pastas, como
+  o novo menu de macros. Também como o menu
+  de macros, é possível assinalar teclas de
+  atalho ao items.
+* Menu Editar >> Formatar. Duas nova opções:
+  Converter espaços para tabs e converter tabs
+  para espaços.
+* Menu Editar >> Seleção de colunas. Permite
+  ativar e desativar a seleção de colunas.
+* Menu Localizar >> Ir para marcador - permite
+  pular para os marcadores mais rapidamente.
+* Editar >> Adicionar a clipboard agora funciona :)
+* Editar >> Reidentar bloco. Reindenta a seleção ou
+  linha de acordo com as regras do SmartIndent. Não
+  é tão esperto quanto um code formater, mas já ajuda
+  muito :)
+* Localizar >> Limpara marcadores, remove todos os
+  marcadores do arquivo.
+* Aumento de performance ao abrir/fechar arquivos,
+  aplicar preferências, sair do Notes, etc.
+* Filtros de arquivo (finalmente!);
+* Melhora nas funções comentar/descomentar;  
+* Removido: o componente XPMenu que permitia
+  ao Notes ficar com controles do Office XP
+  foi removido pela quantidade infindável de
+  bugs e problemas que ele causava. Estamos
+  procurando outro componente para a mesma
+  finalidade.
+* Correções e melhoramentos na função que mostra
+  os símbolos (), [], {} coincidentes: se um
+  símbolo coincidente não é encontrado, o
+  símbolo em que está o cursor é mostrado
+  com a cor de erro (vermelho por padrão);
+* Correções e melhoramentos em identar/desidentar;
+* Melhoras no sistema de painéis: maior facilidade
+  para implementar painéis de terceiros; comunicação
+  entre painéis; preparações para internacionalização.
+* Correção de bug: drag and drop do painel biblioteca
+  havia parado de funcionar após a atualização para
+  a versão nova do SynEdit;
+* Correção de bug: o Notes só abria arquivos
+  arrastados do Windows Explorer quando havia
+  um editor aberto;
+* Correção de bug: o Notes não era "ativado"
+  quando ele já estava aberto e um arquivo era
+  passado para ele pela linha de comando (ou
+  ShellExtension, SendTo, etc.);
+* Correção de bug: notes não salvava a última
+  linha em branco;
+* Correção de bug: o diretório do OS não era setado
+  corretamente pelo menu executar;
+* Correção de bug: erros ao ativar o XPMenu;
+* Correção de bug: deletar linha não deletava a linha
+  completamente e não permitia desfazer;
+* Correção de bug: notes selecionava o editor errado
+  após fechar um editor;
+* Correção de bug: os marcadores e os ícones de
+  problemas não eram recalculados corretamente quando
+  uma linha era adicionada ou removida;
+* Correção de bug: items do menu de arquivos
+  recentes/favoritos não estavam aparecendo;
+* Outros bugs menores corrigidos.
+
+---------------------------------
+ Notes 2004 Alpha 2
+---------------------------------
+* Configuração de atalhos/keymaps. O Notes usa o 
+  keymap CUA por padrão, que é o mais usado em editores 
+  e outros programas. Ele vem com esquemas de outros 
+  editores também :)
+* Painel de verificação (verificação HTML, XML, XHTML;
+  correção (X)HTML; conversão HTML para XHTML)
+* O ícones na gutter para erros de compilação agora
+  funcionam também para o painel de verificação. Além
+  disto ao passar o mouse sob o ícone uma tooltip
+  aparece descrevendo o erro (really cool!)
+* Nova StartPage (em parte funcional)
+* A StartPage não é mostrada quando arquivos são passados
+  pela linha de comando - assim o Notes abre um pouco 
+  mais rápido
+* Novo e melhor algoritmo para o autocompletamento de
+  símbolos como (, ', ", etc.
+* Novo Ver >> Esconder painéis  
+* Correções no autocompletamento de Tags
+* Mais items para a biblioteca (obrigado Gabriel pelos
+  items para Perl!) e mais templates
+* Melhorias na coloração de XML e Delphi
+* Muito refactoring e algumas mudanças na arquitetura :)
+* Várias pequenas correções no instalador
+* Correções de bugs
+
+---------------------------------
+ Notes 2004 Alpha 1
+---------------------------------
+* Instalador embutido
+* Diálogo "Novo" agora sempre criar arquivos
+  a partir de templates
+* Diálogo de configuração para o templates
+* Diálogo configuração para os profiles
+* Diálogo de configuração para os favoritos
+* Diálogos de busca/substituição no texto
+
+---------------------------------
+ Dev 12.0
+---------------------------------
+* Sistema de interpretação de erros de compilação capaz
+  de entender as mensagens de erros da maioria dos compiladores
+  e interpretadores sem necessitar configuração e de mostrar
+  um ícone de erro na gutter (Anderson)
+* Bibliotecas para timers e tooltips (Anderson)
+* Gerenciamento de múltiplas instâncias (Maxwel e Anderson)
+* Vários items para a biblioteca de CSS (Allan)
+* Otimizações (inicialização, "Fechar Todos") (Anderson)
+* Correções de bugs
+
+
+---------------------------------
+ Dev 11.0
+---------------------------------
+* O Notes finalmente é capaz de imprimir!!!! (Josimar)
+* Sistema de marcadores (Josimar, Anderson e Jonas Raoni)
+* Novo diálogo de configurações (Anderson)
+* Novo sistema de painéis (Anderson)
+* Correções de bugs 
+
+
+---------------------------------
+ Dev 7.0 - Dev 10.0
+---------------------------------
+* Nova arquitetura do código fonte baseada em uma
+  série de classes (Jonas Raoni Soares da Silva)
+* suporte para abrir vários arquivos de uma vez só pelo diálogo "abrir"
+* suporte para a linha de comando
+* otimizações na inicalização e finalização do programa
+* Correções de bugs (Anderson)
+
+
+---------------------------------
+ Dev 6.0
+---------------------------------
+* Sistema de tabs (cada janela aberta do Notes agora
+  pode abrir múltiplos documentos organizados em tabs)
+  (Anderson, Joelson)
+* Nova organização dos diretórios de configuração
+* Suporte a tipos de arquivo
+
+
+---------------------------------
+ Dev 1.0 - Dev 5.0
+---------------------------------
+* Coloração de código
+* Primeiras versões de desenvolvimento, baseada na dev4 do
+  Notes 1.6 Alpha
